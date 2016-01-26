@@ -46,10 +46,6 @@ env:
 Third, we'll setup some additional environment variables, including the following:
 
 - `SITE_URL`
-- `GH_USER_NAME` (Full name of user associated with GitHub token used to push
-  documentation)
-- `GH_USER_EMAIL` (Email address associated with GitHub token used to push
-  documentation)
 - `GH_REF` The host and path, minus the scheme, to the git repository; e.g.
   `github.com/zendframework/zend-expressive.git`
 
@@ -59,8 +55,6 @@ As an example:
 env:
   global:
     - SITE_URL: https://zendframework.github.io/zend-expressive
-    - GH_USER_NAME: "Matthew Weier O'Phinney"
-    - GH_USER_EMAIL: matthew@<domain>.<tld>
     - GH_REF: github.com/zendframework/zend-expressive.git
     - secure: "..."
 ```
@@ -101,11 +95,11 @@ do the following:
 It looks like this:
 
 ```yaml
-after_success:
-  - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then pip install --user mkdocs ; fi
-  - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then pip install --user pymdown-extensions ; fi
-  - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' && ! -d "zf-mkdoc-theme" ]]; then $(curl -s -L https://github.com/weierophinney/zf-mkdoc-theme/releases/latest | egrep -o '/weierophinney/zf-mkdoc-theme/archive/[0-9]*\.[0-9]*\.[0-9]*.tar.gz' | head -n1 | wget -O zf-mkdoc-theme.tgz --base=https://github.com/ -i - && mkdir zf-mkdoc-theme && $(cd zf-mkdoc-theme && tar xzf ../zf-mkdoc-theme.tgz --strip-components=1)) ; fi
-  - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' && -f "zf-mkdoc-theme/deploy.sh"  ]]; then ./zf-mkdoc-theme/deploy.sh ; fi
+  - export DEPLOY=$([[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]])
+  - if $DEPLOY; then pip install --user mkdocs ; fi
+  - if $DEPLOY; then pip install --user pymdown-extensions ; fi
+  - if $DEPLOY && ! $(test -d zf-mkdoc-theme); then echo "Downloading zf-mkdoc-theme" ; mkdir zf-mkdoc-theme ; $(curl -s -L https://github.com/weierophinney/zf-mkdoc-theme/releases/latest | egrep -o '/weierophinney/zf-mkdoc-theme/archive/[0-9]*\.[0-9]*\.[0-9]*.tar.gz' | head -n1 | wget -O zf-mkdoc-theme.tgz --base=https://github.com/ -i -) ; $(cd zf-mkdoc-theme ; tar xzf ../zf-mkdoc-theme.tgz --strip-components=1) ; echo "Finished downloading and installing zf-mkdoc-theme" ; fi
+  - if $DEPLOY && $(test -f zf-mkdoc-theme/deploy.sh); then echo "Preparing to build and deploy documentation" ; ./zf-mkdoc-theme/deploy.sh ; echo "Completed deploying documentation" ; fi
 ```
 
 The above check that `DEPLOY_DOCS` is enabled, and then also limits builds to
