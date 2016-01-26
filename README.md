@@ -104,7 +104,7 @@ It looks like this:
 after_success:
   - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then pip install --user mkdocs ; fi
   - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then pip install --user pymdown-extensions ; fi
-  - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' && ! -d "zf-mkdoc-theme" ]]; then $(curl -s -L https://github.com/weierophinney/zf-mkdoc-theme/releases/latest | egrep -o '/weierophinney/zf-mkdoc-theme/archive/[0-9]*\.[0-9]*\.[0-9]*.tar.gz' | head -n1 | wget -O zf-mkdoc-theme.tgz --base=https://github.com/ -i - && mkdir zf-mkdoc-theme && $(cd zf-mkdoc-theme && tar xzf ../zf-mkdoc-theme.tgz --strip-components=1) ; fi
+  - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' && ! -d "zf-mkdoc-theme" ]]; then $(curl -s -L https://github.com/weierophinney/zf-mkdoc-theme/releases/latest | egrep -o '/weierophinney/zf-mkdoc-theme/archive/[0-9]*\.[0-9]*\.[0-9]*.tar.gz' | head -n1 | wget -O zf-mkdoc-theme.tgz --base=https://github.com/ -i - && mkdir zf-mkdoc-theme && $(cd zf-mkdoc-theme && tar xzf ../zf-mkdoc-theme.tgz --strip-components=1)) ; fi
   - if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' && -f "zf-mkdoc-theme/deploy.sh"  ]]; then ./zf-mkdoc-theme/deploy.sh ; fi
 ```
 
@@ -113,6 +113,14 @@ non-pull requests, and to the master branch only. The third item downloads and
 extracts this repository's latest release if the zf-mkdoc-theme directory is
 missing, and the fourth item executes the deployment, but only if the deployment
 script is available.
+
+Sixth, so that you can actually *execute* mkdocs, you need to export a new
+`PATH` environment; add the following in your `before_install` section (or
+create that section if it doesn't exist):
+
+```yaml
+  - export PATH="$HOME/.local/bin:$PATH"
+```
 
 Finally, we recommend caching the `$HOME/.local` directory, which is where
 mkdocs and pymdown-extensions are installed, and the `zf-mkdoc-theme` directory;
