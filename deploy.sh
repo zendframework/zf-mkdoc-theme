@@ -30,6 +30,8 @@ mkdir -p doc/html
 (
     cd doc/html
     git init
+    git config user.name "${GH_USER_NAME}"
+    git config user.email "${GH_USER_EMAIL}"
     git remote add upstream "https://${GH_TOKEN}@${GH_REF}"
     git fetch upstream
     git reset upstream/gh-pages
