@@ -2,11 +2,16 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.2.5 - TBD
+## 0.2.5 - 2016-01-28
 
 ### Added
 
-- Nothing.
+- [#3](https://github.com/zendframework/zf-mkdoc-theme/pull/3) adds the
+  `theme-installer.sh` script, which provides routines for installing MkDocs and
+  related extensions, as well as conditionally downloading and installing the
+  zf-mkdoc-theme itself. Repositories using build automation should
+  conditionally download and install this script when the target build is
+  successful.
 
 ### Deprecated
 
@@ -18,7 +23,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#3](https://github.com/zendframework/zf-mkdoc-theme/pull/3) updates the
+  directions for build automation to use the new `theme-installer.sh` script to
+  ensure that Travis asset caching will work as expected.
 
 ## 0.2.4 - 2016-01-28
 
