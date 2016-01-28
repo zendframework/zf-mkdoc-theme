@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#2](https://github.com/zendframework/zf-mkdoc-theme/pull/2) renames
+  `cinder.css` to `zf.css`, and provides a number of updates to the jumbotron
+  and "feature" panel styles.
 
 ### Deprecated
 
@@ -14,7 +16,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#2](https://github.com/zendframework/zf-mkdoc-theme/pull/2) removes several
+  CSS declarations that were specific to the Expressive documentation.
 
 ### Fixed
 
