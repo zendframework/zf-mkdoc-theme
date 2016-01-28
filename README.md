@@ -21,12 +21,16 @@ deploying documentation.
 
 To automate GitHub Pages builds, you will need to update the `.travis.yml` file.
 
-First, you'll need to setup a personal access token on GitHub. You can do this
+### 1. Setup a personal access token
+
+You'll need to setup a personal access token on GitHub. You can do this
 from your `Settings` page; access the `Personal access tokens` screen, generate
 a new token, and copy it once generated; this will be the only time GitHub will
 show it to you! When you create it, give it only the `public_repo` scope.
 
-Second, we'll encrypt that token for use with Travis. You'll need to install the
+### 2. Encrypt the token for use with Travis
+
+Next, we'll encrypt that token for use with Travis. You'll need to install the
 Travis CLI tool, which is detailed on their [Environment Variables page](https://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables).
 Once you have installed the tool and logged in for the first time, run the
 following:
@@ -43,7 +47,9 @@ env:
     - secure: "..."
 ```
 
-Third, we'll setup some additional environment variables, including the following:
+### 3. Setup global environment variables
+
+These scripts require a few environment variables in order to work:
 
 - `SITE_URL`
 - `GH_USER_NAME` (Full name of user associated with GitHub token used to push
@@ -65,9 +71,23 @@ env:
     - secure: "..."
 ```
 
-Fourth, we'll add an environment variable to a single build; on success, that
-build will then build and deploy the documentation. We usually use the latest
-PHP 5 version for this:
+### 4. Choose a build for deployment
+
+You should only deploy documentation from a single build job. To do that, we'll
+add an environment variable to a single build; on success, that build will then
+build and deploy the documentation. We usually use the latest PHP 5 version for
+this.
+
+When determining when to build, we only want to build when:
+
+- on the master branch
+- if it's not a pull request
+
+Finally, MkDocs and its extensions are installed under the user, in
+`$HOME/.local/bin`, so we want to add that to the path when we're on a build
+that deploys.
+
+Thefollowing shows an example of the changes necessary, under the 5.6 build:
 
 ```yaml
 matrix:
@@ -79,62 +99,92 @@ matrix:
     - php: 5.6
       env:
         - EXECUTE_TEST_COVERALLS=true
-        - DEPLOY_DOCS=true
+        - DEPLOY_DOCS="$(if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then echo -n 'true' ; else echo -n 'false' ; fi)"
+        - PATH="$HOME/.local/bin:$PATH"
     - php: 7
     - php: hhvm
   allow_failures:
     - php: hhv
 ```
 
-Note the `DEPLOY_DOCS` declaration under PHP 5.6; we'll use this to determine
-whether or not to deploy on success.
+We'll use the `DEPLOY_DOCS` environment variable to determine if we need to
+download the them and build the documentation later.
 
-Fifth, we'll add an `after_success` section to our `.travis.yml`. In it, we'll
-do the following:
+### 5. Conditionally download the theme and build tools
 
-- Install mkdocs
-- Install pymdown-extensions (required to provide better fenced code block
-  support)
-- Fetch and install this theme
-- Build and deploy the documentation.
+If the build is successful, we will want to make sure the theme and build tools
+are present. To do this, and ensure the assets downloaded can be cached, we need
+to do this as the last step of our `script`, but *only* if the rest of the build
+has succeeded. We can test that with the `$TRAVIS_TEST_RESULT` variable.
 
-It looks like this:
+This repository has a script for installing the repository itself; we'll fetch
+that and execute it.
+
+The results look like this:
+
+```yaml
+script:
+  - <do something ...>
+  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then wget -O theme-installer.sh "https://raw.githubusercontent.com/zendframework/zf-mkdoc-theme/master/theme-installer.sh" ; chmod 755 theme-installer.sh ; ./theme-installer.sh ; fi
+```
+
+This will run the code to install MkDocs and its extensions, and, if the
+zf-mkdoc-theme is not yet installed, download the latest version and install it.
+
+### 6. Build and deploy the documentation on success
+
+Now we'll add the `after_success` script:
 
 ```yaml
 after_success:
-  - export DEPLOY=$(if [[ $DEPLOY_DOCS == 'true' && $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then echo -n "true" ; else echo -n "false" ; fi)
-  - export NEEDS_THEME=$([ -d zf-mkdoc-theme/theme ] ; result=$? ; if (( result == 0 )); then echo -n "false"; else echo -n "true" ; fi)
-  - if [[ $DEPLOY == "true" ]]; then pip install --user mkdocs ; fi
-  - if [[ $DEPLOY == "true" ]]; then pip install --user pymdown-extensions ; fi
-  - if [[ $DEPLOY == "true" && $NEEDS_THEME == "true" ]]; then echo "Downloading zf-mkdoc-theme" ; $(if [[ ! -d zf-mkdoc-theme ]];then mkdir zf-mkdoc-theme ; fi) ; $(curl -s -L https://github.com/zendframework/zf-mkdoc-theme/releases/latest | egrep -o '/zendframework/zf-mkdoc-theme/archive/[0-9]*\.[0-9]*\.[0-9]*.tar.gz' | head -n1 | wget -O zf-mkdoc-theme.tgz --base=https://github.com/ -i -) ; $(cd zf-mkdoc-theme ; tar xzf ../zf-mkdoc-theme.tgz --strip-components=1) ; echo "Finished downloading and installing zf-mkdoc-theme" ; fi
-  - export CAN_DEPLOY=$([ -f zf-mkdoc-theme/deploy.sh ] ; result=$? ; if (( result == 0 )); then echo -n "true"; else echo -n "false" ; fi)
-  - if [[ $DEPLOY == "true" && $CAN_DEPLOY == "true" ]]; then echo "Preparing to build and deploy documentation" ; ./zf-mkdoc-theme/deploy.sh ; echo "Completed deploying documentation" ; else echo "Missing deployment script" ; fi
+  - if [[ $DEPLOY_DOCS == "true" ]]; then echo "Building and deploying documentation" ; ./zf-mkdoc-theme/deploy.sh ; fi
 ```
 
-The above check that `DEPLOY_DOCS` is enabled, and then also limits builds to
-non-pull requests, and to the master branch only. The sixth item downloads and
-extracts this repository's latest release if the zf-mkdoc-theme directory is
-empty, and the last item executes the deployment, but only if the deployment
-script is available.
+The above runs *only* if the build has been a success, and will not change the
+success status.
 
-Sixth, so that you can actually *execute* mkdocs, you need to export a new
-`PATH` environment; add the following in your `before_install` section (or
-create that section if it doesn't exist):
+### 7. Add caching
 
-```yaml
-  - export PATH="$HOME/.local/bin:$PATH"
-```
-
-Finally, we recommend caching the `$HOME/.local` directory, which is where
-mkdocs and pymdown-extensions are installed, and the `zf-mkdoc-theme` directory;
-that way, on subsequent builds, these are already present and don't need to be
-downloaded:
+Chances are that the component you're using is already caching Composer
+dependencies, so you'll likely already have a `cache` section to your
+`.travis.yml`. Regardless, you'll need entries for `$HOME/.local` and
+`zf-mkdoc-theme` to speed up your builds:
 
 ```yaml
 cache:
   directories:
-    - $HOME/.composer/cache
     - $HOME/.local
-    - vendor
     - zf-mkdoc-theme
 ```
+
+## A note on caching
+
+If you followed the steps above, you're caching the MkDocs installation and
+zf-mkdoc-theme installation between requests. What if it changes, and you want
+to pick up those changes?
+
+You have two ways to clear the cache.
+
+First, you can go to the project's page on Travis-CI (e.g.,
+https://travis-ci.org/zendframework/zend-expressive). Once there, click the
+"Settings" dropdown on the right side of the screen, and select the "Caches"
+item; this takes you to the page detailing all caches. Locate the one for the
+"master" branch, and hit the little rubbish bin icon to remove the cache.
+
+Second, you can do it through the Travis-CI API, which is most easily accessed
+via the [`travis` CLI tool](https://github.com/travis-ci/travis.rb#readme). Once
+you've installed it and setup your credentials, you can list the caches for the
+master branch with:
+
+```console
+$ travis cache -b master
+```
+
+You can remove the caches for master using:
+
+```console
+$ travis cache -b master --delete
+```
+
+It will prompt you to make certain that's what you want to do, and then list all
+caches it deleted when complete.
