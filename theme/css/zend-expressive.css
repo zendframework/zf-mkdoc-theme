@@ -1,0 +1,33 @@
+/* Headers changes */
+body {
+     font-family: 'Open Sans';
+}
+
+.navbar-brand a {
+    color: #68B604;
+    text-decoration: none;
+}
+
+.jumbotron {
+    background-color: #8234BF;
+    color: white;
+    padding:21px;
+}
+
+.jumbotron > h1, .jumbotron p {
+    font-weight: normal;
+    margin:21px;
+    text-align:center;
+}
+
+.jumbotron > pre[class*="language-"] {
+     text-align:center;
+}
+
+.navbar-default {
+    border-bottom: 0px;
+    border-radius: 0em;
+}
+.install .panel {
+    background-color: #0AE955;
+}
