@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Deploy documentation to gh-pages
 #
 # Environment variables that may be of use:
@@ -20,7 +20,7 @@
 
 set -o errexit -o nounset
 
-SCRIPT_PATH=$(dirname $(readlink -f $0))
+SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
 # Get curent commit revision
 rev=$(git rev-parse --short HEAD)

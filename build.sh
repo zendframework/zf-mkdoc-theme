@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Build the documentation.
 #
 # This script does the following:
@@ -16,7 +16,7 @@
 # @license   http://opensource.org/licenses/BSD-3-Clause BSD-3-Clause
 # @copyright Copyright (c) 2016 Zend Technologies USA Inc. (http://www.zend.com)
 
-SCRIPT_PATH=$(dirname $(readlink -f $0))
+SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
 # Update the mkdocs.yml
 echo "Building documentation"
