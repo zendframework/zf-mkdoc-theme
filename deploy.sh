@@ -46,5 +46,5 @@ ${SCRIPT_PATH}/build.sh
     touch .
     git add -A .
     git commit -m "Rebuild pages at ${rev}"
-    git push upstream HEAD:gh-pages
+    git push -q upstream HEAD:gh-pages
 )
