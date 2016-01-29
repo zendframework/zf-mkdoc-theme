@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.2.6 - 2016-01-29
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- `deploy.sh` was updated to provide the `-q` switch to the `git push` command;
+  this was done to ensure the github token is not leaked in the Travis-CI log.
+
 ## 0.2.5 - 2016-01-28
 
 ### Added
