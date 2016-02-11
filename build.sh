@@ -35,6 +35,10 @@ mv mkdocs.yml.orig mkdocs.yml
 echo "Making images responsive"
 php ${SCRIPT_PATH}/img_responsive.php
 
+# Make tables responsive
+echo "Making tables responsive"
+php ${SCRIPT_PATH}/table_responsive.php
+
 # Replace landing page content
 echo "Replacing landing page content"
 php ${SCRIPT_PATH}/swap_index.php
