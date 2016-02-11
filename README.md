@@ -188,3 +188,42 @@ $ travis cache -b master --delete
 
 It will prompt you to make certain that's what you want to do, and then list all
 caches it deleted when complete.
+
+## prism.js
+
+Documentation utilizes prism.js for code snippets. The following options were
+selected when creating the CSS/JS used by the documentation via the
+http://prismjs.com/download.html page:
+
+- Minified version
+- Okaida theme
+- Markup
+- CSS
+- C-like
+- JavaScript
+- Apache Configuration
+- Bash
+- Batch
+- CSS Extras
+- Diff
+- Docker
+- Git
+- Handlebars
+- HTTP
+- Ini
+- JSON
+- Less
+- Makefile
+- Markdown
+- nginx
+- PHP
+- PHP Extras
+- PowerShell
+- Puppet
+- Sass (Sass)
+- Sass (Scss)
+- Smarty
+- SQL
+- Twig
+- vim
+- YAML
