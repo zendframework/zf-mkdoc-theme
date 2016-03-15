@@ -28,8 +28,26 @@ echo "        use_pygments: False" >> mkdocs.yml
 echo "    - pymdownx.superfences" >> mkdocs.yml
 echo "theme_dir: zf-mkdoc-theme/theme" >> mkdocs.yml
 
+# Preserve files if necessary (as mkdocs build --clean removes all files)
+if [ -e .zf-mkdoc-theme-preserve ]; then
+    mkdir .preserve
+    for PRESERVE in $(cat .zf-mkdoc-theme-preserve); do
+        cp doc/html/${PRESERVE} .preserve/
+    done
+fi
+
 mkdocs build --clean
+
+# Restore mkdocs.yml
 mv mkdocs.yml.orig mkdocs.yml
+
+# Restore files if necessary
+if [ -e .zf-mkdoc-theme-preserve ]; then
+    for PRESERVE in $(cat .zf-mkdoc-theme-preserve); do
+        mv .preserve/${PRESERVE} doc/html/${PRESERVE}
+    done
+    rm -Rf ./preserve
+fi
 
 # Make images responsive
 echo "Making images responsive"
