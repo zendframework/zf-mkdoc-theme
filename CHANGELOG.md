@@ -2,11 +2,14 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.2.7 - TBD
+## 0.3.2 - 2016-03-15
 
 ### Added
 
-- Nothing.
+- [#7](https://github.com/zendframework/zf-mkdoc-theme/pull/7) adds the ability
+  for projects to specify files to preserve between builds. This can be done by
+  adding a `.zf-mkdoc-theme-preserve` file to your project root, listing the
+  files to preserve.
 
 ### Deprecated
 
