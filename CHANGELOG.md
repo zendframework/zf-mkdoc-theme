@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.3.3 - TBD
+## 0.3.3 - 2016-03-15
 
 ### Added
 
@@ -18,7 +18,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#8](https://github.com/zendframework/zf-mkdoc-theme/pull/8) ensures that
+  files are added to the doc tree when initialized, by adding the `--hard`
+  flag to the `git reset` invocation. This is necessary in order to allow
+  preserving files between builds.
 
 ## 0.3.2 - 2016-03-15
 

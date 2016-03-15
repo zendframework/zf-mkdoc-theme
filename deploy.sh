@@ -41,7 +41,7 @@ mkdir -p doc/html
     git config user.email "${GH_USER_EMAIL}"
     git remote add upstream "https://${GH_TOKEN}@${GH_REF}"
     git fetch upstream
-    git reset upstream/gh-pages
+    git reset --hard upstream/gh-pages
 )
 
 # Build the documentation
