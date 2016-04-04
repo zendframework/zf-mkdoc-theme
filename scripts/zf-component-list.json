@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Barcode",
+    "url": "https://zendframework.github.io/zend-barcode",
+    "description": "Programmatically create and render barcodes as images or in PDFs."
+  },
+  {
+    "name": "Cache",
+    "url": "https://zendframework.github.io/zend-cache/",
+    "description": "Caching implementation with a variety of storage options, as well as codified caching strategies for callbacks, classes, and output."
+  },
+  {
+    "name": "Component Installer",
+    "url": "https://zendframework.github.io/zend-component-installer/",
+    "description": "Composer plugin for injecting modules and configuration providers into application configuration."
+  },
+  {
+    "name": "Config",
+    "url": "https://zendframework.github.io/zend-config/",
+    "description": "Read and write configuration files."
+  },
+  {
+    "name": "Console",
+    "url": "https://zendframework.github.io/zend-console/",
+    "description": "Build console applications using getopt syntax or routing, complete with prompts"
+  },
+  {
+    "name": "Crypt",
+    "url": "https://zendframework.github.io/zend-crypt/",
+    "description": "Strong cryptography tools and password hashing."
+  },
+  {
+    "name": "Expressive",
+    "url": "https://zendframework.github.io/zend-expressive/",
+    "description": "PSR-7 middleware in minutes."
+  },
+  {
+    "name": "Feed",
+    "url": "https://zendframework.github.io/zend-feed/",
+    "description": "Consume and generate Atom and RSS feeds, and interact with Pubsubhubbub."
+  },
+  {
+    "name": "Filter",
+    "url": "https://zendframework.github.io/zend-filter/",
+    "description": "Programmatically filter and normalize data and files."
+  },
+  {
+    "name": "Hydrator",
+    "url": "https://zendframework.github.io/zend-hydrator/",
+    "description": "Serialize objects to arrays, and vice versa."
+  },
+  {
+    "name": "Internationalization",
+    "url": "https://zendframework.github.io/zend-i18n/",
+    "description": "Provide translations for your application, and filter and validate internationalized values."
+  },
+  {
+    "name": "JSON",
+    "url": "https://zendframework.github.io/zend-json/",
+    "description": "De/Serialize JSON in PHP, including JavaScript expressions."
+  },
+  {
+    "name": "JSON-RPC Server",
+    "url": "https://zendframework.github.io/zend-json-server/",
+    "description": "JSON-RPC implementation for PHP."
+  },
+  {
+    "name": "Log",
+    "url": "https://zendframework.github.io/zend-log/",
+    "description": "Robust, composite logger with filtering, formatting, and PSR-3 support."
+  },
+  {
+    "name": "MVC",
+    "url": "https://zendframework.github.io/zend-mvc/",
+    "description": "Zend Framework's event-driven MVC layer, including MVC Applications, Controllers, and Plugins."
+  },
+  {
+    "name": "MVC-Console integration",
+    "url": "https://zendframework.github.io/zend-mvc-console/",
+    "description": "Integration between zend-mvc and zend-console."
+  },
+  {
+    "name": "MVC-i18n integration",
+    "url": "https://zendframework.github.io/zend-mvc-i18n/",
+    "description": "Integration between zend-mvc and zend-i18n."
+  },
+  {
+    "name": "fileprg() plugin",
+    "url": "https://zendframework.github.io/zend-mvc-plugin-fileprg/",
+    "description": "Post/Redirect/Get plugin with file upload handling for zend-mvc controllers."
+  },
+  {
+    "name": "flashmessenger() plugin",
+    "url": "https://zendframework.github.io/zend-mvc-plugin-flashmessenger/",
+    "description": "Plugin for creating and exposing flash messages via zend-mvc controllers."
+  },
+  {
+    "name": "identity() plugin",
+    "url": "https://zendframework.github.io/zend-mvc-plugin-identity/",
+    "description": "Plugin for retrieving the current authenticated identity within zend-mvc controllers."
+  },
+  {
+    "name": "prg() plugin",
+    "url": "https://zendframework.github.io/zend-mvc-plugin-prg/",
+    "description": "Post/Redirect/Get plugin for zend-mvc controllers."
+  },
+  {
+    "name": "ACL",
+    "url": "https://zendframework.github.io/zend-permissions-acl/",
+    "description": "Create, manage, and query access control lists."
+  },
+  {
+    "name": "Router",
+    "url": "https://zendframework.github.io/zend-router/",
+    "description": "Flexible routing system for HTTP and console applications."
+  },
+  {
+    "name": "ServiceManager",
+    "url": "https://zendframework.github.io/zend-servicemanager/",
+    "description": "Factory-Driven Dependency Injection Container"
+  },
+  {
+    "name": "Stdlib",
+    "url": "https://zendframework.github.io/zend-stdlib/",
+    "description": "SPL extensions, array utilities, error handlers, and more."
+  },
+  {
+    "name": "Tag",
+    "url": "https://zendframework.github.io/zend-tag/",
+    "description": "Manipulate and weight taggable items, and create tag clouds."
+  },
+  {
+    "name": "Text",
+    "url": "https://zendframework.github.io/zend-text/",
+    "description": "Create FIGlets and text-based tables."
+  },
+  {
+    "name": "XML2JSON",
+    "url": "https://zendframework.github.io/zend-xml2json/",
+    "description": "Convert XML documents to JSON."
+  }
+]
