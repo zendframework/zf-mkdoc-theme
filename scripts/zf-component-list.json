@@ -120,6 +120,11 @@
     "description": "Factory-Driven Dependency Injection Container"
   },
   {
+    "name": "ServiceManager-Di integration",
+    "url": "https://zendframework.github.io/zend-servicemanager-di/",
+    "description": "zend-di integration for zend-servicemanager"
+  },
+  {
     "name": "Stdlib",
     "url": "https://zendframework.github.io/zend-stdlib/",
     "description": "SPL extensions, array utilities, error handlers, and more."
