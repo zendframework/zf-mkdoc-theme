@@ -2,11 +2,16 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.3.4 - TBD
+## 0.4.0 - 2016-04-12
 
 ### Added
 
-- Nothing.
+- [#9](https://github.com/zendframework/zf-mkdoc-theme/pull/9) adds a component
+  list "slide down", listing all components currently with docs on GitHub Pages,
+  with a short description of each, and linking to each. The list itself is held
+  in this repositories gh-pages branch, and fetched via XHR on first request,
+  allowing updates to the list independent of when the documentation for a given
+  component is published.
 
 ### Deprecated
 
