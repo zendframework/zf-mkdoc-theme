@@ -70,6 +70,11 @@
     "description": "Robust, composite logger with filtering, formatting, and PSR-3 support."
   },
   {
+    "name": "MIME",
+    "url": "https://zendframework.github.io/zend-mime/",
+    "description": "Create and parse MIME messages and parts."
+  },
+  {
     "name": "MVC",
     "url": "https://zendframework.github.io/zend-mvc/",
     "description": "Zend Framework's event-driven MVC layer, including MVC Applications, Controllers, and Plugins."
@@ -125,6 +130,11 @@
     "description": "zend-di integration for zend-servicemanager"
   },
   {
+    "name": "SOAP",
+    "url": "https://zendframework.github.io/zend-soap/",
+    "description": "Create, serve, and access SOAP applications, and parse and generate WSDL."
+  },
+  {
     "name": "Stdlib",
     "url": "https://zendframework.github.io/zend-stdlib/",
     "description": "SPL extensions, array utilities, error handlers, and more."
@@ -138,6 +148,11 @@
     "name": "Text",
     "url": "https://zendframework.github.io/zend-text/",
     "description": "Create FIGlets and text-based tables."
+  },
+  {
+    "name": "XML-RPC",
+    "url": "https://zendframework.github.io/zend-xmlrpc/",
+    "description": "Fully-featured XML-RPC server and client implementations."
   },
   {
     "name": "XML2JSON",
