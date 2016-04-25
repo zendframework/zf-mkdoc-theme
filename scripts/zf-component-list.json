@@ -10,6 +10,11 @@
     "description": "Caching implementation with a variety of storage options, as well as codified caching strategies for callbacks, classes, and output."
   },
   {
+    "name": "Captcha",
+    "url": "https://zendframework.github.io/zend-captcha/",
+    "description": "Generate and validate CAPTCHAs using Figlets, images, ReCaptcha, and more."
+  },
+  {
     "name": "Component Installer",
     "url": "https://zendframework.github.io/zend-component-installer/",
     "description": "Composer plugin for injecting modules and configuration providers into application configuration."
@@ -28,6 +33,21 @@
     "name": "Crypt",
     "url": "https://zendframework.github.io/zend-crypt/",
     "description": "Strong cryptography tools and password hashing."
+  },
+  {
+    "name": "Debug",
+    "url": "https://zendframework.github.io/zend-debug/",
+    "description": "Safely dump debug information to HTML."
+  },
+  {
+    "name": "DI",
+    "url": "https://zendframework.github.io/zend-di/",
+    "description": "Automated dependency injection and instance manager."
+  },
+  {
+    "name": "DOM",
+    "url": "https://zendframework.github.io/zend-dom/",
+    "description": "Query HTML and XML documents using XPath or CSS selectors."
   },
   {
     "name": "Expressive",
