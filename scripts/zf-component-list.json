@@ -1,5 +1,10 @@
 [
   {
+    "name": "Authentication",
+    "url": "https://zendframework.github.io/zend-authentication",
+    "description": "Authenticate users via a variety of adapters, and provide the authenticated identity to your application."
+  },
+  {
     "name": "Barcode",
     "url": "https://zendframework.github.io/zend-barcode",
     "description": "Programmatically create and render barcodes as images or in PDFs."
