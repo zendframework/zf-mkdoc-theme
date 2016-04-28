@@ -110,6 +110,11 @@
     "description": "Robust, composite logger with filtering, formatting, and PSR-3 support."
   },
   {
+    "name": "Math",
+    "url": "https://zendframework.github.io/zend-math/",
+    "description": "Create cryptographically secure pseudo-random numbers, and manage big integers."
+  },
+  {
     "name": "MIME",
     "url": "https://zendframework.github.io/zend-mime/",
     "description": "Create and parse MIME messages and parts."
