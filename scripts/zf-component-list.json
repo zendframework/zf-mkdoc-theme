@@ -55,6 +55,11 @@
     "description": "Automated dependency injection and instance manager."
   },
   {
+    "name": "Diactoros",
+    "url": "https://zendframework.github.io/zend-diactoros/",
+    "description": "PSR-7 HTTP message implementations."
+  },
+  {
     "name": "DOM",
     "url": "https://zendframework.github.io/zend-dom/",
     "description": "Query HTML and XML documents using XPath or CSS selectors."
