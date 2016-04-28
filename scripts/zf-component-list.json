@@ -40,6 +40,11 @@
     "description": "Strong cryptography tools and password hashing."
   },
   {
+    "name": "DB",
+    "url": "https://zendframework.github.io/zend-db/",
+    "description": "Database abstraction layer, SQL abstraction, result set abstraction, and RowDataGateway and TableDataGateway implementations."
+  },
+  {
     "name": "Debug",
     "url": "https://zendframework.github.io/zend-debug/",
     "description": "Safely dump debug information to HTML."
