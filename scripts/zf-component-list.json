@@ -80,6 +80,11 @@
     "description": "Consume and generate Atom and RSS feeds, and interact with Pubsubhubbub."
   },
   {
+    "name": "File",
+    "url": "https://zendframework.github.io/zend-file/",
+    "description": "Locate PHP classfiles."
+  },
+  {
     "name": "Filter",
     "url": "https://zendframework.github.io/zend-filter/",
     "description": "Programmatically filter and normalize data and files."
