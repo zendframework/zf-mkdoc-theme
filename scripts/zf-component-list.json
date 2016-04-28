@@ -65,6 +65,11 @@
     "description": "Query HTML and XML documents using XPath or CSS selectors."
   },
   {
+    "name": "Escaper",
+    "url": "https://zendframework.github.io/zend-escaper/",
+    "description": "Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs."
+  },
+  {
     "name": "Expressive",
     "url": "https://zendframework.github.io/zend-expressive/",
     "description": "PSR-7 middleware in minutes."
