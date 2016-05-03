@@ -90,6 +90,11 @@
     "description": "Programmatically filter and normalize data and files."
   },
   {
+    "name": "Form",
+    "url": "https://zendframework.github.io/zend-form/",
+    "description": "Validate and display simple and complex forms, casting forms to business objects and vice versa."
+  },
+  {
     "name": "Hydrator",
     "url": "https://zendframework.github.io/zend-hydrator/",
     "description": "Serialize objects to arrays, and vice versa."
