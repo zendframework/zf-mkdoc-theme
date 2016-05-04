@@ -95,6 +95,11 @@
     "description": "Validate and display simple and complex forms, casting forms to business objects and vice versa."
   },
   {
+    "name": "HTTP",
+    "url": "https://zendframework.github.io/zend-http/",
+    "description": "HTTP message and header abstractions, and HTTP client implementation.  (Not a PSR-7 implementation.)"
+  },
+  {
     "name": "Hydrator",
     "url": "https://zendframework.github.io/zend-hydrator/",
     "description": "Serialize objects to arrays, and vice versa."
