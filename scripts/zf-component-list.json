@@ -105,6 +105,11 @@
     "description": "Serialize objects to arrays, and vice versa."
   },
   {
+    "name": "InputFilter",
+    "url": "https://zendframework.github.io/zend-inputfilter/",
+    "description": "Normalize and validate input sets from the web, APIs, the CLI, and more, including files."
+  },
+  {
     "name": "Internationalization",
     "url": "https://zendframework.github.io/zend-i18n/",
     "description": "Provide translations for your application, and filter and validate internationalized values."
