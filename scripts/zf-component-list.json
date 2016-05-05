@@ -125,6 +125,11 @@
     "description": "JSON-RPC implementation for PHP."
   },
   {
+    "name": "Loader",
+    "url": "https://zendframework.github.io/zend-loader/",
+    "description": "Autoloading and plugin loading strategies."
+  },
+  {
     "name": "Log",
     "url": "https://zendframework.github.io/zend-log/",
     "description": "Robust, composite logger with filtering, formatting, and PSR-3 support."
