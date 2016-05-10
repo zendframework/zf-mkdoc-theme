@@ -135,6 +135,11 @@
     "description": "Robust, composite logger with filtering, formatting, and PSR-3 support."
   },
   {
+    "name": "Mail",
+    "url": "https://zendframework.github.io/zend-mail/",
+    "description": "Parse, create, store, and send email messages, using a variety of storage and transport protocols."
+  },
+  {
     "name": "Math",
     "url": "https://zendframework.github.io/zend-math/",
     "description": "Create cryptographically secure pseudo-random numbers, and manage big integers."
@@ -143,6 +148,11 @@
     "name": "MIME",
     "url": "https://zendframework.github.io/zend-mime/",
     "description": "Create and parse MIME messages and parts."
+  },
+  {
+    "name": "Module Manager",
+    "url": "https://zendframework.github.io/zend-modulemanager/",
+    "description": "Modular application system for zend-mvc applications."
   },
   {
     "name": "MVC",
@@ -178,6 +188,11 @@
     "name": "prg() plugin",
     "url": "https://zendframework.github.io/zend-mvc-plugin-prg/",
     "description": "Post/Redirect/Get plugin for zend-mvc controllers."
+  },
+  {
+    "name": "Navigation",
+    "url": "https://zendframework.github.io/zend-navigation/",
+    "description": "Manage trees of pointers to web pages in order to build navigation systems."
   },
   {
     "name": "ACL",
