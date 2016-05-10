@@ -210,6 +210,11 @@
     "description": "Provide and query Role-Based Access Controls for your application."
   },
   {
+    "name": "ProgressBar",
+    "url": "https://zendframework.github.io/zend-progressbar/",
+    "description": "Create and update progress bars in different environments."
+  },
+  {
     "name": "Router",
     "url": "https://zendframework.github.io/zend-router/",
     "description": "Flexible routing system for HTTP and console applications."
