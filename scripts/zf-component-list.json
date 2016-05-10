@@ -225,6 +225,11 @@
     "description": "Flexible routing system for HTTP and console applications."
   },
   {
+    "name": "Server",
+    "url": "https://zendframework.github.io/zend-server/",
+    "description": "Create Reflection-based RPC servers."
+  },
+  {
     "name": "ServiceManager",
     "url": "https://zendframework.github.io/zend-servicemanager/",
     "description": "Factory-Driven Dependency Injection Container"
