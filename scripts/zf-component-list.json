@@ -205,6 +205,11 @@
     "description": "Create, manage, and query access control lists."
   },
   {
+    "name": "RBAC",
+    "url": "https://zendframework.github.io/zend-permissions-rbac/",
+    "description": "Provide and query Role-Based Access Controls for your application."
+  },
+  {
     "name": "Router",
     "url": "https://zendframework.github.io/zend-router/",
     "description": "Flexible routing system for HTTP and console applications."
