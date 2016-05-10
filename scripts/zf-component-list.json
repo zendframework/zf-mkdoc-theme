@@ -215,6 +215,11 @@
     "description": "Create and update progress bars in different environments."
   },
   {
+    "name": "PSR-7 Bridge",
+    "url": "https://zendframework.github.io/zend-psr7bridge/",
+    "description": "PSR-7 &lt;-&gt; zend-http message conversions."
+  },
+  {
     "name": "Router",
     "url": "https://zendframework.github.io/zend-router/",
     "description": "Flexible routing system for HTTP and console applications."
