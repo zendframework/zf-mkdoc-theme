@@ -195,6 +195,11 @@
     "description": "Manage trees of pointers to web pages in order to build navigation systems."
   },
   {
+    "name": "Paginator",
+    "url": "https://zendframework.github.io/zend-paginator/",
+    "description": "Paginate collections of data from arbitrary sources."
+  },
+  {
     "name": "ACL",
     "url": "https://zendframework.github.io/zend-permissions-acl/",
     "description": "Create, manage, and query access control lists."
