@@ -230,6 +230,11 @@
     "description": "Flexible routing system for HTTP and console applications."
   },
   {
+    "name": "Serializer",
+    "url": "https://zendframework.github.io/zend-serializer/",
+    "description": "Serialize and deserialize PHP structures to a variety of representations."
+  },
+  {
     "name": "Server",
     "url": "https://zendframework.github.io/zend-server/",
     "description": "Create Reflection-based RPC servers."
