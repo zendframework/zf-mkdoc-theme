@@ -145,6 +145,11 @@
     "description": "Create cryptographically secure pseudo-random numbers, and manage big integers."
   },
   {
+    "name": "Memory",
+    "url": "https://zendframework.github.io/zend-memory/",
+    "description": "Manage data in an environment with limited memory."
+  },
+  {
     "name": "MIME",
     "url": "https://zendframework.github.io/zend-mime/",
     "description": "Create and parse MIME messages and parts."
