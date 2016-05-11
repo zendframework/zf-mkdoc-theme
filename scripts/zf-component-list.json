@@ -250,6 +250,11 @@
     "description": "zend-di integration for zend-servicemanager"
   },
   {
+    "name": "Session",
+    "url": "https://zendframework.github.io/zend-session/",
+    "description": "Object-oriented interface to PHP sessions and storage."
+  },
+  {
     "name": "SOAP",
     "url": "https://zendframework.github.io/zend-soap/",
     "description": "Create, serve, and access SOAP applications, and parse and generate WSDL."
