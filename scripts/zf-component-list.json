@@ -285,6 +285,11 @@
     "description": "Create FIGlets and text-based tables."
   },
   {
+    "name": "URI",
+    "url": "https://zendframework.github.io/zend-uri/",
+    "description": "Object oriented interface to URIs, with facilities for validation."
+  },
+  {
     "name": "XML-RPC",
     "url": "https://zendframework.github.io/zend-xmlrpc/",
     "description": "Fully-featured XML-RPC server and client implementations."
