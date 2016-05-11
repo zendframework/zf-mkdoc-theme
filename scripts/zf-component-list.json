@@ -275,6 +275,11 @@
     "description": "Manipulate and weight taggable items, and create tag clouds."
   },
   {
+    "name": "Test",
+    "url": "https://zendframework.github.io/zend-text/",
+    "description": "Tools to facilitate unit testing of zend-mvc applications."
+  },
+  {
     "name": "Text",
     "url": "https://zendframework.github.io/zend-text/",
     "description": "Create FIGlets and text-based tables."
