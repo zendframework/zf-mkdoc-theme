@@ -265,6 +265,11 @@
     "description": "SPL extensions, array utilities, error handlers, and more."
   },
   {
+    "name": "Stratigility",
+    "url": "https://zendframework.github.io/zend-stratigility/",
+    "description": "PSR-7 middleware foundation for building and dispatching middleware pipelines."
+  },
+  {
     "name": "Tag",
     "url": "https://zendframework.github.io/zend-tag/",
     "description": "Manipulate and weight taggable items, and create tag clouds."
