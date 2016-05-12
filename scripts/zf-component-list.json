@@ -130,6 +130,11 @@
     "description": "JSON-RPC implementation for PHP."
   },
   {
+    "name": "LDAP",
+    "url": "https://zendframework.github.io/zend-ldap/",
+    "description": "Perform LDAP operations, including binding, searching and modifying entries in an LDAP directory."
+  },
+  {
     "name": "Loader",
     "url": "https://zendframework.github.io/zend-loader/",
     "description": "Autoloading and plugin loading strategies."
