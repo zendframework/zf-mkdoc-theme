@@ -70,6 +70,11 @@
     "description": "Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs."
   },
   {
+    "name": "EventManager",
+    "url": "https://zendframework.github.io/zend-eventmanager/",
+    "description": "Implement events, signal slots, aspects, and observers!"
+  },
+  {
     "name": "Expressive",
     "url": "https://zendframework.github.io/zend-expressive/",
     "description": "PSR-7 middleware in minutes."
