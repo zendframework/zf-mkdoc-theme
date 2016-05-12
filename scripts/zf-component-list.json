@@ -290,6 +290,11 @@
     "description": "Object oriented interface to URIs, with facilities for validation."
   },
   {
+    "name": "View",
+    "url": "https://zendframework.github.io/zend-view/",
+    "description": "Flexible view layer supporting and providing multiple view layers, helpers, and more."
+  },
+  {
     "name": "XML-RPC",
     "url": "https://zendframework.github.io/zend-xmlrpc/",
     "description": "Fully-featured XML-RPC server and client implementations."
