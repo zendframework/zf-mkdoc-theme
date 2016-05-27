@@ -64,12 +64,14 @@ As an example:
 ```yaml
 env:
   global:
-    - SITE_URL: https://zendframework.github.io/zend-expressive
-    - GH_USER_NAME: "Matthew Weier O'Phinney"
-    - GH_USER_EMAIL: matthew@<domain>.<tld>
-    - GH_REF: github.com/zendframework/zend-expressive.git
+    - SITE_URL="https://zendframework.github.io/zend-expressive"
+    - GH_USER_NAME="Matthew Weier O'Phinney"
+    - GH_USER_EMAIL="matthew@<domain>.<tld>"
+    - GH_REF="github.com/zendframework/zend-expressive.git"
     - secure: "..."
 ```
+
+**Note:** all environment variables use the `KEY=VALUE` format, while the `secure` key (which is not an actual environment variable) uses the `KEY: VALUE` format. 
 
 ### 4. Choose a build for deployment
 
@@ -93,18 +95,14 @@ Thefollowing shows an example of the changes necessary, under the 5.6 build:
 matrix:
   fast_finish: true
   include:
-    - php: 5.5
-      env:
-        - EXECUTE_CS_CHECK=true
     - php: 5.6
       env:
-        - EXECUTE_TEST_COVERALLS=true
         - DEPLOY_DOCS="$(if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then echo -n 'true' ; else echo -n 'false' ; fi)"
         - PATH="$HOME/.local/bin:$PATH"
     - php: 7
     - php: hhvm
   allow_failures:
-    - php: hhv
+    - php: hhvm
 ```
 
 We'll use the `DEPLOY_DOCS` environment variable to determine if we need to
@@ -125,7 +123,7 @@ The results look like this:
 ```yaml
 script:
   - <do something ...>
-  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then wget -O theme-installer.sh "https://raw.githubusercontent.com/zendframework/zf-mkdoc-theme/master/theme-installer.sh" ; chmod 755 theme-installer.sh ; ./theme-installer.sh ; fi
+  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then travis_retry curl -sSL https://raw.githubusercontent.com/zendframework/zf-mkdoc-theme/master/theme-installer.sh | bash ; fi
 ```
 
 This will run the code to install MkDocs and its extensions, and, if the
@@ -137,7 +135,7 @@ Now we'll add the `after_success` script:
 
 ```yaml
 after_success:
-  - if [[ $DEPLOY_DOCS == "true" ]]; then echo "Building and deploying documentation" ; ./zf-mkdoc-theme/deploy.sh ; fi
+  - if [[ $DEPLOY_DOCS == "true" ]]; then ./zf-mkdoc-theme/deploy.sh ; fi
 ```
 
 The above runs *only* if the build has been a success, and will not change the
