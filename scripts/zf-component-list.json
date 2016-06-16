@@ -1,5 +1,10 @@
 [
   {
+    "name": "Tutorials",
+    "url": "https://zendframework.github.io/tutorials",
+    "description": "Learn how to create zend-mvc applications, get in-depth guides into components, and discover how to migrate your applications to version 3!"
+  },
+  {
     "name": "Authentication",
     "url": "https://zendframework.github.io/zend-authentication",
     "description": "Authenticate users via a variety of adapters, and provide the authenticated identity to your application."
