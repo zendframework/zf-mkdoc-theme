@@ -25,6 +25,11 @@
     "description": "Generate and validate CAPTCHAs using Figlets, images, ReCaptcha, and more."
   },
   {
+    "name": "Code",
+    "url": "https://docs.zendframework.com/zend-code/",
+    "description": "Extensions to the PHP Reflection API, static code scanning, and code generation."
+  },
+  {
     "name": "Component Installer",
     "url": "https://docs.zendframework.com/zend-component-installer/",
     "description": "Composer plugin for injecting modules and configuration providers into application configuration."
