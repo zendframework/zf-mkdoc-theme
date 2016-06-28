@@ -24,11 +24,10 @@ body {
 	margin: 0;
 	height: 100%;
 	color: #0f1419;
-	/* font-family: 'Lato', sans-serif;
-	font-weight: 400; */
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
 	}
 
-  /*
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 700;
@@ -38,15 +37,14 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 48px;
 }
-*/
 
 p {
 	padding: 0;
 	margin-bottom: 12px;
-	/* font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
-	line-height: 24px; */
+	line-height: 24px;
 	color: #0f1419;
 	margin-top: 10px;
 }
