@@ -90,6 +90,11 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
     line-height: 1.5;
 }
 
+#footerwrap {
+  position: relative;
+  z-index: 100;
+}
+
 pre, code {
     background-color: #FCFDFF;
 }
