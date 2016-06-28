@@ -99,11 +99,6 @@ pre {
     letter-spacing: 0.0312em;
     color: #B1B7B9;
 }
-.navbar-default {
-    /* background-color: #343838; */
-    background-color: #2E2E2D;
-    border-bottom: 8px #EBF2F2 solid;
-}
 .bs-sidenav {
     background-image: url("../img/grid11.png");
     background-repeat: repeat;
@@ -177,9 +172,15 @@ pre {
     text-decoration: none;
 }
 
+.logo-link img {
+  height: 28px;
+  width: auto;
+}
+
 .jumbotron {
     background-color: #018D74;
     padding: 21px;
+    margin-top: 0.5em;;
 }
 
 .jumbotron > h1, .jumbotron p {
@@ -199,9 +200,8 @@ pre {
     background-color: #2E2E2D;
 }
 
-.navbar-default {
-    border-bottom: 0;
-    border-radius: 0;
+ol.breadcrumb {
+  margin-top: 1em;
 }
 
 .zf-components {
