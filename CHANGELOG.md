@@ -18,7 +18,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#14](https://github.com/zendframework/zf-mkdoc-theme/pull/14) updates the
+  breadcrumbs to list the site name instead of "Docs" as the first element.
 
 ## 0.4.0 - 2016-04-12
 
