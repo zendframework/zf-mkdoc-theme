@@ -6,7 +6,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#13](https://github.com/zendframework/zf-mkdoc-theme/pull/13) adds an SVG
+  version of the logo.
 
 ### Deprecated
 
@@ -14,7 +15,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#13](https://github.com/zendframework/zf-mkdoc-theme/pull/13) removes the png
+  version of the logo, in favor of the new SVG version.
 
 ### Fixed
 
