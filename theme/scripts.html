@@ -5,6 +5,7 @@
         componentList = components.find(".component-list"),
         sidebar = $(".bs-sidebar.affix"),
         sidebarInitialPos = sidebar.css("position"),
+        sidebarInitialTop = parseInt(sidebar.css("top"), 10),
         hidden,
         componentToggle = $(".component-toggle"),
         navbar = $(".navbar-fixed-top"),
