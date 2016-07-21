@@ -18,10 +18,15 @@
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
+# Build assets
+${SCRIPT_PATH}/asset.sh
+
 # Update the mkdocs.yml
 echo "Building documentation"
 cp mkdocs.yml mkdocs.yml.orig
 echo "site_url: ${SITE_URL}"
+echo "extra:" >> mkdocs.yml
+cat zf-mkdoc-theme/assets.yml >> mkdocs.yml
 echo "markdown_extensions:" >> mkdocs.yml
 echo "    - markdown.extensions.codehilite:" >> mkdocs.yml
 echo "        use_pygments: False" >> mkdocs.yml
