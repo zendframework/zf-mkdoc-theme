@@ -51,11 +51,12 @@ gulp.task('scripts', function () {
         prismComponents[component] = 'node_modules/prismjs/components/prism-' + prism[component] + '.min.js';
     }
 
-    return gulp.src([
+    return gulp.src(prismComponents.concat([
+            'node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min.js',
             'node_modules/anchor-js/anchor.min.js',
             'js/base.js',
             'js/scripts.js'
-        ].concat(prismComponents))
+        ]))
         .pipe(concat({path: 'scripts.js'}))
         .pipe(uglify({mangle: false}))
         .pipe(rev())
