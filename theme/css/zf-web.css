@@ -84,12 +84,12 @@ a:focus {
 ::-moz-selection  {
 	color: #fff;
 	text-shadow:none;
-	background:#0f1419;
+	background:#428bca;
 }
 ::selection {
 	color: #fff;
 	text-shadow:none;
-	background:#0f1419;
+	background:#428bca;
 }
 
 .centered {
