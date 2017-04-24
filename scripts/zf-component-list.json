@@ -40,6 +40,11 @@
     "description": "Read and write configuration files."
   },
   {
+    "name": "ConfigAggregator",
+    "url": "https://docs.zendframework.com/zend-config-aggregator/",
+    "description": "Lightweight library for collecting and merging configuration from different sources."
+  },
+  {
     "name": "Console",
     "url": "https://docs.zendframework.com/zend-console/",
     "description": "Build console applications using getopt syntax or routing, complete with prompts"
