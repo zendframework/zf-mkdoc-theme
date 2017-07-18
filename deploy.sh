@@ -20,12 +20,36 @@
 
 set -o errexit -o nounset
 
-echo "Preparing to build and deploy documentation"
+function help() {
+    echo "Usage:"
+    echo "  ${0} [options]"
+    echo "Options:"
+    echo "  -h           Usage help; this message."
+    echo "  -n <name>    GitHub username to commit under"
+    echo "  -e <email>   Email address associated with GitHub username"
+    echo "  -t <token>   Personal Access Token associated with GitHub username"
+    echo "  -r <ref>     SHA1 of commit against which docs will be built"
+    echo "  -u <url>     Deplyment URL of documentation (to ensure search works)"
+}
+
+while getopts hn:e:t:r:u: option;do
+    case "${option}" in
+        h) help && exit 0;;
+        n) GH_USER_NAME=${OPTARG};;
+        e) GH_USER_EMAIL=${OPTARG};;
+        t) GH_TOKEN=${OPTARG};;
+        r) GH_REF=${OPTARG};;
+        u) SITE_URL=${OPTARG};;
+    esac
+done
 
 if [[ -z ${GH_USER_NAME} || -z ${GH_USER_EMAIL} || -z ${GH_TOKEN} || -z ${GH_REF} ]]; then
-    echo "Missing environment variables. Aborting"
-    exit 1
-fi;
+    echo "Missing one or more required variables. Aborting." ;
+    help;
+    exit 1;
+fi
+
+echo "Preparing to build and deploy documentation"
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
@@ -45,7 +69,7 @@ mkdir -p doc/html
 )
 
 # Build the documentation
-${SCRIPT_PATH}/build.sh
+${SCRIPT_PATH}/build.sh -u ${SITE_URL}
 
 # Commit and push the documentation to gh-pages
 (
