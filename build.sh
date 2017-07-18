@@ -18,6 +18,21 @@
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
+function help() {
+    echo "Usage:"
+    echo "  ${0} [options]"
+    echo "Options:"
+    echo "  -h           Usage help; this message."
+    echo "  -u <url>     Deplyment URL of documentation (to ensure search works)"
+}
+
+while getopts hu: option;do
+    case "${option}" in
+        h) help && exit 0;;
+        u) SITE_URL=${OPTARG};;
+    esac
+done
+
 # Update the mkdocs.yml
 echo "Building documentation"
 cp mkdocs.yml mkdocs.yml.orig

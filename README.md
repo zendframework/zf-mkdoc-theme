@@ -19,7 +19,11 @@ deploying documentation.
 
 ## gh-pages automation
 
-To automate GitHub Pages builds, you will need to update the `.travis.yml` file.
+We formerly used Travis-CI for building documentation. However, this meant
+updating the `.travis.yml` for every single repository whenever there were
+changes to the build process, or whenever we needed to revoke an OAuth token. As
+of July 2017, we are moving to a system whereby builds are triggered by
+successful build status events.
 
 ### 1. Setup a personal access token
 
@@ -28,164 +32,45 @@ from your `Settings` page; access the `Personal access tokens` screen, generate
 a new token, and copy it once generated; this will be the only time GitHub will
 show it to you! When you create it, give it only the `public_repo` scope.
 
-### 2. Encrypt the token for use with Travis
+This token will be used with the `deploy.sh` script.
 
-Next, we'll encrypt that token for use with Travis. You'll need to install the
-Travis CLI tool, which is detailed on their [Environment Variables page](https://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables).
-Once you have installed the tool and logged in for the first time, run the
-following:
+### 2. Clone the repository for which to build documentation
 
-```console
-$ travis encrypt -r <org>/<repo> GH_TOKEN=<token>
+Usually something like:
+
+```bash
+$ git clone -b master git://github.com/zendframework/<repo>.git
 ```
 
-Copy and paste the output into the `env` section of your `.travis.yml`:
+### 3. Clone this repo into the component repository
 
-```yaml
-env:
-  global:
-    - secure: "..."
+```bash
+$ cd <repo>
+$ git clone git://github.com/zendframework/zf-mkdoc-theme.git
 ```
 
-### 3. Setup global environment variables
+### 4. Run the deploy script
 
-These scripts require a few environment variables in order to work:
-
-- `SITE_URL`
-- `GH_USER_NAME` (Full name of user associated with GitHub token used to push
-  documentation)
-- `GH_USER_EMAIL` (Email address associated with GitHub token used to push
-  documentation)
-- `GH_REF` The host and path, minus the scheme, to the git repository; e.g.
-  `github.com/zendframework/zend-expressive.git`
-
-As an example:
-
-```yaml
-env:
-  global:
-    - SITE_URL="https://zendframework.github.io/zend-expressive"
-    - GH_USER_NAME="Matthew Weier O'Phinney"
-    - GH_USER_EMAIL="matthew@<domain>.<tld>"
-    - GH_REF="github.com/zendframework/zend-expressive.git"
-    - secure: "..."
+```bash
+$ ./zf-mkdoc-theme/deploy.sh \
+> -n "your github username" \
+> -e "email associated with your username" \
+> -t "personal access token" \
+> -r "github.com/zendframework/<repo>.git"
+> -u "https://docs.zendframework.com/<repo>"
 ```
 
-**Note:** all environment variables use the `KEY=VALUE` format, while the `secure` key (which is not an actual environment variable) uses the `KEY: VALUE` format. 
+This will build the docs in `doc/html/` and push the build to the gh-pages
+branch of the repository.
 
-### 4. Choose a build for deployment
+## Build requirements
 
-You should only deploy documentation from a single build job. To do that, we'll
-add an environment variable to a single build; on success, that build will then
-build and deploy the documentation. We usually use the latest PHP 5 version for
-this.
+You will need the following in order to build documentation:
 
-When determining when to build, we only want to build when:
-
-- on the master branch
-- if it's not a pull request
-
-Finally, MkDocs and its extensions are installed under the user, in
-`$HOME/.local/bin`, so we want to add that to the path when we're on a build
-that deploys.
-
-Thefollowing shows an example of the changes necessary, under the 5.6 build:
-
-```yaml
-matrix:
-  fast_finish: true
-  include:
-    - php: 5.6
-      env:
-        - DEPLOY_DOCS="$(if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then echo -n 'true' ; else echo -n 'false' ; fi)"
-        - PATH="$HOME/.local/bin:$PATH"
-    - php: 7
-    - php: hhvm
-  allow_failures:
-    - php: hhvm
-```
-
-We'll use the `DEPLOY_DOCS` environment variable to determine if we need to
-download the them and build the documentation later.
-
-### 5. Conditionally download the theme and build tools
-
-If the build is successful, we will want to make sure the theme and build tools
-are present. To do this, and ensure the assets downloaded can be cached, we need
-to do this as the last step of our `script`, but *only* if the rest of the build
-has succeeded. We can test that with the `$TRAVIS_TEST_RESULT` variable.
-
-This repository has a script for installing the repository itself; we'll fetch
-that and execute it.
-
-The results look like this:
-
-```yaml
-script:
-  - <do something ...>
-  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then travis_retry curl -sSL https://raw.githubusercontent.com/zendframework/zf-mkdoc-theme/master/theme-installer.sh | bash ; fi
-```
-
-This will run the code to install MkDocs and its extensions, and, if the
-zf-mkdoc-theme is not yet installed, download the latest version and install it.
-
-### 6. Build and deploy the documentation on success
-
-Now we'll add the `after_success` script:
-
-```yaml
-after_success:
-  - if [[ $DEPLOY_DOCS == "true" ]]; then ./zf-mkdoc-theme/deploy.sh ; fi
-```
-
-The above runs *only* if the build has been a success, and will not change the
-success status.
-
-### 7. Add caching
-
-Chances are that the component you're using is already caching Composer
-dependencies, so you'll likely already have a `cache` section to your
-`.travis.yml`. Regardless, you'll need entries for `$HOME/.local` and
-`zf-mkdoc-theme` to speed up your builds:
-
-```yaml
-cache:
-  directories:
-    - $HOME/.local
-    - zf-mkdoc-theme
-```
-
-## A note on caching
-
-If you followed the steps above, you're caching the MkDocs installation and
-zf-mkdoc-theme installation between requests. What if it changes, and you want
-to pick up those changes?
-
-You have two ways to clear the cache.
-
-First, you can go to the project's page on Travis-CI (e.g.,
-https://travis-ci.org/zendframework/zend-expressive). Once there, click the
-"Settings" dropdown on the right side of the screen, and select the "Caches"
-item; this takes you to the page detailing all caches. Locate the one for the
-"master" branch, and hit the little rubbish bin icon to remove the cache.
-
-Second, you can do it through the Travis-CI API, which is most easily accessed
-via the [`travis` CLI tool](https://github.com/travis-ci/travis.rb#readme). Once
-you've installed it and setup your credentials, you can list the caches for the
-master branch with:
-
-```console
-$ travis cache -b master
-```
-
-You can remove the caches for master using:
-
-```console
-$ travis cache -b master --delete
-```
-
-It will prompt you to make certain that's what you want to do, and then list all
-caches it deleted when complete.
+- Python
+- PIP
+- mkdocs (`pip install --user mkdocs`)
+- pymdown-extensions (`pip install --user pymdown-extensions`)
 
 ## prism.js
 
