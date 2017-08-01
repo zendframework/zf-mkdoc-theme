@@ -240,6 +240,11 @@
     "description": "Provide and query Role-Based Access Controls for your application."
   },
   {
+    "name": "Problem Details",
+    "url": "https://docs.zendframework.com/zend-problem-details/",
+    "description": "PSR-7 Problem Details for HTTP API responses and middleware."
+  },
+  {
     "name": "ProgressBar",
     "url": "https://docs.zendframework.com/zend-progressbar/",
     "description": "Create and update progress bars in different environments."
