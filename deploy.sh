@@ -49,7 +49,12 @@ if [[ -z ${GH_USER_NAME} || -z ${GH_USER_EMAIL} || -z ${GH_TOKEN} || -z ${GH_REF
     exit 1;
 fi
 
-echo "Preparing to build and deploy documentation"
+DOC_DIR=doc
+if [ -d "docs" ];then
+    DOC_DIR=docs
+fi
+
+echo "Preparing to build and deploy documentation in ${DOC_DIR}"
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
@@ -57,9 +62,9 @@ SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 rev=$(git rev-parse --short HEAD)
 
 # Initialize gh-pages checkout
-mkdir -p doc/html
+mkdir -p ${DOC_DIR}/html
 (
-    cd doc/html
+    cd ${DOC_DIR}/html
     git init
     git config user.name "${GH_USER_NAME}"
     git config user.email "${GH_USER_EMAIL}"
@@ -73,7 +78,7 @@ ${SCRIPT_PATH}/build.sh -u ${SITE_URL}
 
 # Commit and push the documentation to gh-pages
 (
-    cd doc/html
+    cd ${DOC_DIR}/html
     touch .
     git add -A .
     git commit -m "Rebuild pages at ${rev}"

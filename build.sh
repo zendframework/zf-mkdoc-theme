@@ -33,8 +33,13 @@ while getopts hu: option;do
     esac
 done
 
+DOC_DIR=doc
+if [ -d "docs" ];then
+    DOC_DIR=docs
+fi
+
 # Update the mkdocs.yml
-echo "Building documentation"
+echo "Building documentation in ${DOC_DIR}"
 cp mkdocs.yml mkdocs.yml.orig
 echo "site_url: ${SITE_URL}"
 echo "markdown_extensions:" >> mkdocs.yml
@@ -47,7 +52,7 @@ echo "theme_dir: zf-mkdoc-theme/theme" >> mkdocs.yml
 if [ -e .zf-mkdoc-theme-preserve ]; then
     mkdir .preserve
     for PRESERVE in $(cat .zf-mkdoc-theme-preserve); do
-        cp doc/html/${PRESERVE} .preserve/
+        cp ${DOC_DIR}/html/${PRESERVE} .preserve/
     done
 fi
 
@@ -59,19 +64,19 @@ mv mkdocs.yml.orig mkdocs.yml
 # Restore files if necessary
 if [ -e .zf-mkdoc-theme-preserve ]; then
     for PRESERVE in $(cat .zf-mkdoc-theme-preserve); do
-        mv .preserve/${PRESERVE} doc/html/${PRESERVE}
+        mv .preserve/${PRESERVE} ${DOC_DIR}/html/${PRESERVE}
     done
     rm -Rf ./preserve
 fi
 
 # Make images responsive
 echo "Making images responsive"
-php ${SCRIPT_PATH}/img_responsive.php
+php ${SCRIPT_PATH}/img_responsive.php ${DOC_DIR}
 
 # Make tables responsive
 echo "Making tables responsive"
-php ${SCRIPT_PATH}/table_responsive.php
+php ${SCRIPT_PATH}/table_responsive.php ${DOC_DIR}
 
 # Replace landing page content
 echo "Replacing landing page content"
-php ${SCRIPT_PATH}/swap_index.php
+php ${SCRIPT_PATH}/swap_index.php ${DOC_DIR}
