@@ -310,7 +310,6 @@ a:focus {
     margin-top: 0px;
 	padding-top:60px;
 	text-align:center;
-	background-attachment: relative;
 	background-position: center center;
 	min-height: 450px;
 	width: 100%;
@@ -348,7 +347,6 @@ a:focus {
     margin-top: 0px;
 	padding-top:60px;
 	text-align:center;
-	background-attachment: relative;
 	background-position: center center;
 	min-height: 450px;
 	width: 100%;
@@ -490,7 +488,6 @@ small {
 	margin-top: -60px;
 	padding-top:0px;
 	text-align:center;
-	background-attachment: relative;
 	background-position: center center;
 	min-height: 400px;
 	width: 100%;
