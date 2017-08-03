@@ -288,4 +288,10 @@ ol.breadcrumb {
     margin-top: 10px;
     margin-bottom: 0;
     border-top: 1px solid #E8E8E8;
+    font-size: 12px;
+}
+
+.bs-sidebar .pager li>a {
+    border: 1px solid transparent;
+    border-radius: 0;
 }

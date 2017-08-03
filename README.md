@@ -60,7 +60,8 @@ $ ./zf-mkdoc-theme/deploy.sh \
 > -u "https://docs.zendframework.com/<repo>"
 ```
 
-This will build the docs in `doc/html/` and push the build to the gh-pages
+This will build the docs in one of `doc/html/` or `docs/html/` (depending on
+which tree is present in the component) and push the build to the gh-pages
 branch of the repository.
 
 ## Build requirements
@@ -71,6 +72,20 @@ You will need the following in order to build documentation:
 - PIP
 - mkdocs (`pip install --user mkdocs`)
 - pymdown-extensions (`pip install --user pymdown-extensions`)
+- yarn
+- gulp (`yarn global add gulp`)
+- perl
+
+## CSS and JavaScript
+
+CSS and JS are minified and concatenated during the build process. CSS is found
+in the `asset/sass/` directory (we use SASS for defining our CSS), and JS is
+found in the `asset/js/` directory.
+
+## Images
+
+Images deployed with the documentation are found in the `asset/img/`
+subdirectory.
 
 ## prism.js
 
