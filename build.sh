@@ -38,10 +38,16 @@ if [ -d "docs" ];then
     DOC_DIR=docs
 fi
 
+# Build assets
+echo "Building assets"
+${SCRIPT_PATH}/asset.sh
+
 # Update the mkdocs.yml
 echo "Building documentation in ${DOC_DIR}"
 cp mkdocs.yml mkdocs.yml.orig
 echo "site_url: ${SITE_URL}"
+echo "extra:" >> mkdocs.yml
+cat zf-mkdoc-theme/assets.yml >> mkdocs.yml
 echo "markdown_extensions:" >> mkdocs.yml
 echo "    - markdown.extensions.codehilite:" >> mkdocs.yml
 echo "        use_pygments: False" >> mkdocs.yml
