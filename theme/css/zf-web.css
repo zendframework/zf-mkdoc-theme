@@ -19,6 +19,10 @@
 		padding: 0px;
 	}
 
+html {
+	height: 100%;
+}
+
 body {
 	background: white;
 	margin: 0;
@@ -26,6 +30,9 @@ body {
 	color: #0f1419;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 	}
 
 h1, h2, h3, h4, h5, h6 {
@@ -99,6 +106,11 @@ a:focus {
 /*	################################################################
 	BOOTSTRAP MODIFICATIONS & TWEAKS
 ################################################################# */
+
+body > .container {
+	flex: 1;
+}
+
 .navbar {
 	min-height: 70px;
 	padding-top: 10px;
