@@ -3,7 +3,7 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            {% if include_nav or repo_url %}
+            {% if nav|length>1 or config.repo_url %}
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -16,13 +16,13 @@
             <!-- Main title -->
             <span class="navbar-brand">
               <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="{{ base_url }}/img/zf-logo-mark.svg" height="28" alt="Zend Framework" /></a>
-              <a href="{{ homepage_url }}">{{ site_name }}</a>
+              <a href="{{ nav.homepage.url }}">{{ config.site_name }}</a>
             </span>
         </div>
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
-            {% if include_nav %}
+            {% if nav|length>1 %}
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
                 {% for nav_item in nav %}
@@ -56,15 +56,15 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                {% if repo_url %}
+                {% if config.repo_url %}
                     <li>
-                        <a href="{{ repo_url }}">
-                            {% if repo_name == 'GitHub' %}
+                        <a href="{{ config.repo_url }}">
+                            {% if config.repo_name == 'GitHub' %}
                                 <i class="fa fa-github"></i>
-                            {% elif repo_name == 'Bitbucket' %}
+                            {% elif config.repo_name == 'Bitbucket' %}
                                 <i class="fa fa-bitbucket"></i>
                             {% endif %}
-                            {{ repo_name }}
+                            {{ config.repo_name }}
                         </a>
                     </li>
                 {% endif %}
