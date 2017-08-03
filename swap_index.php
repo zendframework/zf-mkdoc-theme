@@ -6,7 +6,9 @@
  * @copyright Copyright (c) 2016 Zend Technologies USA Inc. (http://www.zend.com)
  */
 
-$docPath = realpath(getcwd() . '/doc');
+$docPath = isset($argv[1]) ? $argv[1] : 'doc';
+$docPath = sprintf('%s/%s', getcwd(), $docPath);
+$docPath = realpath($docPath);
 
 $target = file_get_contents($docPath . '/html/index.html');
 $source = file_get_contents($docPath . '/book/index.html');
