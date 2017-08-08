@@ -115,6 +115,11 @@
     "description": "Validate and display simple and complex forms, casting forms to business objects and vice versa."
   },
   {
+    "name": "HAL for PSR-7",
+    "url": "https://docs.zendframework.com/zend-expressive-hal/",
+    "description": "Hypertext Application Language (HAL) for PSR-7."
+  },
+  {
     "name": "HTTP",
     "url": "https://docs.zendframework.com/zend-http/",
     "description": "HTTP message and header abstractions, and HTTP client implementation.  (Not a PSR-7 implementation.)"
