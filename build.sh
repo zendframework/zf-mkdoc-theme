@@ -83,6 +83,10 @@ php ${SCRIPT_PATH}/img_responsive.php ${DOC_DIR}
 echo "Making tables responsive"
 php ${SCRIPT_PATH}/table_responsive.php ${DOC_DIR}
 
+# Fix pipes in tables
+echo "Fixing pipes in tables"
+php ${SCRIPT_PATH}/table_fix_pipes.php ${DOC_DIR}
+
 # Replace landing page content
 echo "Replacing landing page content"
 php ${SCRIPT_PATH}/swap_index.php ${DOC_DIR}
