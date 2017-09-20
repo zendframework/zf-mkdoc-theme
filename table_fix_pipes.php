@@ -30,7 +30,7 @@ $process = function () use ($files) {
         return true;
     }
     $matches = [];
-    if (preg_match_all('/<td[^>]*>.*?<\/td>/s', $html, $matches)) {
+    if (preg_match_all('/<table[^>]*>.*?<\/table>/s', $html, $matches)) {
         foreach ($matches[0] as $origin) {
             $count = 0;
             $content = str_replace('\|', '|', $origin, $count);
