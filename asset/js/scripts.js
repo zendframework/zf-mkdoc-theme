@@ -13,6 +13,7 @@ $(function () {
     // Initial setup on document load
     components.insertBefore(navbar);
     $(".zf-logo a").tooltip();
+    $(".logo-link").tooltip();
     componentToggle.tooltip();
     rollUpLink.attr({href: "#", alt: "Hide component list"});
 
