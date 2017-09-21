@@ -17,7 +17,7 @@ $(function () {
     rollUpLink.attr({href: "#", alt: "Hide component list"});
 
     // Cast initial sidebar position value
-    if (undefined === sidebarInitialPos) {
+    if (typeof sidebarInitialPos === 'undefined') {
         sidebarInitialPos = "fixed";
     }
 
@@ -29,7 +29,7 @@ $(function () {
     function toggleComponentList(event) {
         event.preventDefault();
 
-        if (hidden === undefined) {
+        if (typeof hidden === 'undefined') {
             // Not loaded yet; load and display.
             loadComponentList();
             return;
