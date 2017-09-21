@@ -4,6 +4,7 @@ $(function () {
         componentList = components.find(".component-list"),
         sidebar = $(".bs-sidebar.affix"),
         sidebarInitialPos = sidebar.css("position"),
+        sidebarInitialTop = sidebar.length ? sidebar.position().top : 0,
         hidden,
         componentToggle = $(".component-toggle"),
         navbar = $(".navbar-fixed-top"),
