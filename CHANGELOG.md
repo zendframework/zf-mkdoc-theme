@@ -18,7 +18,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#30](https://github.com/zendframework/zf-mkdoc-theme/pull/30) provides a fix
+  that ensures that escaped `|` characters in rendered tables remove the escape
+  character.
 
 ## 0.5.2 - 2016-07-05
 
