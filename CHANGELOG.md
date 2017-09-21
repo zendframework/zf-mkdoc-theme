@@ -6,7 +6,19 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#31](https://github.com/zendframework/zf-mkdoc-theme/pull/31) adds links to
+  our Slack and our forums in the footer.
+
+### Changed
+
+- [#31](https://github.com/zendframework/zf-mkdoc-theme/pull/31) changes all
+  links to use the https scheme where possible.
+
+- [#31](https://github.com/zendframework/zf-mkdoc-theme/pull/31) updates all
+  third-party UI libraries to the latest versions in the same major releases.
+
+- [#31](https://github.com/zendframework/zf-mkdoc-theme/pull/31) updates the
+  copyright link in the footer.
 
 ### Deprecated
 
@@ -14,13 +26,17 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#31](https://github.com/zendframework/zf-mkdoc-theme/pull/31) removes the
+  link to IRC from the footer.
 
 ### Fixed
 
 - [#30](https://github.com/zendframework/zf-mkdoc-theme/pull/30) provides a fix
   that ensures that escaped `|` characters in rendered tables remove the escape
   character.
+
+- [#31](https://github.com/zendframework/zf-mkdoc-theme/pull/31) fixes several
+  javascript errors.
 
 ## 0.5.2 - 2016-07-05
 
