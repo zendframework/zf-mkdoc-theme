@@ -4,6 +4,7 @@ $(function () {
         componentList = components.find(".component-list"),
         sidebar = $(".bs-sidebar.affix"),
         sidebarInitialPos = sidebar.css("position"),
+        sidebarInitialTop = sidebar.length ? sidebar.position().top : 0,
         hidden,
         componentToggle = $(".component-toggle"),
         navbar = $(".navbar-fixed-top"),
@@ -12,11 +13,12 @@ $(function () {
     // Initial setup on document load
     components.insertBefore(navbar);
     $(".zf-logo a").tooltip();
+    $(".logo-link").tooltip();
     componentToggle.tooltip();
     rollUpLink.attr({href: "#", alt: "Hide component list"});
 
     // Cast initial sidebar position value
-    if (undefined === sidebarInitialPos) {
+    if (typeof sidebarInitialPos === 'undefined') {
         sidebarInitialPos = "fixed";
     }
 
@@ -28,7 +30,7 @@ $(function () {
     function toggleComponentList(event) {
         event.preventDefault();
 
-        if (hidden === undefined) {
+        if (typeof hidden === 'undefined') {
             // Not loaded yet; load and display.
             loadComponentList();
             return;
