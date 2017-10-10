@@ -55,6 +55,11 @@
     "description": "Strong cryptography tools and password hashing."
   },
   {
+    "name": "CSRF",
+    "url": "https://docs.zendframework.com/zend-expressive-csrf/",
+    "description": "CSRF token generation and validation for PSR-7 and Expressive applications."
+  },
+  {
     "name": "DB",
     "url": "https://docs.zendframework.com/zend-db/",
     "description": "Database abstraction layer, SQL abstraction, result set abstraction, and RowDataGateway and TableDataGateway implementations."
@@ -108,6 +113,11 @@
     "name": "Filter",
     "url": "https://docs.zendframework.com/zend-filter/",
     "description": "Programmatically filter and normalize data and files."
+  },
+  {
+    "name": "Flash",
+    "url": "https://docs.zendframework.com/zend-expressive-flash/",
+    "description": "Flash messages for PSR-7 and Expressive applications."
   },
   {
     "name": "Form",
@@ -258,6 +268,16 @@
     "name": "PSR-7 Bridge",
     "url": "https://docs.zendframework.com/zend-psr7bridge/",
     "description": "PSR-7 &lt;-&gt; zend-http message conversions."
+  },
+  {
+    "name": "PSR-7 Sessions",
+    "url": "https://docs.zendframework.com/zend-expressive-session/",
+    "description": "Session container and middleware PSR-7 and Expressive applications."
+  },
+  {
+    "name": "PSR-7 Sessions via ext-session",
+    "url": "https://docs.zendframework.com/zend-expressive-session-ext/",
+    "description": "PHP ext-session persistence for PSR-7 sessions."
   },
   {
     "name": "Router",
