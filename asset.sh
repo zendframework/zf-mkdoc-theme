@@ -4,6 +4,6 @@
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
 cd $SCRIPT_PATH/asset
-yarn install
+npm install --no-save
 gulp
 perl -pi -e 's/\.[a-z]+"(:)|"|,|^\{\n$|\}/$1/g' ../assets.yml
