@@ -110,6 +110,16 @@
     "description": "HTTP Basic Authentication adapter for zend-expressive-authentication."
   },
   {
+    "name": "Username/password authentication for zend-expressive-authentication",
+    "url": "https://docs.zendframework.com/zend-expressive-authentication-session/",
+    "description": "Username/password, session-backed authentication adapter for zend-expressive-authentication."
+  },
+  {
+    "name": "zend-authentication integration for Expressive",
+    "url": "https://docs.zendframework.com/zend-expressive-authentication-session/",
+    "description": "zend-authentication adapter for zend-expressive-authentication."
+  },
+  {
     "name": "Feed",
     "url": "https://docs.zendframework.com/zend-feed/",
     "description": "Consume and generate Atom and RSS feeds, and interact with Pubsubhubbub."
