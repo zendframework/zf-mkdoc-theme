@@ -105,6 +105,11 @@
     "description": "Authentication middleware for Expressive and PSR-7 applications."
   },
   {
+    "name": "HTTP Basic Authentication for Expressive and PSR-7",
+    "url": "https://docs.zendframework.com/zend-expressive-authentication-basic/",
+    "description": "HTTP Basic Authentication adapter for zend-expressive-authentication."
+  },
+  {
     "name": "Feed",
     "url": "https://docs.zendframework.com/zend-feed/",
     "description": "Consume and generate Atom and RSS feeds, and interact with Pubsubhubbub."
