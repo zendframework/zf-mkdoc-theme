@@ -1,0 +1,75 @@
+// @todo Clean up!
+
+@media (min-width : 1025px) {
+    .component-list {
+        width : 75%;
+
+        .component {
+            width : 49%;
+        }
+    }
+}
+
+.zf-components {
+    display          : none;
+    transform        : translateZ(0);
+    /*background-color : $breadcrumb-bg;*/
+
+    &-grid {
+        display         : flex;
+        flex-wrap       : wrap;
+        flex-direction  : row;
+        align-items     : stretch;
+        align-content   : space-between;
+        justify-content : space-between;
+    }
+
+    &-rollup {
+        width          : 100%;
+        margin-left    : auto;
+        margin-right   : auto;
+        border-top     : 1px dotted #018d74;
+        padding-top    : 1em;
+        padding-bottom : 1em;
+        text-align     : center;
+    }
+}
+
+.zf-logo {
+    order        : -1;
+    align-self   : flex-start;
+    margin-left  : auto;
+    margin-right : auto;
+    text-align   : center;
+}
+
+.component {
+    border-bottom : 1px solid $separater-color;
+    padding       : 10px 15px;
+
+    &:hover {
+        background-color : $separater-color;
+    }
+
+    &-list {
+        display         : flex;
+        flex-wrap       : wrap;
+        flex-direction  : row;
+        align-items     : stretch;
+        align-content   : space-between;
+        justify-content : space-between;
+        margin-left     : 1em;
+        margin-right    : 1em;
+    }
+
+    h4 {
+        display     : inline;
+        font-style  : normal;
+        font-weight : bold;
+    }
+
+    p {
+        margin    : 0;
+        font-size : 0.9em;
+    }
+}

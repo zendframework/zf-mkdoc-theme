@@ -1,0 +1,86 @@
+.subnavigation {
+    width : $subnavigation-width;
+
+    &__title {
+        padding-bottom : 2px;
+        margin         : 0 $padding-large-vertical ($padding-large-vertical * 1.5);
+        color          : #95989a;
+    }
+
+    &__list {
+        padding-left    : 0;
+        list-style-type : none;
+
+        &-item {
+            border-bottom : 1px solid $separater-color;
+
+            &:last-child {
+                border-bottom : none;
+            }
+
+            &--active a {
+                &:link,
+                &:visited {
+                    color : $link-color;
+                }
+            }
+
+            li {
+                a {
+                    padding-left : $padding-large-vertical * 2;
+                }
+
+                li a {
+                    padding-left : $padding-large-vertical * 3;
+                }
+
+                .subnavigation__headline {
+                    padding-left : $padding-large-vertical * 2;
+                }
+            }
+        }
+    }
+
+    &__headline {
+        border-bottom : 1px solid $separater-color;
+        padding       : ($padding-large-vertical / 2) $padding-large-vertical;
+        display       : block;
+        color         : lighten(rgb(119, 119, 119), 25%);
+    }
+
+    &__link {
+        padding : ($padding-large-vertical / 2) $padding-large-vertical;
+        display : block;
+
+        &:link,
+        &:visited {
+            color : rgb(119, 119, 119);
+        }
+
+        &:hover {
+            background-color : $separater-color;
+            text-decoration  : none;
+        }
+
+        &--main {
+            font-weight : bold;
+        }
+    }
+
+    &__components-link {
+        text-align : center;
+        font-size  : 0.8em;
+        margin     : auto;
+        display    : block;
+        width      : 70%;
+        border     : 1px solid #ccc;
+        padding    : ($padding-large-vertical / 2) $padding-large-vertical;
+        color      : lighten(#000, 50%);
+
+        &:hover {
+            text-decoration  : none;
+            background-color : $link-color;
+            color            : #fff;
+        }
+    }
+}

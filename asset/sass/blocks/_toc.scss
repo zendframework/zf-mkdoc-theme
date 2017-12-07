@@ -1,0 +1,32 @@
+.toc {
+    margin-left : $padding-large-vertical * 1.5;
+    margin-top  : 0;
+
+    &__headline {
+        color     : #95989a;
+        margin    : 0 0 $padding-large-vertical;
+        font-size : $font-size-base;
+    }
+
+    &__list {
+        list-style-type : none;
+        padding-left    : 0;
+        margin-bottom   : 0;
+        font-size       : 0.9em;
+
+        &-item {
+            border : none;
+        }
+    }
+
+    &__link {
+        padding : 3px 0;
+        display : block;
+
+        &:link,
+        &:visited {
+            font-size : 0.9em;
+            color     : rgb(119, 119, 119);
+        }
+    }
+}

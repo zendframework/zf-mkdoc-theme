@@ -1,0 +1,29 @@
+body {
+    margin-top : $navbar-height + 40;
+}
+
+img {
+    max-width : 100%;
+}
+
+blockquote {
+    background-color : lighten($separater-color, 3%);
+
+    h3 {
+        margin-top  : 0;
+        font-size   : 22px;
+        font-weight : 600;
+    }
+}
+
+pre[class*="language-"] {
+    font-size        : 13px;
+    border-radius    : 0;
+    border           : none;
+    /*border-top       : 3px solid #ccc;
+    border-bottom    : 3px solid #ccc;*/
+    border-left      : 5px solid #ccc;
+    background-color : $header-footer-bg-color;
+    margin-top       : $padding-large-vertical * 2;
+    margin-bottom    : $padding-large-vertical * 2;
+}
