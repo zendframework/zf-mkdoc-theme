@@ -8,19 +8,18 @@
 
 {% include "breadcrumbs.html" %}
 
-{{ page.content }}
+{% if page.is_homepage %}
+    {% include "homepage.html" %}
+{% else %}
+    <h1 class="content__title">{{ page.title }}</h1>
 
-<hr />
+    {% if not page.is_homepage %}
+        {% include "toc.html" %}
+    {% endif %}
+
+    {{ page.content }}
+{% endif %}
 
 {% if page.next_page %}
-<nav>
-  <ul class="pager hidden-print">
-    <li class="previous{% if not page.previous_page %} disabled{% endif %}">
-      <a rel="prev" {% if page.previous_page %}href="{{ page.previous_page.url }}"{% endif %}><i class="fa fa-arrow-left"></i> Previous</a>
-    </li>
-    <li class="next{% if not page.next_page %} disabled {% endif %}">
-      <a rel="next" {% if page.next_page %}href="{{ page.next_page.url }}"{% endif %}>Next <i class="fa fa-arrow-right"></i></a>
-    </li>
-  </ul>
-</nav>
+    {% include "page-nav.html" %}
 {% endif %}
