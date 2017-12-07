@@ -2,12 +2,14 @@
 
 {% block content %}
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-        <p style="text-align: center"><a href="{{ nav.homepage.url }}">Home</a></p>
-      </div>
-    </div>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
+
+<a href="/" class="btn btn-default" role="button">Go to homepage</a>
 
 {% endblock %}
