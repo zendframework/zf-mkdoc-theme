@@ -1,0 +1,14 @@
+{% if not nav_item.children %}
+    <li class="subnavigation__list-item {% if nav_item.active %}subnavigation__list-item--active{% endif %}">
+        <a href="{{ nav_item.url }}" class="subnavigation__link">{{ nav_item.title }}</a>
+    </li>
+{% else %}
+    <li>
+        <span class="subnavigation__headline">{{ nav_item.title }}</span>
+        <ul class="subnavigation__list">
+            {% for nav_item in nav_item.children %}
+                {% include "subnavigation-sub.html" %}
+            {% endfor %}
+        </ul>
+    </li>
+{% endif %}
