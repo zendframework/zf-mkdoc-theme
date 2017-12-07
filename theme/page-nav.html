@@ -1,0 +1,14 @@
+<nav>
+    <ul class="page-nav hidden-print">
+        {% if page.previous_page %}
+            <li class="page-nav__item">
+                <a rel="prev" class="page-nav__link page-nav__link--prev" {% if page.previous_page %}href="{{ page.previous_page.url }}" {% endif %}><i class="fa fa-chevron-left"></i> Previous</a>
+            </li>
+        {% endif %}
+        {% if page.next_page %}
+            <li class="page-nav__item">
+                <a rel="next" class="page-nav__link page-nav__link--next" {% if page.next_page %}href="{{ page.next_page.url }}" {% endif %}>Next <i class="fa fa-chevron-right"></i></a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
