@@ -20,6 +20,6 @@
     {{ page.content }}
 {% endif %}
 
-{% if page.next_page %}
+{% if page.previous_page or page.next_page  %}
     {% include "page-nav.html" %}
 {% endif %}
