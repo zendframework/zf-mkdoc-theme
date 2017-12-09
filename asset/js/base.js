@@ -2,9 +2,11 @@
     "use strict";
 
     // Tables
-    var tables = document.querySelectorAll('.content tables');
+    var tables = document.querySelectorAll('.content table');
     if (tables.length) {
-        tables.classList.add('table table-striped table-hover');
+        tables.forEach(function(element){
+            element.classList.add('table', 'table-striped', 'table-hover');
+        });
     }
 
     // Anchors
