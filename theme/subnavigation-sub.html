@@ -3,7 +3,7 @@
         <a href="{{ nav_item.url }}" class="subnavigation__link">{{ nav_item.title }}</a>
     </li>
 {% else %}
-    <li>
+    <li class="subnavigation__list-item">
         <span class="subnavigation__headline">{{ nav_item.title }}</span>
         <ul class="subnavigation__list">
             {% for nav_item in nav_item.children %}
