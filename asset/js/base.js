@@ -19,7 +19,7 @@
     window.setTimeout(function () {
         $('#mkdocs_search_modal').on('shown.bs.modal', function () {
             $('#mkdocs-search-query').focus();
-        })
+        });
     }, 1000);
 
     var shiftWindow = function () {
