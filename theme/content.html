@@ -13,9 +13,7 @@
 {% else %}
     <h1 class="content__title">{{ page.title }}</h1>
 
-    {% if not page.is_homepage %}
-        {% include "toc.html" %}
-    {% endif %}
+    {% include "toc.html" %}
 
     {{ page.content }}
 {% endif %}
