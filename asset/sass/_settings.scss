@@ -22,7 +22,8 @@ $navbar-default-color : $header-footer-font-color;
 $navbar-default-bg : $header-footer-bg-color;
 
 $navbar-default-link-color : $header-footer-font-color;
-$navbar-default-link-hover-color : $link-color;
+$navbar-default-link-hover-color : white;
+$navbar-default-link-hover-bg : darken($brand-primary, 10%);
 $navbar-default-link-active-color : $link-color;
 
 $navbar-default-brand-color : $link-color;
