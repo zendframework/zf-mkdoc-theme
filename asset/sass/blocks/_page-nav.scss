@@ -1,31 +1,31 @@
 .page-nav {
-    list-style-type : none;
-    border-top      : 1px solid #ddd;
-    display         : table;
-    width           : 100%;
-    margin-top      : $padding-large-vertical * 4;
-    margin-bottom   : $padding-large-vertical * 2;
-    padding         : ($padding-base-vertical * 4) $padding-base-vertical;
+    list-style-type: none;
+    border-top: 1px solid #ddd;
+    display: table;
+    width: 100%;
+    margin-top: $padding-large-vertical * 4;
+    margin-bottom: $padding-large-vertical * 2;
+    padding: ($padding-base-vertical * 4) $padding-base-vertical;
 
     &__item {
-        display : table-cell;
+        display: table-cell;
 
         &:first-child {
-            text-align : left;
+            text-align: left;
         }
 
         &:last-child {
-            text-align : right;
+            text-align: right;
         }
     }
 
     &__link {
-        border : none;
-        color  : lighten($text-color, 15%);
+        border: none;
+        color: lighten($text-color, 15%);
 
         &:hover {
-            text-decoration : none;
-            color           : $link-color;
+            text-decoration: none;
+            color: $link-color;
         }
     }
 }

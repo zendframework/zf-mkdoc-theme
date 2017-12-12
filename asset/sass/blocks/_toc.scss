@@ -1,30 +1,30 @@
 .toc {
-    margin-left : $padding-large-vertical * 1.5;
-    margin-top  : 0;
+    margin-left: $padding-large-vertical * 1.5;
+    margin-top: 0;
 
     &__headline {
-        color     : #95989a;
-        margin    : 0 0 $padding-large-vertical;
-        font-size : $font-size-base;
+        color: #95989a;
+        margin: 0 0 $padding-large-vertical;
+        font-size: $font-size-base;
     }
 
     &__list {
-        list-style-type : none;
-        padding-left    : 0;
-        margin-bottom   : 0;
-        font-size       : $font-size-small;
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        font-size: $font-size-small;
 
         &-item {
-            border : none;
+            border: none;
         }
     }
 
     &__link {
-        padding : $padding-large-vertical 0;
+        padding: $padding-large-vertical 0;
 
         &:link,
         &:visited {
-            color : rgb(119, 119, 119);
+            color: rgb(119, 119, 119);
         }
     }
 }

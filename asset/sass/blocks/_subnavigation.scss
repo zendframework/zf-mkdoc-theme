@@ -1,104 +1,104 @@
 .subnavigation {
-    width     : $subnavigation-width;
-    font-size : $font-size-small;
+    width: $subnavigation-width;
+    font-size: $font-size-small;
 
     &__title {
-        padding-bottom : 2px;
-        margin         : 0 $padding-large-vertical ($padding-large-vertical * 1.5);
-        color          : #95989a;
+        padding-bottom: 2px;
+        margin: 0 $padding-large-vertical ($padding-large-vertical * 1.5);
+        color: #95989a;
     }
 
     &__list {
-        padding-left    : 0;
-        list-style-type : none;
+        padding-left: 0;
+        list-style-type: none;
 
         &-item {
-            border-bottom : 1px solid $separater-color;
+            border-bottom: 1px solid $separater-color;
 
             &:last-child {
-                border-bottom : none;
+                border-bottom: none;
             }
 
             &--active a {
                 &:link,
                 &:visited {
-                    color : $link-color;
+                    color: $link-color;
                 }
             }
 
             li {
                 a {
-                    padding-left : $padding-large-vertical * 2;
+                    padding-left: $padding-large-vertical * 2;
                 }
 
                 li {
                     a {
-                        padding-left : $padding-large-vertical * 3;
+                        padding-left: $padding-large-vertical * 3;
                     }
 
                     li {
                         a {
-                            padding-left : $padding-large-vertical * 4;
+                            padding-left: $padding-large-vertical * 4;
                         }
 
                         li a {
-                            padding-left : $padding-large-vertical * 5;
+                            padding-left: $padding-large-vertical * 5;
                         }
 
                     }
 
                     .subnavigation__headline {
-                        padding-left : $padding-large-vertical * 3;
+                        padding-left: $padding-large-vertical * 3;
                     }
                 }
 
                 .subnavigation__headline {
-                    padding-left : $padding-large-vertical * 2;
+                    padding-left: $padding-large-vertical * 2;
                 }
             }
         }
     }
 
     &__headline {
-        border-bottom : 1px solid $separater-color;
-        padding       : ($padding-large-vertical / 2) $padding-large-vertical;
-        display       : block;
-        color         : lighten(rgb(119, 119, 119), 25%);
+        border-bottom: 1px solid $separater-color;
+        padding: ($padding-large-vertical / 2) $padding-large-vertical;
+        display: block;
+        color: lighten(rgb(119, 119, 119), 25%);
     }
 
     &__link {
-        padding : ($padding-large-vertical / 2) $padding-large-vertical;
-        display : block;
+        padding: ($padding-large-vertical / 2) $padding-large-vertical;
+        display: block;
 
         &:link,
         &:visited {
-            color : rgb(119, 119, 119);
+            color: rgb(119, 119, 119);
         }
 
         &:hover {
-            background-color : $separater-color;
-            text-decoration  : none;
+            background-color: $separater-color;
+            text-decoration: none;
         }
 
         &--main {
-            font-weight : bold;
+            font-weight: bold;
         }
     }
 
     &__components-link {
-        text-align : center;
-        font-size  : $font-size-small;
-        margin     : auto;
-        display    : block;
-        width      : 70%;
-        border     : 1px solid #ccc;
-        padding    : ($padding-large-vertical / 2) $padding-large-vertical;
-        color      : lighten(#000, 50%);
+        text-align: center;
+        font-size: $font-size-small;
+        margin: auto;
+        display: block;
+        width: 70%;
+        border: 1px solid #ccc;
+        padding: ($padding-large-vertical / 2) $padding-large-vertical;
+        color: lighten(#000, 50%);
 
         &:hover {
-            text-decoration  : none;
-            background-color : $link-color;
-            color            : #fff;
+            text-decoration: none;
+            background-color: $link-color;
+            color: #fff;
         }
     }
 }
