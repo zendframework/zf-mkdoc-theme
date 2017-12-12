@@ -3,9 +3,13 @@
     <p>{{ config.site_description }}</p>
 </div>
 
-<h2>Installation</h2>
-<h3>Using Composer</h3>
-<pre><code class="language-bash">$ composer require zendframework/{{ config.site_name }}</code></pre>
+{% if config.extra.show_special_homepage %}
+    {{ page.content }}
+{% else %}
+    <h2>Installation</h2>
+    <h3>Using Composer</h3>
+    <pre><code class="language-bash">$ composer require zendframework/{{ config.site_name }}</code></pre>
+{% endif %}
 
 <h2>Contacts</h2>
 
