@@ -31,8 +31,25 @@
                     padding-left : $padding-large-vertical * 2;
                 }
 
-                li a {
-                    padding-left : $padding-large-vertical * 3;
+                li {
+                    a {
+                        padding-left : $padding-large-vertical * 3;
+                    }
+
+                    li {
+                        a {
+                            padding-left : $padding-large-vertical * 4;
+                        }
+
+                        li a {
+                            padding-left : $padding-large-vertical * 5;
+                        }
+
+                    }
+
+                    .subnavigation__headline {
+                        padding-left : $padding-large-vertical * 3;
+                    }
                 }
 
                 .subnavigation__headline {

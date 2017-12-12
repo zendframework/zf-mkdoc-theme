@@ -20,8 +20,7 @@
     }
 
     &__link {
-        padding : 3px 0;
-        display : block;
+        padding : $padding-large-vertical 0;
 
         &:link,
         &:visited {
