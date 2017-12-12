@@ -12,6 +12,7 @@ $link-color : $brand-primary;
 // Font
 $font-family-sans-serif : 'Source Sans Pro', sans-serif;
 $font-size-base : 16px;
+$font-size-small : ceil(($font-size-base * 0.8));
 $line-height-base : 1.65;
 $headings-font-weight : 600;
 $blockquote-font-size : $font-size-base;

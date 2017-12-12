@@ -12,7 +12,7 @@
         list-style-type : none;
         padding-left    : 0;
         margin-bottom   : 0;
-        font-size       : 0.9em;
+        font-size       : $font-size-small;
 
         &-item {
             border : none;
@@ -25,8 +25,7 @@
 
         &:link,
         &:visited {
-            font-size : 0.9em;
-            color     : rgb(119, 119, 119);
+            color : rgb(119, 119, 119);
         }
     }
 }

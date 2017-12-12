@@ -1,5 +1,6 @@
 .subnavigation {
-    width : $subnavigation-width;
+    width     : $subnavigation-width;
+    font-size : $font-size-small;
 
     &__title {
         padding-bottom : 2px;
@@ -69,7 +70,7 @@
 
     &__components-link {
         text-align : center;
-        font-size  : 0.8em;
+        font-size  : $font-size-small;
         margin     : auto;
         display    : block;
         width      : 70%;
