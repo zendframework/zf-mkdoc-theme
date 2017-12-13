@@ -2,6 +2,10 @@ body {
     margin-top: $navbar-height + 40;
 }
 
+h2 {
+    word-break: break-all;
+}
+
 img {
     max-width: 100%;
 }
