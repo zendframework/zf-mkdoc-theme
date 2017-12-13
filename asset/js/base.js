@@ -15,12 +15,10 @@
         '.content h1:not(.content__title), .content h2, .content > h3, .content h4, .content h5'
     );
 
-    // Search modal (search modal is not yet available in the DOM)
-    window.setTimeout(function () {
-        $('#mkdocs_search_modal').on('shown.bs.modal', function () {
-            $('#mkdocs-search-query').focus();
-        });
-    }, 1000);
+    // Search modal
+    $('#mkdocs_search_modal').on('shown.bs.modal', function () {
+        $('#mkdocs-search-query').focus();
+    });
 
     var shiftWindow = function () {
         scrollBy(0, -50)
