@@ -1,5 +1,8 @@
 <div class="subnavigation hidden-print">
-    <h4 class="subnavigation__title">{{ config.site_name }}</h4>
+    <h4 class="subnavigation__title">
+        <a href="{{ nav.homepage.url }}">{{ config.site_name }}</a>
+    </h4>
+
     <ul class="subnavigation__list">
         {% for nav_item in nav if nav_item.title != 'Home' %}
             {% if nav_item.children %}

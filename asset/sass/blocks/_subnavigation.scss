@@ -5,7 +5,17 @@
     &__title {
         padding-bottom: 2px;
         margin: 0 $padding-large-vertical ($padding-large-vertical * 1.5);
-        color: #95989a;
+
+        a {
+            &:link,
+            &:visited {
+                color: #95989a;
+            }
+
+            &:hover {
+                color: $link-color;
+            }
+        }
     }
 
     &__list {
