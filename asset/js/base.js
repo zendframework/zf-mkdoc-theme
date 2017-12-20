@@ -33,13 +33,4 @@
         shiftWindow();
     }
     window.addEventListener('hashchange', shiftWindow);
-
-    // Remove fixed position if subnavigation is bigger than content
-    var contentElement       = document.querySelector('.content');
-    var subnavigationElement = document.querySelector('.subnavigation');
-    if (contentElement && subnavigationElement
-        && contentElement.clientHeight < subnavigationElement.clientHeight
-    ) {
-        subnavigationElement.classList.remove('affix')
-    }
 })();
