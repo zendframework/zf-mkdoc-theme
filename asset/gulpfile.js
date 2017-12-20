@@ -60,6 +60,7 @@ gulp.task('scripts', function () {
         prismComponents.concat(
             [
                 'node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min.js',
+                'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.js',
                 'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
                 'node_modules/anchor-js/anchor.min.js',
@@ -81,6 +82,7 @@ gulp.task('styles', function () {
     return gulp.src(
         [
             'node_modules/prismjs/themes/prism-okaidia.css',
+            'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css',
             'sass/styles.scss'
         ]
     )
