@@ -17,6 +17,9 @@ $line-height-base: 1.65;
 $headings-font-weight: 600;
 $blockquote-font-size: $font-size-base;
 
+// Border radius
+$border-radius-base: 0;
+
 // Navbar
 $navbar-default-color: $header-footer-font-color;
 $navbar-default-bg: $header-footer-bg-color;
@@ -42,8 +45,10 @@ $dropdown-link-active-color: $header-footer-font-color;
 $dropdown-link-active-bg: $link-color;
 
 // Breadcrumbs
+$breadcrumb-padding-vertical: 0;
+$breadcrumb-padding-horizontal: 0;
+$breadcrumb-bg: transparent;
 $breadcrumb-separator: '»';
-$border-radius-base: 0;
 
 // Pager
 $pager-border-radius: none;
