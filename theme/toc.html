@@ -1,12 +1,20 @@
-<div class="toc">
-    <h6 class="toc__headline">In This Article</h6>
-    <ul class="toc__list">
-        {% for toc_item in page.toc %}
-            {% for toc_item in toc_item.children %}
-                <li class="toc__entry">
-                    <a href="{{ toc_item.url }}" class="toc__link">{{ toc_item.title }}</a>
-                </li>
-            {% endfor %}
-        {% endfor %}
-    </ul>
-</div>
+{% for toc_item in page.toc %}
+    {% for toc_item in toc_item.children %}
+        {% if loop.length > 0 %}
+            {% if loop.first %}
+                <div class="toc">
+                <h6 class="toc__headline">In This Article</h6>
+                <ul class="toc__list">
+            {% endif %}
+
+            <li class="toc__entry">
+                <a href="{{ toc_item.url }}" class="toc__link">{{ toc_item.title }}</a>
+            </li>
+
+            {% if loop.last %}
+                </ul>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
