@@ -1,6 +1,8 @@
 .toc {
     margin-left: $padding-large-vertical * 1.5;
     margin-top: 0;
+    margin-bottom: $padding-large-vertical * 4;
+    order: -1;
 
     &__headline {
         color: #95989a;

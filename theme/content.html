@@ -11,8 +11,6 @@
 {% if page.is_homepage %}
     {% include "homepage.html" %}
 {% else %}
-    <h1 class="content__title">{{ page.title }}</h1>
-
     {% include "toc.html" %}
 
     {{ page.content }}

@@ -1,5 +1,10 @@
 .content {
-    &__title {
+    display: flex;
+    flex-direction: column;
+
+    &__title,
+    h1:first-of-type {
+        order: -2;
         color: lighten($text-color, 15%);
         font-size: 52px;
         border-bottom: 1px solid $separater-color;
