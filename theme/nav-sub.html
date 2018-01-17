@@ -1,7 +1,9 @@
 {% if not nav_item.children %}
+{% if not nav_item.title.startswith("_") %}
 <li {% if nav_item.active %}class="active"{% endif %}>
     <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
 </li>
+{% endif %}
 {% else %}
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">{{ nav_item.title }}</a>
