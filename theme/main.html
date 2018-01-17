@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{% if page.title and page.title.startswith("_") %}
+<head>
+  {{ page.content }}
+</head>
+{% else %}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,6 +98,7 @@
     {% include "dropdown.html" %}
 
 </body>
+{% endif %}
 
 </html>
 {% if page and page.is_homepage %}

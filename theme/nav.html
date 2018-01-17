@@ -36,9 +36,11 @@
                         </ul>
                     </li>
                 {% else %}
+                    {% if not nav_item.title.startswith("_") %}
                     <li {% if nav_item.active %}class="active"{% endif %}>
                         <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
                     </li>
+                    {% endif %}
                 {% endif %}
                 {% endfor %}
                 </ul>

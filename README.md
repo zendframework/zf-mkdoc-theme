@@ -17,6 +17,47 @@ theme, by Chris Simpkins, with a number of modifications, including:
 The theme itself resides in `theme/`. Also included are tools for building and
 deploying documentation.
 
+## Redirects
+
+If you want a page to redirect to another URL, and not appear in the navigation,
+this theme supports that by allowing you to prefix the title of such a page with
+`_` within the `mkdocs.yml` file:
+
+```yaml
+pages:
+    - index.md
+    - "_intro": intro.md
+    - "Intro": v2/intro.md
+```
+
+In order to create the redirect, you will need to create two HTML artifacts in
+your markdown file:
+
+- A meta refresh tag, for when javascript is not present.
+- A `DOMContentLoaded` listener.
+
+In the example above, the contents of `intro.md` would then look like the
+following:
+
+```markdown
+<noscript><meta http-equiv="refresh" content="0; url=v2/intro/"></noscript>
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    var uri = new URL(window.location.href);
+    uri.pathname = 'v2/intro/';
+    window.location = uri.href;
+  });
+</script>
+```
+
+When the pages are built, the path `/intro/` will still be present, but the page
+will not be linked in the navigation. Additionally, that page will place the
+fully rendered markdown contents _within the `<head>` tag of the document_.
+
+This approach allows the legacy URL to still resolve, ensuring existing links
+continue to work. The presence of the redirect ensures the user is redirected to
+reasonable content, and that search engines will stop linking the old URL.
+
 ## gh-pages automation
 
 We formerly used Travis-CI for building documentation. However, this meant
