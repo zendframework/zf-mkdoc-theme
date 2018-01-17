@@ -5,6 +5,7 @@
 <head>
   {{ page.content }}
 </head>
+{% else %}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,29 +17,56 @@
 
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ base_url }}/css/{{ config.extra.styles }}">
     {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
     {%- endfor %}
+
+    {% if config.google_analytics %}
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
+    ga('send', 'pageview');
+    </script>
+    {% endif %}
 </head>
-<body id="page-top">
+
+<body{% if page and page.is_homepage %} class="homepage" {% endif %}>
 
     {% include "nav.html" %}
 
     <!-- content:begin -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 content" role="main">
-                {% block content %}
-                    {% include "content.html" %}
-                {% endblock %}
-            </div>
-            <div class="col-md-3 sidebar">{% include "subnavigation.html" %}</div>
-        </div>
+    <div id="page-top" class="container docs">
+        {% block content %}
+        <div class="col-md-3">{% include "toc.html" %}</div>
+        <div class="col-md-9" role="main">{% include "content.html" %}</div>
+        {% endblock %}
     </div>
     <!-- content:end -->
 
     {% include "footer.html" %}
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script>var base_url = '{{ base_url }}';</script>
+    <script src="{{ base_url }}/js/{{ config.extra.scripts }}"></script>
+    <script data-main="{{ base_url }}/mkdocs/js/search.js" src="{{ base_url }}/mkdocs/js/require.js"></script>
+    {%- for path in extra_javascript %}
+        <script src="{{ path }}"></script>
+    {%- endfor %}
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -68,31 +96,6 @@
     </div>
 
     {% include "dropdown.html" %}
-
-    <script>var base_url = '{{ base_url }}';</script>
-    <script src="{{ base_url }}/js/{{ config.extra.scripts }}"></script>
-    {%- for path in extra_javascript %}
-        <script src="{{ path }}"></script>
-    {%- endfor %}
-
-{% if config.google_analytics %}
-<script>
-(function(i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-    m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
-ga('send', 'pageview');
-</script>
-{% endif %}
 
 </body>
 {% endif %}

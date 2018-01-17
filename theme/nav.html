@@ -4,20 +4,18 @@
         <!-- Collapsed navigation -->
         <div class="navbar-header">
             {% if nav|length>1 or config.repo_url %}
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             {% endif %}
 
             <!-- Main title -->
             <span class="navbar-brand">
-                <a class="logo-link" href="https://framework.zend.com/" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage">
-                    <img src="{{ base_url }}/img/zf-logo-mark.svg" height="28" alt="Zend Framework" />
-                </a>
+                <a class="logo-link" href="https://framework.zend.com/" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="{{ base_url }}/img/zf-logo-mark.svg" height="28" alt="Zend Framework" /></a>
                 <a href="{{ nav.homepage.url }}">{{ config.site_name }}</a>
             </span>
         </div>
@@ -27,24 +25,24 @@
             {% if nav|length>1 %}
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
-                    {% for nav_item in nav %}
-                        {% if nav_item.children %}
-                            <li class="dropdown{% if nav_item.active %} active{% endif %}">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    {{ nav_item.title }} <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    {% for nav_item in nav_item.children %}
-                                        {% include "nav-sub.html" %}
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                        {% else %}
-                            <li{% if nav_item.active %} class="active"{% endif %}>
-                                <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
-                            </li>
-                        {% endif %}
-                    {% endfor %}
+                {% for nav_item in nav %}
+                {% if nav_item.children %}
+                    <li class="dropdown{% if nav_item.active %} active{% endif %}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.title }} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        {% for nav_item in nav_item.children %}
+                            {% include "nav-sub.html" %}
+                        {% endfor %}
+                        </ul>
+                    </li>
+                {% else %}
+                    {% if not nav_item.title.startswith("_") %}
+                    <li {% if nav_item.active %}class="active"{% endif %}>
+                        <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
                 </ul>
             {% endif %}
 
@@ -60,7 +58,6 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-
                 {% if config.repo_url %}
                     <li>
                         <a href="{{ config.repo_url }}">
