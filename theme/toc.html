@@ -1,11 +1,14 @@
 {% for toc_item in page.toc %}
+    {# Skip heading level 1 #}
+
+    {# Skip entire table of contents if there are no headlines #}
     {% if toc_item.children|length > 0 %}
         <div class="toc">
             <h6 class="toc__headline">In This Article</h6>
             <ul class="toc__list">
-                {% for toc_item in toc_item.children %}
+                {% for toc_subitem in toc_item.children %}
                     <li class="toc__entry">
-                        <a href="{{ toc_item.url }}" class="toc__link">{{ toc_item.title }}</a>
+                        <a href="{{ toc_subitem.url }}" class="toc__link">{{ toc_subitem.title }}</a>
                     </li>
                 {% endfor %}
             </ul>
