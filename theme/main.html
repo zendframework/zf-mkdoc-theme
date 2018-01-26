@@ -17,7 +17,7 @@
 
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
 
-    <link rel="stylesheet" href="{{ base_url }}/css/styles.css">
+    <link rel="stylesheet" href="{{ base_url }}/css/{{ config.extra.styles }}">
     {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
     {%- endfor %}
@@ -50,7 +50,7 @@
     {% include "footer.html" %}
 
     <script>var base_url = '{{ base_url }}';</script>
-    <script src="{{ base_url }}/js/scripts.js"></script>
+    <script src="{{ base_url }}/js/{{ config.extra.scripts }}"></script>
     {%- for path in extra_javascript %}
         <script src="{{ path }}"></script>
     {%- endfor %}
