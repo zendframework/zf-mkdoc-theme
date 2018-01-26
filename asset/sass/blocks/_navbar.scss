@@ -1,6 +1,5 @@
 .navbar {
-    border-top: 3px solid darken($brand-primary, 10%);
-    /*box-shadow : 0 0 9px 0 rgba(0, 0, 0, .3);*/
+    border: none;
 
     a {
         &:focus {
@@ -9,11 +8,21 @@
     }
 
     &-brand {
+        padding-top: $padding-large-vertical;
+
         a {
             &:hover {
                 text-decoration: none;
                 color: white;
             }
         }
+
+        img {
+            height: 25px;
+        }
+    }
+
+    &-right {
+        margin-right: -($padding-large-vertical * 3);
     }
 }
