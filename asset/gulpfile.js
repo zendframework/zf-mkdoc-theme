@@ -64,8 +64,7 @@ gulp.task('scripts', function () {
                 'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
                 'node_modules/anchor-js/anchor.min.js',
-                'js/base.js',
-                'js/component-list.js'
+                'js/base.js'
             ]
         )
     )
