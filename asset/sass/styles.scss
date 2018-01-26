@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
 @import 'settings';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
@@ -6,11 +6,10 @@
 @import 'elements';
 @import 'misc';
 @import 'blocks/anchorjs';
-@import 'blocks/component-list';
 @import 'blocks/breadcrumb';
 @import 'blocks/content';
-@import 'blocks/dropdown';
 @import 'blocks/footer';
+@import "blocks/header";
 @import 'blocks/navbar';
 @import 'blocks/page-nav';
 @import 'blocks/sidebar';
