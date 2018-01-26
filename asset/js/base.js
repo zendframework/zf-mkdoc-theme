@@ -26,6 +26,9 @@
         $('#mkdocs-search-query').focus();
     });
 
+    // Tooltip
+    $('[data-tooltip]').tooltip();
+
     var shiftWindow = function () {
         scrollBy(0, -50)
     };
