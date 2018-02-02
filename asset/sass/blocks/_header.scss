@@ -3,6 +3,10 @@
     margin-bottom: $padding-large-vertical * 4;
     padding: $padding-large-vertical 0;
 
+    @media (max-width: $screen-xs-min) {
+        margin-bottom: $padding-large-vertical * 2;
+    }
+
     &__title {
         font-size: 30px;
         font-weight: 300;
@@ -15,6 +19,10 @@
         color: transparentize(white, 0.3);
         font-size: 20px;
         font-weight: 300;
+
+        @media (max-width: $screen-sm-min) {
+            display: none;
+        }
     }
 
     &__link {
@@ -36,7 +44,11 @@
         &--search {
         }
 
-        &--github {
+        @media (max-width: $screen-xs-min) {
+            &--components,
+            &--github {
+                display: none;
+            }
         }
     }
 }

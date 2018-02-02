@@ -4,6 +4,10 @@
     margin-bottom: $padding-large-vertical * 4;
     order: -1;
 
+    @media (max-width: $screen-xs-min) {
+        margin-bottom: $padding-large-vertical;
+    }
+
     &__headline {
         color: #95989a;
         margin: 0 0 $padding-large-vertical;
