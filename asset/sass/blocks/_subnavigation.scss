@@ -93,4 +93,27 @@
             font-weight: bold;
         }
     }
+
+    .navbar-nav & {
+        &__title {
+            margin-top: $padding-large-vertical * 2;
+        }
+
+        &__list {
+            &-item {
+                border-bottom-color: darken($separater-color, 60%);
+            }
+        }
+
+        &__headline {
+            border-bottom-color: darken($separater-color, 60%);
+        }
+
+        &__link {
+            &:link,
+            &:visited {
+                color: rgb(240, 240, 240);
+            }
+        }
+    }
 }

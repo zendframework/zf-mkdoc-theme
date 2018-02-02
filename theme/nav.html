@@ -42,6 +42,11 @@
                     <a href="https://framework.zend.com/participate">Participate</a>
                 </li>
             </ul>
+            {% if config.site_name != 'Documentation' %}
+                <div class="nav navbar-nav navbar-collapse visible-xs-block ">
+                    {% include "subnavigation.html" %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
