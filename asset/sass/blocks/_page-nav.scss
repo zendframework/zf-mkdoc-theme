@@ -7,6 +7,11 @@
     margin-bottom: $padding-large-vertical * 2;
     padding: ($padding-base-vertical * 4) $padding-base-vertical;
 
+    @media (max-width: $screen-xs-min) {
+        margin-top: $padding-large-vertical;
+        margin-bottom: 0
+    }
+
     &__item {
         display: table-cell;
 

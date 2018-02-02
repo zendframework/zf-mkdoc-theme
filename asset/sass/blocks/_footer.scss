@@ -4,6 +4,10 @@
     padding: $padding-large-vertical * 3;
     margin-top: $padding-large-vertical * 2;
 
+    @media (max-width: $screen-xs-min) {
+        margin-top: 0
+    }
+
     &__headline {
         border-bottom: 1px solid darken($header-footer-font-color, 50%);
         padding-bottom: $padding-base-vertical;
