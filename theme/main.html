@@ -33,12 +33,12 @@
     <!-- Content -->
     <div class="container">
         <div class="row">
-            <div class="col-md-9 content" role="main">
+            <div class="col-md-9 col-xs-12 content" role="main">
                 {% block content %}
                     {% include "content.html" %}
                 {% endblock %}
             </div>
-            <div class="col-md-3 sidebar">
+            <div class="col-md-3 col-xs-12 sidebar">
                 {% if config.site_name != 'Documentation' %}
                     {% include "subnavigation.html" %}
                 {% endif %}
