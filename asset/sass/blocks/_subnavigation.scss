@@ -93,21 +93,4 @@
             font-weight: bold;
         }
     }
-
-    &__components-link {
-        text-align: center;
-        font-size: $font-size-small;
-        margin: auto;
-        display: block;
-        width: 70%;
-        border: 1px solid #ccc;
-        padding: ($padding-large-vertical / 2) $padding-large-vertical;
-        color: lighten(#000, 50%);
-
-        &:hover {
-            text-decoration: none;
-            background-color: $link-color;
-            color: #fff;
-        }
-    }
 }
