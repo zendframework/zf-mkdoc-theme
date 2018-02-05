@@ -155,6 +155,11 @@
     "description": "HTTP message and header abstractions, and HTTP client implementation.  (Not a PSR-7 implementation.)"
   },
   {
+    "name": "HTTP Request Handler Runner",
+    "url": "https://docs.zendframework.com/zend-httphandlerrunner/",
+    "description": "Execute PSR-15 RequestHandlerInterface instances and emit responses they generate."
+  },
+  {
     "name": "Hydrator",
     "url": "https://docs.zendframework.com/zend-hydrator/",
     "description": "Serialize objects to arrays, and vice versa."
