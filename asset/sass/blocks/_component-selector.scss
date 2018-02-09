@@ -1,0 +1,19 @@
+.component-selector {
+    padding: $padding-large-vertical * 1.5 $padding-large-vertical * 2.5;
+
+    &__title {
+        color: #95989a;
+        margin: 0;
+    }
+
+    &__subtitle {
+        color: #95989a;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: $padding-large-vertical * 1.5;
+    }
+
+    &__control {
+
+    }
+}
