@@ -29,6 +29,25 @@
     // Tooltip
     $('[data-tooltip]').tooltip();
 
+    // Component selector
+    var componentSelector = document.querySelector('.component-selector__control');
+    if (componentSelector) {
+        componentSelector.addEventListener('change', function (event) {
+            var value = event.target.value;
+            if (value.length === 0) {
+                return;
+            }
+
+            // Create URL
+            var url              = new URL(
+                value,
+                'https://docs.zendframework.com/'
+            );
+            // Navigate to component
+            window.location.href = url.href;
+        });
+    }
+
     var shiftWindow = function () {
         scrollBy(0, -50)
     };
