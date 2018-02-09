@@ -5,6 +5,10 @@
         padding-bottom: 2px;
         margin: 0 $padding-large-vertical ($padding-large-vertical * 1.5);
 
+        @media (max-width: $screen-xs-min) {
+            margin-bottom: 0;
+        }
+
         a {
             &:link,
             &:visited {
@@ -14,6 +18,16 @@
             &:hover {
                 color: $link-color;
             }
+        }
+    }
+
+    &__subtitle {
+        margin: 0 $padding-large-vertical ($padding-large-vertical * 1.5);
+        color: #95989a;
+        font-weight: 300;
+
+        @media (min-width: $screen-xs-min) {
+            display: none;
         }
     }
 
@@ -102,6 +116,13 @@
         &__list {
             &-item {
                 border-bottom-color: darken($separater-color, 60%);
+
+                &--active a {
+                    &:link,
+                    &:visited {
+                        color: $brand-primary;
+                    }
+                }
             }
         }
 
@@ -113,6 +134,10 @@
             &:link,
             &:visited {
                 color: rgb(240, 240, 240);
+            }
+
+            &:hover {
+                color: $text-color;
             }
         }
     }

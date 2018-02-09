@@ -23,6 +23,12 @@
     }
 
     &-right {
-        margin-right: -($padding-large-vertical * 3);
+        margin-right: -($padding-small-horizontal * 3);
+
+        @media (max-width: $screen-xs-min) {
+            & > li > a {
+                padding-left: $padding-small-horizontal * 2.5;
+            }
+        }
     }
 }
