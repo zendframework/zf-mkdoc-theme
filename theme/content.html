@@ -11,3 +11,12 @@
 {% if page.previous_page or page.next_page  %}
     {% include "page-nav.html" %}
 {% endif %}
+
+<div class="help-wanted">
+    <p>
+        Found a mistake or want to contribute to the documentation?
+        <a href="{{ page.edit_url }}" target="_blank" class="help-wanted__link">
+            Edit this page on GitHub!
+        </a>
+    </p>
+</div>
