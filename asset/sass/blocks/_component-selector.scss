@@ -2,12 +2,12 @@
     padding: $padding-large-vertical * 1.5 $padding-large-vertical * 2.5;
 
     &__title {
-        color: #95989a;
+        color: $text-color-reduced;
         margin: 0;
     }
 
     &__subtitle {
-        color: #95989a;
+        color: $text-color-reduced;
         font-weight: 300;
         margin-top: 0;
         margin-bottom: $padding-large-vertical * 1.5;

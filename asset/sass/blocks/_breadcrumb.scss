@@ -1,5 +1,5 @@
 .breadcrumb {
-    color: #9d9d9d;
+    color: $text-color-reduced;
     order: -3;
 
     @media (max-width: $screen-xs-min) {

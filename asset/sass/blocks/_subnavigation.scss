@@ -12,7 +12,7 @@
         a {
             &:link,
             &:visited {
-                color: #95989a;
+                color: $text-color-reduced;
             }
 
             &:hover {
@@ -23,7 +23,7 @@
 
     &__subtitle {
         margin: 0 $padding-large-vertical ($padding-large-vertical * 1.5);
-        color: #95989a;
+        color: $text-color-reduced;
         font-weight: 300;
 
         @media (min-width: $screen-xs-min) {
@@ -86,7 +86,7 @@
         border-bottom: 1px solid $separater-color;
         padding: ($padding-large-vertical / 2) $padding-large-vertical;
         display: block;
-        color: lighten(rgb(119, 119, 119), 25%);
+        color: lighten($text-color-secondary, 25%);
     }
 
     &__link {
@@ -95,7 +95,7 @@
 
         &:link,
         &:visited {
-            color: rgb(119, 119, 119);
+            color: $text-color-secondary;
         }
 
         &:hover {
