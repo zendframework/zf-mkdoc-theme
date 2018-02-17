@@ -1,10 +1,10 @@
 .page-nav {
     list-style-type: none;
-    border-top: 1px solid #ddd;
+    border-bottom: 1px solid darken($separater-color, 10%);
     display: table;
     width: 100%;
     margin-top: $padding-large-vertical * 4;
-    margin-bottom: $padding-large-vertical * 2;
+    margin-bottom: $padding-large-vertical * 4;
     padding: ($padding-base-vertical * 4) $padding-base-vertical;
 
     @media (max-width: $screen-xs-min) {
