@@ -50,6 +50,11 @@
     "description": "Consume zend-mvc modules as configuration providers within zend-config-aggregator."
   },
   {
+    "name": "ConfigAggregator Templated Parameters PostProcessor",
+    "url": "https://docs.zendframework.com/zend-config-aggregator-parameters/",
+    "description": "PostProcessor extension for zendframework/zend-config-aggregator to allow usage of templated parameters within your configuration."
+  },
+  {
     "name": "Console",
     "url": "https://docs.zendframework.com/zend-console/",
     "description": "Build console applications using getopt syntax or routing, complete with prompts"
