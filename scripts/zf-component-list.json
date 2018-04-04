@@ -45,6 +45,11 @@
     "description": "Lightweight library for collecting and merging configuration from different sources."
   },
   {
+    "name": "ConfigAggregator ModuleManager Plugin",
+    "url": "https://docs.zendframework.com/zend-config-aggregator-modulemanager/",
+    "description": "Consume zend-mvc modules as configuration providers within zend-config-aggregator."
+  },
+  {
     "name": "Console",
     "url": "https://docs.zendframework.com/zend-console/",
     "description": "Build console applications using getopt syntax or routing, complete with prompts"
