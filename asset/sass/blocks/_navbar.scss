@@ -7,6 +7,13 @@
         }
     }
 
+    &-default {
+        .navbar-toggle {
+            border: none;
+            margin-right: 5px;
+        }
+    }
+
     &-brand {
         padding-top: $padding-large-vertical;
 
