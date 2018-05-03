@@ -86,8 +86,8 @@ gulp.task('styles', function () {
         ]
     )
         .pipe(sass())
+        .pipe(concat({path : 'styles.css'}))
         .pipe(rev())
-        .pipe(concat('styles.css'))
         .pipe(gulp.dest('../theme/css/'))
         .pipe(rev.manifest('../assets.yml', {merge : true}))
         .pipe(gulp.dest('./'));
@@ -98,5 +98,6 @@ gulp.task('default', ['images', 'icons', 'scripts', 'styles']);
 
 // Watch
 gulp.task('watch', function () {
+    gulp.watch(['js/**/*.js'], ['scripts']);
     gulp.watch(['sass/**/*.scss'], ['styles']);
 });
