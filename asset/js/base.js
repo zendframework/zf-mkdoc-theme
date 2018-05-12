@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
     "use strict";
 
     // Tables
@@ -34,4 +34,4 @@
         shiftWindow();
     }
     window.addEventListener('hashchange', shiftWindow);
-})();
+});
