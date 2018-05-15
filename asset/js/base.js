@@ -4,7 +4,7 @@
     // Tables
     var tables = document.querySelectorAll('.content table');
     if (tables.length) {
-        tables.forEach(function (element) {
+        [].forEach.call(tables, function(element) {
             element.classList.add('table', 'table-striped', 'table-hover');
         });
     }
@@ -17,7 +17,7 @@
 
     // Pre elements
     var preElements = document.querySelectorAll('pre');
-    preElements.forEach(function (element) {
+    [].forEach.call(preElements, function(element) {
         element.classList.add('line-numbers');
     });
 

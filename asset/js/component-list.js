@@ -9,7 +9,7 @@
     loadComponentList();
 
     // Add event listener
-    componentSelectors.forEach(function (element) {
+    [].forEach.call(componentSelectors, function(element) {
         element.addEventListener('change', function (event) {
             // Get value
             var value = event.target.value;
@@ -23,7 +23,7 @@
     });
 
     function injectComponent(name, url) {
-        componentSelectors.forEach(function (element) {
+        [].forEach.call(componentSelectors, function(element) {
             var optionGroups = element.getElementsByTagName('optgroup');
             if (optionGroups.length === 0) {
                 return;
