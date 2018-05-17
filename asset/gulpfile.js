@@ -86,7 +86,7 @@ gulp.task('styles', function () {
             'sass/styles.scss'
         ]
     )
-        .pipe(sass())
+        .pipe(sass({outputStyle : 'compressed'}))
         .pipe(concat({path : 'styles.css'}))
         .pipe(rev())
         .pipe(gulp.dest('../theme/css/'))
