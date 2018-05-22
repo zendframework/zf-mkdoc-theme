@@ -1,0 +1,9 @@
+.breadcrumb {
+    color: $text-color-reduced;
+    order: -3;
+
+    @media (max-width: $screen-xs-min) {
+        font-size: $font-size-small;
+        margin-bottom: $padding-small-vertical;
+    }
+}

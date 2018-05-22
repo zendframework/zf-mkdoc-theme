@@ -18,14 +18,15 @@
   "homepage": "http://framework.zend.com",
   "devDependencies": {
     "anchor-js": "^3.2.1",
-    "bootstrap-sass": "^3.3.6",
-    "es6-promise": "^3.2.1",
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-cssimport": "^3.1.0",
     "gulp-rev": "^7.1.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^1.5.4",
-    "prismjs": "^1.5.1"
+    "jquery": "^3.2.1",
+    "prismjs": "^1.8.3"
   }
 }

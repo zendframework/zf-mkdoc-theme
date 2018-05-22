@@ -1,0 +1,41 @@
+.navbar {
+    border: none;
+
+    a {
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    &-default {
+        .navbar-toggle {
+            border: none;
+            margin-right: 5px;
+        }
+    }
+
+    &-brand {
+        padding-top: $padding-large-vertical;
+
+        a {
+            &:hover {
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+        img {
+            height: 25px;
+        }
+    }
+
+    &-right {
+        margin-right: -($padding-small-horizontal * 3);
+
+        @media (max-width: $screen-xs-min) {
+            & > li > a {
+                padding-left: $padding-small-horizontal * 2.5;
+            }
+        }
+    }
+}

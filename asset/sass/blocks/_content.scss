@@ -1,0 +1,34 @@
+.content {
+    display: flex;
+    flex-direction: column;
+
+    &__title,
+    h1:first-of-type {
+        order: -2;
+        color: lighten($text-color, 15%);
+        font-size: 52px;
+        border-bottom: 1px solid $separater-color;
+        margin-bottom: $padding-large-vertical * 2.5;
+        margin-top: $padding-large-vertical;
+        padding-bottom: $padding-large-vertical / 2;
+
+        @media (max-width: $screen-xs-min) {
+            font-size: floor(($font-size-base * 2.2));
+        }
+    }
+
+    h2 {
+        border-top: 1px solid $separater-color;
+        padding-top: $padding-large-vertical * 1.5;
+        margin-top: $padding-large-vertical * 5;
+        margin-bottom: $padding-large-vertical * 3;
+
+        @media (max-width: $screen-xs-min) {
+            margin-top: $padding-large-vertical;
+        }
+    }
+
+    & > h3 {
+        font-weight: 400;
+    }
+}

@@ -1,0 +1,36 @@
+.toc {
+    margin-left: $padding-large-vertical * 1.5;
+    margin-top: 0;
+    margin-bottom: $padding-large-vertical * 4;
+    order: -1;
+
+    @media (max-width: $screen-xs-min) {
+        margin-bottom: $padding-large-vertical;
+    }
+
+    &__headline {
+        color: $text-color-reduced;
+        margin: 0 0 $padding-large-vertical;
+        font-size: $font-size-base;
+    }
+
+    &__list {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        font-size: $font-size-small;
+
+        &-item {
+            border: none;
+        }
+    }
+
+    &__link {
+        padding: $padding-large-vertical 0;
+
+        &:link,
+        &:visited {
+            color: $text-color-secondary;
+        }
+    }
+}

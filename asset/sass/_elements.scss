@@ -1,0 +1,32 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+code {
+    word-break: break-word;
+}
+
+img {
+    max-width: 100%;
+}
+
+blockquote {
+    background-color: lighten($separater-color, 3%);
+
+    h3 {
+        margin-top: 0;
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
+
+pre[class*="language-"] {
+    font-size: 13px;
+    border-radius: 0;
+    border: none;
+    background-color: $header-footer-bg-color;
+    margin-top: $padding-large-vertical * 2;
+    margin-bottom: $padding-large-vertical * 2;
+}

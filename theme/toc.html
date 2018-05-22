@@ -1,21 +1,17 @@
-<div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    {% for toc_item in page.toc %}
-        <li class="main {% if toc_item.active %}active{% endif %}"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-        {% for toc_item in toc_item.children %}
-            <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-        {% endfor %}
-    {% endfor %}
-    </ul>
+{% for toc_item in page.toc %}
+    {# Skip heading level 1 #}
 
-    {% if page.next_page %}
-    <ul class="pager hidden-print">
-      <li class="previous{% if not page.previous_page %} disabled{% endif %}">
-        <a rel="prev" {% if page.previous_page %}href="{{ page.previous_page.url }}"{% endif %}><i class="fa fa-arrow-left"></i> Previous</a>
-      </li>
-      <li class="next{% if not page.next_page %} disabled {% endif %}">
-        <a rel="next" {% if page.next_page %}href="{{ page.next_page.url }}"{% endif %}>Next <i class="fa fa-arrow-right"></i></a>
-      </li>
-    </ul>
+    {# Skip entire table of contents if there are no headlines #}
+    {% if toc_item.children|length > 0 %}
+        <div class="toc">
+            <h6 class="toc__headline">In This Article</h6>
+            <ul class="toc__list">
+                {% for toc_subitem in toc_item.children %}
+                    <li class="toc__entry">
+                        <a href="{{ toc_subitem.url }}" class="toc__link">{{ toc_subitem.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endif %}
-</div>
+{% endfor %}

@@ -1,26 +1,22 @@
-{% if page.meta.source %}
-<div class="source-links">
-{% for filename in page.meta.source %}
-    <span class="label label-primary">{{ filename }}</span>
-{% endfor %}
-</div>
-{% endif %}
-
 {% include "breadcrumbs.html" %}
 
-{{ page.content }}
+{% if page.is_homepage %}
+    {% include "homepage.html" %}
+{% else %}
+    {% include "toc.html" %}
 
-<hr />
-
-{% if page.next_page %}
-<nav>
-  <ul class="pager hidden-print">
-    <li class="previous{% if not page.previous_page %} disabled{% endif %}">
-      <a rel="prev" {% if page.previous_page %}href="{{ page.previous_page.url }}"{% endif %}><i class="fa fa-arrow-left"></i> Previous</a>
-    </li>
-    <li class="next{% if not page.next_page %} disabled {% endif %}">
-      <a rel="next" {% if page.next_page %}href="{{ page.next_page.url }}"{% endif %}>Next <i class="fa fa-arrow-right"></i></a>
-    </li>
-  </ul>
-</nav>
+    {{ page.content }}
 {% endif %}
+
+{% if page.previous_page or page.next_page  %}
+    {% include "page-nav.html" %}
+{% endif %}
+
+<div class="help-wanted">
+    <p>
+        Found a mistake or want to contribute to the documentation?
+        <a href="{{ page.edit_url }}" target="_blank" class="help-wanted__link">
+            Edit this page on GitHub!
+        </a>
+    </p>
+</div>

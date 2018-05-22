@@ -1,0 +1,54 @@
+.header {
+    background-color: $brand-primary;
+    margin-bottom: $padding-large-vertical * 4;
+    padding: $padding-large-vertical 0;
+
+    @media (max-width: $screen-xs-min) {
+        margin-bottom: $padding-large-vertical * 2;
+    }
+
+    &__title {
+        font-size: 30px;
+        font-weight: 300;
+        margin: 0;
+        color: white;
+        word-break: normal;
+    }
+
+    &__subtitle {
+        color: transparentize(white, 0.3);
+        font-size: 20px;
+        font-weight: 300;
+
+        @media (max-width: $screen-sm-min) {
+            display: none;
+        }
+    }
+
+    &__link {
+        color: white;
+        font-size: 15px;
+        display: inline-block;
+        padding: ($padding-large-vertical / 2) 0 0 $padding-large-vertical;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            outline: 0;
+        }
+
+        i {
+            font-size: 1.2em;
+        }
+
+        &--search {
+        }
+
+        @media (max-width: $screen-xs-min) {
+            &--components,
+            &--github {
+                display: none;
+            }
+        }
+    }
+}

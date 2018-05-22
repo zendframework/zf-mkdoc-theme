@@ -1,0 +1,23 @@
+.component-selector {
+    padding: 0 $padding-large-vertical ($padding-large-vertical * 2) $padding-large-vertical;
+
+    @media (max-width: $screen-xs-min) {
+        padding: ($padding-large-vertical * 1.5) $padding-large-vertical;
+    }
+
+    &__title {
+        color: $text-color-reduced;
+        margin: 0;
+    }
+
+    &__subtitle {
+        color: $text-color-reduced;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: $padding-large-vertical * 1.5;
+    }
+
+    &__control {
+
+    }
+}

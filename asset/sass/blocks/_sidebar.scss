@@ -1,0 +1,10 @@
+.sidebar {
+    position: sticky;
+    overflow-x: hidden;
+    overflow-y: auto;
+    top: $padding-large-vertical * 4;
+
+    @media (max-width: $screen-xs-min) {
+        display: none;
+    }
+}
