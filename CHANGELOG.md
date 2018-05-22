@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.6.0 - TBD
+## 0.6.0 - 2018-05-22
 
 ### Added
 
@@ -10,7 +10,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- Nothing.
+- [#34](https://github.com/zendframework/zf-mkdoc-theme/pull/34) rewrites the entire theme to be more mobile friendly,
+  provide subnavigation in-page (instead of via a menu), improve navigation
+  between components, and more. Additionally, it simplifies the SASS used, and
+  reduces remote dependencies.
 
 ### Deprecated
 
