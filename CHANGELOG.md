@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.6.1 - 2018-05-22
+
+### Added
+
+- [#38](https://github.com/zendframework/zf-mkdoc-theme/pull/38) adds the ability to swap in HTML contents in the landing page. Packages
+  may do so by providing a `.zf-mkdoc-theme-landing` file in their package root,
+  and an `index.html` file in the documentation directory with the contents to
+  swap in. The contents will be rendered inside the main container of the
+  content area.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.6.0 - 2018-05-22
 
 ### Added
