@@ -33,10 +33,10 @@ while getopts hu: option;do
     esac
 done
 
-DOC_DIR=doc
-if [ -d "docs" ];then
-    DOC_DIR=docs
-fi
+cp mkdocs.yml mkdocs.yml.orig
+
+DOCS_DIR=$(php ${SCRIPT_PATH}/discover_doc_dir.php)
+DOC_DIR=$(dirname ${DOCS_DIR})
 
 # Build assets
 echo "Building assets"
@@ -44,7 +44,6 @@ ${SCRIPT_PATH}/asset.sh
 
 # Update the mkdocs.yml
 echo "Building documentation in ${DOC_DIR}"
-cp mkdocs.yml mkdocs.yml.orig
 echo "site_url: ${SITE_URL}"
 echo "extra:" >> mkdocs.yml
 cat zf-mkdoc-theme/assets.yml >> mkdocs.yml
@@ -52,7 +51,10 @@ echo "markdown_extensions:" >> mkdocs.yml
 echo "    - markdown.extensions.codehilite:" >> mkdocs.yml
 echo "        use_pygments: False" >> mkdocs.yml
 echo "    - pymdownx.superfences" >> mkdocs.yml
-echo "theme_dir: zf-mkdoc-theme/theme" >> mkdocs.yml
+echo "theme:" >> mkdocs.yml
+echo "    name: null" >> mkdocs.yml
+echo "    custom_dir: zf-mkdoc-theme/theme" >> mkdocs.yml
+echo "edit_uri: edit/master/${DOCS_DIR}/" >> mkdocs.yml
 
 # Preserve files if necessary (as mkdocs build --clean removes all files)
 if [ -e .zf-mkdoc-theme-preserve ]; then
