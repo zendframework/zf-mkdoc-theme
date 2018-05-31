@@ -1,38 +1,36 @@
 (function () {
     "use strict";
 
-    var componentSelectors;
+    var componentSelector;
 
     function injectComponent(name, url) {
-        componentSelectors.forEach(function(element) {
-            var optionGroups = element.getElementsByTagName('optgroup');
-            if (optionGroups.length === 0) {
-                return;
-            }
+        var optionGroups = componentSelector.getElementsByTagName('optgroup');
+        if (optionGroups.length === 0) {
+            return;
+        }
 
-            // Create option element
-            var option = document.createElement('option');
-            option.setAttribute('value', url);
-            option.textContent = name;
+        // Create option element
+        var option = document.createElement('option');
+        option.setAttribute('value', url);
+        option.textContent = name;
 
-            // Selected?
-            // eslint-disable-next-line no-use-before-define
-            if (url.indexOf(siteName) !== -1) {
-                option.setAttribute('selected', 'selected');
-            }
+        // Selected?
+        // eslint-disable-next-line no-use-before-define
+        if (url.indexOf(siteName) !== -1) {
+            option.setAttribute('selected', 'selected');
+        }
 
-            if (name === 'tutorials') {
-                // Update text content
-                option.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+        if (name === 'tutorials') {
+            // Update text content
+            option.textContent = name.charAt(0).toUpperCase() + name.slice(1);
 
-                // Insert
-                element.insertBefore(option, optionGroups[0]);
-                return;
-            }
+            // Insert
+            componentSelector.insertBefore(option, optionGroups[0]);
+            return;
+        }
 
-            // Append
-            optionGroups[0].appendChild(option);
-        });
+        // Append
+        optionGroups[0].appendChild(option);
     }
 
     function parseComponentList(event) {
@@ -55,33 +53,36 @@
         request.send();
     }
 
-    function getComponentSelectors() {
+    function getComponentSelector() {
         var selectors = [];
         const nodeList = document.querySelectorAll('.component-selector__control');
         for (var i = 0; i < nodeList.length; i += 1) {
             selectors.push(nodeList[i]);
         }
-        return selectors;
+
+        if (selectors.length === 0) {
+            return;
+        }
+
+        return selectors.shift();
     }
 
-    componentSelectors = getComponentSelectors();
-    if (componentSelectors.length === 0) {
+    componentSelector = getComponentSelector();
+    if (! componentSelector) {
         return;
     }
 
     loadComponentList();
 
     // Add event listener
-    componentSelectors.forEach(function(element) {
-        element.addEventListener('change', function (event) {
-            // Get value
-            var value = event.target.value;
-            if (value.length === 0) {
-                return;
-            }
+    componentSelector.addEventListener('change', function (event) {
+        // Get value
+        var value = event.target.value;
+        if (value.length === 0) {
+            return;
+        }
 
-            // Navigate to component
-            window.location.href = value;
-        });
+        // Navigate to component
+        window.location.href = value;
     });
 })();
