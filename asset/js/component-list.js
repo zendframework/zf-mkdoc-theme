@@ -1,29 +1,10 @@
 (function () {
     "use strict";
 
-    var componentSelectors = document.querySelectorAll('.component-selector__control');
-    if (componentSelectors.length === 0) {
-        return;
-    }
-
-    loadComponentList();
-
-    // Add event listener
-    [].forEach.call(componentSelectors, function(element) {
-        element.addEventListener('change', function (event) {
-            // Get value
-            var value = event.target.value;
-            if (value.length === 0) {
-                return;
-            }
-
-            // Navigate to component
-            window.location.href = value;
-        });
-    });
+    var componentSelectors;
 
     function injectComponent(name, url) {
-        [].forEach.call(componentSelectors, function(element) {
+        componentSelectors.forEach(function(element) {
             var optionGroups = element.getElementsByTagName('optgroup');
             if (optionGroups.length === 0) {
                 return;
@@ -35,6 +16,7 @@
             option.textContent = name;
 
             // Selected?
+            // eslint-disable-next-line no-use-before-define
             if (url.indexOf(siteName) !== -1) {
                 option.setAttribute('selected', 'selected');
             }
@@ -72,4 +54,34 @@
         request.open('GET', '//docs.zendframework.com/zf-mkdoc-theme/scripts/zf-component-list.json');
         request.send();
     }
+
+    function getComponentSelectors() {
+        var selectors = [];
+        const nodeList = document.querySelectorAll('.component-selector__control');
+        for (var i = 0; i < nodeList.length; i += 1) {
+            selectors.push(nodeList[i]);
+        }
+        return selectors;
+    }
+
+    componentSelectors = getComponentSelectors();
+    if (componentSelectors.length === 0) {
+        return;
+    }
+
+    loadComponentList();
+
+    // Add event listener
+    componentSelectors.forEach(function(element) {
+        element.addEventListener('change', function (event) {
+            // Get value
+            var value = event.target.value;
+            if (value.length === 0) {
+                return;
+            }
+
+            // Navigate to component
+            window.location.href = value;
+        });
+    });
 })();
