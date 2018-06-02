@@ -1,88 +1,90 @@
 (function () {
     "use strict";
 
-    var componentSelector;
+    function prepareComponentList(components) {
+        var componentList = {
+            learn: {
+                label: "Learn ZF",
+                choices: []
+            },
+            middleware: {
+                label: "Expressive and PSR-15 Middleware",
+                choices: []
+            },
+            mvc: {
+                label: "MVC Framework",
+                choices: []
+            },
+            components: {
+                label: "Components",
+                choices: []
+            },
+            projects: {
+                label: "Tooling and Composer Plugins",
+                choices: []
+            },
+        };
+        var uncategorized = [];
 
-    function injectComponent(name, url) {
-        var optionGroups = componentSelector.getElementsByTagName('optgroup');
-        if (optionGroups.length === 0) {
-            return;
-        }
-
-        // Create option element
-        var option = document.createElement('option');
-        option.setAttribute('value', url);
-        option.textContent = name;
-
-        // Selected?
         // eslint-disable-next-line no-use-before-define
-        if (url.indexOf(siteName) !== -1) {
-            option.setAttribute('selected', 'selected');
-        }
+        const matchActive = new RegExp('\/' + siteName + '(\/|$)');
 
-        if (name === 'tutorials') {
-            // Update text content
-            option.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+        components.forEach(function (component) {
+            const selected = matchActive.test(component.url);
+            const packageName = component.package.split('/');
+            const label = component.name + '<br/><span class="dropdown_packagename">' + packageName[1] + '</span>';
+            const choice = {
+                value: component.url,
+                label: label,
+                selected: selected,
+                customProperties: {
+                    description: component.description
+                }
+            };
 
-            // Insert
-            componentSelector.insertBefore(option, optionGroups[0]);
-            return;
-        }
+            componentList.hasOwnProperty(component.group)
+                ? componentList[component.group].choices.push(choice)
+                : uncategorized.push(choice);
+        });
 
-        // Append
-        optionGroups[0].appendChild(option);
+        // Initialize the Choices selector using the component selector as its element
+        const choices = new Choices(document.getElementsByClassName('component-selector__control')[1], {
+            itemSelectText: '',
+            renderChoiceLimit: -1,
+            searchChoices: true,
+            searchEnabled: true,
+            searchFields: ['label', 'customProperties.description'],
+            searchPlaceholderValue: 'Jump to package documentation...',
+            searchResultLimit: 10,
+            shouldSort: false
+        });
+
+        choices.setChoices(
+            Array.prototype.concat.apply(Object.values(componentList), uncategorized),
+            'value',
+            'label',
+            true
+        );
+
+        // On selection of a choice, redirect to its URL
+        choices.passedElement.addEventListener('choice', function (event) {
+            window.location.href = event.detail.choice.value;
+        }, false);
     }
 
     function parseComponentList(event) {
         var request = event.target;
         if (request.readyState === request.DONE && request.status === 200) {
-            var components = JSON.parse(request.responseText);
-            components.forEach(function (element) {
-                var name = element.package;
-                name     = name.substring(name.indexOf('/') + 1);
-
-                injectComponent(name, element.url);
-            });
+            prepareComponentList(JSON.parse(request.responseText));
         }
     }
 
-    function loadComponentList() {
-        var request                = new XMLHttpRequest();
+    // When the window has finished loading the DOM, fetch the components and
+    // populate the dropdown.
+    window.addEventListener('load', function () {
+        const request = new XMLHttpRequest();
         request.onreadystatechange = parseComponentList;
         request.open('GET', '//docs.zendframework.com/zf-mkdoc-theme/scripts/zf-component-list.json');
         request.send();
-    }
-
-    function getComponentSelector() {
-        var selectors = [];
-        const nodeList = document.querySelectorAll('.component-selector__control');
-        for (var i = 0; i < nodeList.length; i += 1) {
-            selectors.push(nodeList[i]);
-        }
-
-        if (selectors.length === 0) {
-            return;
-        }
-
-        return selectors.shift();
-    }
-
-    componentSelector = getComponentSelector();
-    if (! componentSelector) {
-        return;
-    }
-
-    loadComponentList();
-
-    // Add event listener
-    componentSelector.addEventListener('change', function (event) {
-        // Get value
-        var value = event.target.value;
-        if (value.length === 0) {
-            return;
-        }
-
-        // Navigate to component
-        window.location.href = value;
     });
 })();
