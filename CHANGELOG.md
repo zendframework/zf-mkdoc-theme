@@ -10,7 +10,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- Nothing.
+- [#45](https://github.com/zendframework/zf-mkdoc-theme/pull/45) updates the component "dropdown" to be based on Choices.js, which provides us the
+  ability to type-to-select a package, as well as better styling and content for
+  each option. The patch also now groups components in optgroups based on the
+  "group" presented in the `zf-component-list.json`.
 
 ### Deprecated
 
