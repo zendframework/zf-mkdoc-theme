@@ -3,10 +3,12 @@
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import '../node_modules/font-awesome/scss/font-awesome';
+@import '../node_modules/choices.js/assets/styles/scss/choices';
 @import 'elements';
 @import 'misc';
 @import 'blocks/anchorjs';
 @import 'blocks/breadcrumb';
+@import "blocks/choices";
 @import "blocks/component-selector";
 @import 'blocks/content';
 @import 'blocks/footer';

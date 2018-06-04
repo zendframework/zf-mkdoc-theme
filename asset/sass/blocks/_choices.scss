@@ -1,0 +1,17 @@
+/* Override Choices.js styles; do not want "Press to select" text, as it takes
+ * too much room. */
+.choices__list--dropdown {
+    .choices__item--selectable {
+        padding-right: 0;
+    }
+
+    .choices__item--selectable:after {
+        display: none;
+    }
+
+    .choices__packagename {
+        font-size: $font-size-small;
+        color: $text-color-secondary;
+    }
+}
+
