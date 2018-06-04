@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.6.3 - 2018-06-04
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- [#46](https://github.com/zendframework/zf-mkdoc-theme/pull/46) fixes how the component dropdown acts (a) in the navbar, and (b) in sidebars
+  with little or no additional content. Previously, the dropdown in the navbar
+  was not selected; additionally, once it was, the navbar would not expand to
+  fit the height of the dropdown. The sidebar, if the height was short, would
+  not expand to fit the size of the dropdown either, requiring scrolling. In all
+  cases, the parent container now sets a `min-height` that adds its current height
+  to the list height when the dropdown is expanded; the `min-height` is unset
+  when the dropdown is hidden.
+
 ## 0.6.2 - 2018-06-04
 
 ### Added

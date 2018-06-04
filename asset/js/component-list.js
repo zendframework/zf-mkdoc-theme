@@ -1,6 +1,14 @@
 (function () {
     "use strict";
 
+    function getContainerElements() {
+        return Array.prototype.concat.apply([], document.getElementsByClassName('component-selector'));
+    }
+
+    function getSelectElements() {
+        return Array.prototype.concat.apply([], document.getElementsByClassName('component-selector__control'));
+    }
+
     function prepareComponentList(components) {
         var componentList = {
             learn: {
@@ -48,28 +56,45 @@
         });
 
         // Initialize the Choices selector using the component selector as its element
-        const choices = new Choices(document.getElementsByClassName('component-selector__control')[1], {
-            itemSelectText: '',
-            renderChoiceLimit: -1,
-            searchChoices: true,
-            searchEnabled: true,
-            searchFields: ['label', 'customProperties.description'],
-            searchPlaceholderValue: 'Jump to package documentation...',
-            searchResultLimit: 10,
-            shouldSort: false
+        getSelectElements().forEach(function(element) {
+            const choices = new Choices(element, {
+                itemSelectText: '',
+                renderChoiceLimit: -1,
+                searchChoices: true,
+                searchEnabled: true,
+                searchFields: ['label', 'customProperties.description'],
+                searchPlaceholderValue: 'Jump to package documentation...',
+                searchResultLimit: 10,
+                shouldSort: false
+            });
+
+            choices.setChoices(
+                Array.prototype.concat.apply(Object.values(componentList), uncategorized),
+                'value',
+                'label',
+                true
+            );
+
+            // On selection of a choice, redirect to its URL
+            element.addEventListener('choice', function (event) {
+                window.location.href = event.detail.choice.value;
+            }, false);
+
+            // Ensure the parent container expands to fit the list...
+            element.addEventListener('showDropdown', function (event) {
+                getContainerElements().forEach(function (container) {
+                    const choicesList = container.querySelector('.choices__list--dropdown');
+                    container.parentElement.style.minHeight = container.clientHeight + choicesList.clientHeight + "px";
+                });
+            }, false);
+
+            // ... and then shrinks back to size again.
+            element.addEventListener('hideDropdown', function (event) {
+                getContainerElements().forEach(function (container) {
+                    container.parentElement.style.minHeight = 'unset';
+                });
+            }, false);
         });
-
-        choices.setChoices(
-            Array.prototype.concat.apply(Object.values(componentList), uncategorized),
-            'value',
-            'label',
-            true
-        );
-
-        // On selection of a choice, redirect to its URL
-        choices.passedElement.addEventListener('choice', function (event) {
-            window.location.href = event.detail.choice.value;
-        }, false);
     }
 
     function parseComponentList(event) {
