@@ -1,6 +1,10 @@
 (function () {
     "use strict";
 
+    function getContainerElements() {
+        return Array.prototype.concat.apply([], document.getElementsByClassName('component-selector'));
+    }
+
     function getSelectElements() {
         return Array.prototype.concat.apply([], document.getElementsByClassName('component-selector__control'));
     }
@@ -52,7 +56,6 @@
         });
 
         // Initialize the Choices selector using the component selector as its element
-        // document.getElementsByClassName('component-selector__control');
         getSelectElements().forEach(function(element) {
             const choices = new Choices(element, {
                 itemSelectText: '',
@@ -73,8 +76,22 @@
             );
 
             // On selection of a choice, redirect to its URL
-            choices.passedElement.addEventListener('choice', function (event) {
+            element.addEventListener('choice', function (event) {
                 window.location.href = event.detail.choice.value;
+            }, false);
+
+            // Ensure the parent container expands to fit the list...
+            element.addEventListener('showDropdown', function (event) {
+                getContainerElements().forEach(function (container) {
+                    container.parentElement.style.minHeight = container.clientHeight + 350 + "px";
+                });
+            }, false);
+
+            // ... and then shrinks back to size again.
+            element.addEventListener('hideDropdown', function (event) {
+                getContainerElements().forEach(function (container) {
+                    container.parentElement.style.minHeight = 'unset';
+                });
             }, false);
         });
     }
