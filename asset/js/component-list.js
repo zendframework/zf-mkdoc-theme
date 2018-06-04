@@ -1,6 +1,10 @@
 (function () {
     "use strict";
 
+    function getSelectElements() {
+        return Array.prototype.concat.apply([], document.getElementsByClassName('component-selector__control'));
+    }
+
     function prepareComponentList(components) {
         var componentList = {
             learn: {
@@ -48,28 +52,31 @@
         });
 
         // Initialize the Choices selector using the component selector as its element
-        const choices = new Choices(document.getElementsByClassName('component-selector__control')[1], {
-            itemSelectText: '',
-            renderChoiceLimit: -1,
-            searchChoices: true,
-            searchEnabled: true,
-            searchFields: ['label', 'customProperties.description'],
-            searchPlaceholderValue: 'Jump to package documentation...',
-            searchResultLimit: 10,
-            shouldSort: false
+        // document.getElementsByClassName('component-selector__control');
+        getSelectElements().forEach(function(element) {
+            const choices = new Choices(element, {
+                itemSelectText: '',
+                renderChoiceLimit: -1,
+                searchChoices: true,
+                searchEnabled: true,
+                searchFields: ['label', 'customProperties.description'],
+                searchPlaceholderValue: 'Jump to package documentation...',
+                searchResultLimit: 10,
+                shouldSort: false
+            });
+
+            choices.setChoices(
+                Array.prototype.concat.apply(Object.values(componentList), uncategorized),
+                'value',
+                'label',
+                true
+            );
+
+            // On selection of a choice, redirect to its URL
+            choices.passedElement.addEventListener('choice', function (event) {
+                window.location.href = event.detail.choice.value;
+            }, false);
         });
-
-        choices.setChoices(
-            Array.prototype.concat.apply(Object.values(componentList), uncategorized),
-            'value',
-            'label',
-            true
-        );
-
-        // On selection of a choice, redirect to its URL
-        choices.passedElement.addEventListener('choice', function (event) {
-            window.location.href = event.detail.choice.value;
-        }, false);
     }
 
     function parseComponentList(event) {
