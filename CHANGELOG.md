@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.6.2 - TBD
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- [#44](https://github.com/zendframework/zf-mkdoc-theme/pull/44) removes the phrase "ZF Docs" from the subheader and subnavigation.
+
 ## 0.6.1 - 2018-05-22
 
 ### Added
