@@ -30,18 +30,3 @@ pre[class*="language-"] {
     margin-top: $padding-large-vertical * 2;
     margin-bottom: $padding-large-vertical * 2;
 }
-
-.dropdown_packagename {
-  font-size: .8em;
-  color: #666666;
-}
-
-/* Override Choices.js styles; do not want "Press to select" text, as it takes
- * too much room. */
-.choices__list--dropdown .choices__item--selectable {
-  padding-right: 0;
-}
-
-.choices__list--dropdown .choices__item--selectable:after {
-  display: none;
-}

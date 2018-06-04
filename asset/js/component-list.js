@@ -32,7 +32,7 @@
         components.forEach(function (component) {
             const selected = matchActive.test(component.url);
             const packageName = component.package.split('/');
-            const label = component.name + '<br/><span class="dropdown_packagename">' + packageName[1] + '</span>';
+            const label = component.name + '<br/><span class="choices__packagename">' + packageName[1] + '</span>';
             const choice = {
                 value: component.url,
                 label: label,
