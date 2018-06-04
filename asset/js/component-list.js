@@ -83,7 +83,8 @@
             // Ensure the parent container expands to fit the list...
             element.addEventListener('showDropdown', function (event) {
                 getContainerElements().forEach(function (container) {
-                    container.parentElement.style.minHeight = container.clientHeight + 350 + "px";
+                    const choicesList = container.querySelector('.choices__list--dropdown');
+                    container.parentElement.style.minHeight = container.clientHeight + choicesList.clientHeight + "px";
                 });
             }, false);
 
