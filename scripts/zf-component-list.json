@@ -558,5 +558,12 @@
     "url": "https://docs.zendframework.com/zend-xml2json/",
     "group": "components",
     "description": "Convert XML documents to JSON."
+  },
+  {
+    "name": "ZendDiagnostics",
+    "package": "zendframework/zenddiagnostics",
+    "url": "https://docs.zendframework.com/zend-diagnostics/",
+    "group": "components",
+    "description": "Universal set of diagnostic tests for PHP applications."
   }
 ]
