@@ -95,6 +95,38 @@
                 });
             }, false);
 
+            // Load all starting and ending points for the sticky scene.
+            // After all of them have loaded, toggle the sticky styles accordingly.
+            element.addEventListener('showDropdown', function (event) {
+                const groups = choices.choiceList.querySelectorAll('.choices__group');
+
+                groups.forEach(function (group, index) {
+                    var stickyStart = group.offsetTop;
+                    var stickyEnd = null;
+
+                    if (groups.hasOwnProperty(index + 1)) {
+                        var nextGroup = groups[index + 1];
+                        stickyEnd = nextGroup.offsetTop;
+                    }
+
+                    group.setAttribute('data-sticky-start', stickyStart);
+                    group.setAttribute('data-sticky-end', stickyEnd ? stickyEnd : '');
+                });
+
+                groups.forEach(function (group) {
+                    toggleStickyGroupStyles(group, choices.choiceList.scrollTop);
+                });
+            }, false);
+
+            // Remove all sticky styles when the drop-down hides
+            element.addEventListener('hideDropdown', function (event) {
+                const groups = choices.choiceList.querySelectorAll('.choices__group');
+
+                groups.forEach(function (group) {
+                    unsetStickyGroupStyles(group);
+                });
+            }, false);
+
             // Track the scroll position and apply sticky styles to the opt-group elements.
             // The "touchmove" event is used for touch devices, because on some browsers
             // the scroll event is triggered only once after the scroll animation has completed.
@@ -104,38 +136,7 @@
                     const scrollTop = this.scrollTop;
 
                     groups.forEach(function (group) {
-                        var stickyTriggerPoint = group.offsetTop;
-
-                        if (group.hasAttribute('data-offset-top')) {
-                            stickyTriggerPoint = group.getAttribute('data-offset-top');
-                        }
-
-                        if (scrollTop >= stickyTriggerPoint) {
-                            // Save the original offset top, before applying the sticky style.
-                            // The value is later used to determine whether the group should
-                            // loose its sticky style.
-                            if (!group.hasAttribute('data-offset-top')) {
-                                group.setAttribute('data-offset-top', group.offsetTop);
-                            }
-
-                            group.classList.add('is-sticky');
-
-                            if (group.nextElementSibling) {
-                                // Group element's position becomes fixed,
-                                // causing the height of the scrollable element to decrease.
-                                // The "removed" height is added as a margin top
-                                // on the next element in order to compensate for the losses.
-                                // This gives a smooth, non-jumping feeling to the end-user.
-                                group.nextElementSibling.style.marginTop = group.clientHeight + 'px';
-                            }
-                        } else {
-                            group.classList.remove('is-sticky');
-                            group.removeAttribute('data-offset-top');
-
-                            if (group.nextElementSibling) {
-                                group.nextElementSibling.style.marginTop = null;
-                            }
-                        }
+                        toggleStickyGroupStyles(group, scrollTop);
                     });
                 });
             });
@@ -146,6 +147,40 @@
         var request = event.target;
         if (request.readyState === request.DONE && request.status === 200) {
             prepareComponentList(JSON.parse(request.responseText));
+        }
+    }
+
+    function toggleStickyGroupStyles(group, scrollTop) {
+        var stickyStart = parseInt(group.getAttribute('data-sticky-start'));
+        var stickyEnd = group.getAttribute('data-sticky-end')
+            ? parseInt(group.getAttribute('data-sticky-end'))
+            : null;
+
+        if (scrollTop >= stickyStart && (scrollTop <= stickyEnd || !stickyEnd)) {
+            setStickyGroupStyles(group);
+        } else {
+            unsetStickyGroupStyles(group);
+        }
+    }
+
+    function setStickyGroupStyles(group) {
+        group.classList.add('is-sticky');
+
+        if (group.nextElementSibling) {
+            // Group element's position becomes fixed,
+            // causing the height of the scrollable element to decrease.
+            // The "removed" height is added as a margin top
+            // on the next element in order to compensate for the losses.
+            // This gives a smooth, non-jumping feeling to the end-user.
+            group.nextElementSibling.style.marginTop = group.clientHeight + 'px';
+        }
+    }
+
+    function unsetStickyGroupStyles(group) {
+        group.classList.remove('is-sticky');
+
+        if (group.nextElementSibling) {
+            group.nextElementSibling.style.marginTop = null;
         }
     }
 
