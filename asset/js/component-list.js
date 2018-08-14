@@ -94,6 +94,51 @@
                     container.parentElement.style.minHeight = 'unset';
                 });
             }, false);
+
+            // Track the scroll position and apply sticky styles to the opt-group elements.
+            // The "touchmove" event is used for touch devices, because on some browsers
+            // the scroll event is triggered only once after the scroll animation has completed.
+            ['scroll', 'touchmove'].forEach(function (eventName) {
+                choices.choiceList.addEventListener(eventName, function () {
+                    const groups = this.querySelectorAll('.choices__group');
+                    const scrollTop = this.scrollTop;
+
+                    groups.forEach(function (group) {
+                        var stickyTriggerPoint = group.offsetTop;
+
+                        if (group.hasAttribute('data-offset-top')) {
+                            stickyTriggerPoint = group.getAttribute('data-offset-top');
+                        }
+
+                        if (scrollTop >= stickyTriggerPoint) {
+                            // Save the original offset top, before applying the sticky style.
+                            // The value is later used to determine whether the group should
+                            // loose its sticky style.
+                            if (!group.hasAttribute('data-offset-top')) {
+                                group.setAttribute('data-offset-top', group.offsetTop);
+                            }
+
+                            group.classList.add('is-sticky');
+
+                            if (group.nextElementSibling) {
+                                // Group element's position becomes fixed,
+                                // causing the height of the scrollable element to decrease.
+                                // The "removed" height is added as a margin top
+                                // on the next element in order to compensate for the losses.
+                                // This gives a smooth, non-jumping feeling to the end-user.
+                                group.nextElementSibling.style.marginTop = group.clientHeight + 'px';
+                            }
+                        } else {
+                            group.classList.remove('is-sticky');
+                            group.removeAttribute('data-offset-top');
+
+                            if (group.nextElementSibling) {
+                                group.nextElementSibling.style.marginTop = null;
+                            }
+                        }
+                    });
+                });
+            });
         });
     }
 
