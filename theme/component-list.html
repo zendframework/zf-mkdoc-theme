@@ -1,0 +1,21 @@
+<div class="component-list">
+    {% for component_item in config.extra.component_list %}
+        <h2 class="component-list__group-name">{{ component_item.group_name }}</h2>
+
+        <div class="row">
+        {% for package_item in component_item.packages %}
+            <div class="component">
+                <a href="{{ package_item.url }}" class="component__link">
+                    <h3 class="component__name">{{ package_item.name }}</h3>
+                    <p class="component__package">{{ package_item.package }}</p>
+                    <p class="component__description">{{ package_item.description }}</p>
+                </a>
+            </div>
+        {% if loop.index is divisibleby 2 and not loop.last %}
+        </div>
+        <div class="row">
+        {% endif %}
+        {% endfor %}
+        </div>
+    {% endfor %}
+</div>
