@@ -12,11 +12,13 @@
     {% include "page-nav.html" %}
 {% endif %}
 
-<div class="help-wanted">
-    <p>
-        Found a mistake or want to contribute to the documentation?
-        <a href="{{ page.edit_url }}" target="_blank" class="help-wanted__link">
-            Edit this page on GitHub!
-        </a>
-    </p>
-</div>
+{% if not page.is_homepage or (page.is_homepage and config.extra.show_special_homepage) %}
+    <div class="help-wanted">
+        <p>
+            Found a mistake or want to contribute to the documentation?
+            <a href="{{ page.edit_url }}" target="_blank" class="help-wanted__link">
+                Edit this page on GitHub!
+            </a>
+        </p>
+    </div>
+{% endif %}
