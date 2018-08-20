@@ -3,6 +3,10 @@
 
 {% if config.extra.show_special_homepage %}
     {{ page.content }}
+
+    {% if config.extra.component_list %}
+        {% include "component-list.html" %}
+    {% endif %}
 {% else %}
     <h2>Installation</h2>
     <h3>Using Composer</h3>
