@@ -158,9 +158,10 @@
 
         if (scrollTop >= stickyStart && (scrollTop <= stickyEnd || !stickyEnd)) {
             setStickyGroupStyles(group);
-        } else {
-            unsetStickyGroupStyles(group);
+            return;
         }
+
+        unsetStickyGroupStyles(group);
     }
 
     function setStickyGroupStyles(group) {
