@@ -1,15 +1,25 @@
 <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-  <li><a href="https://framework.zend.com/">Home</a></li>
-  <li><a href="https://docs.zendframework.com/">Docs</a></li>
-  <li><a href="{{ nav.homepage.url }}">{{ config.site_name }}</a></li>
-  {% if page %}
-    {% for doc in page.ancestors %}
-      {% if doc.link %}
-        <li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
-      {% else %}
-        <li>{{ doc.title }}</li>
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-  {% if page %}<li class="active">{{ page.title }}</li>{% endif %}
+    <li><a href="https://framework.zend.com/">Home</a></li>
+
+    {% if config.site_name != 'Documentation' %}
+        <li><a href="https://docs.zendframework.com/">Documentation</a></li>
+
+        {% if page.title != 'Home' %}
+            <li><a href="{{ nav.homepage.url }}">{{ config.site_name }}</a></li>
+
+            {% for doc in page.ancestors %}
+                {% if doc.link %}
+                    <li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
+                {% else %}
+                    <li>{{ doc.title }}</li>
+                {% endif %}
+            {% endfor %}
+
+            <li class="active">{{ page.title }}</li>
+        {% else %}
+            <li>{{ config.site_name }}</li>
+        {% endif %}
+    {% else %}
+        <li>Documentation</li>
+    {% endif %}
 </ol>
