@@ -182,6 +182,13 @@
     "description": "zend-authentication adapter for zend-expressive-authentication."
   },
   {
+    "name": "Swoole support for Expressive",
+    "package": "zendframework/zend-expressive-swoole",
+    "url": "https://docs.zendframework.com/zend-expressive-swoole/",
+    "group": "middleware",
+    "description": "Support of Swoole into an Expressive application."
+  },
+  {
     "name": "Feed",
     "package": "zendframework/zend-feed",
     "url": "https://docs.zendframework.com/zend-feed/",
