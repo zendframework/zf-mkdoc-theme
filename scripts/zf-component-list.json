@@ -441,6 +441,13 @@
     "description": "Session container and middleware PSR-7 and Expressive applications."
   },
   {
+    "name": "PSR-7 Sessions via PSR-6 Cache Item Pools",
+    "package": "zendframework/zend-expressive-session-cache",
+    "url": "https://docs.zendframework.com/zend-expressive-session-cache/",
+    "group": "middleware",
+    "description": "PSR-6 session persistence adapter for zend-expressive-session."
+  },
+  {
     "name": "PSR-7 Sessions via ext-session",
     "package": "zendframework/zend-expressive-session-ext",
     "url": "https://docs.zendframework.com/zend-expressive-session-ext/",
