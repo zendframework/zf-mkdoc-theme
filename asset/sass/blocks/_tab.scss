@@ -1,0 +1,15 @@
+.nav-tabs {
+    .nav-item {
+        &.active a {
+            color : white;
+        }
+    }
+}
+
+.tab {
+    &-pane {
+        pre {
+            margin-top : 0;
+        }
+    }
+}
