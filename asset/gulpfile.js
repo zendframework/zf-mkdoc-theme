@@ -1,7 +1,7 @@
 var gulp   = require('gulp'),
     sass   = require('gulp-sass'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
+    uglify = require('gulp-uglify-es').default,
     rev    = require('gulp-rev'),
     prism  = [
         'core',
