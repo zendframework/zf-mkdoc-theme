@@ -1,7 +1,7 @@
 {% if nav|length > 1 %}
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="{{ nav.homepage.url }}">{{ config.site_name }}</a>
+            <a href="{{ nav.homepage.url|url }}">{{ config.site_name }}</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -19,7 +19,7 @@
                     </li>
                 {% else %}
                     <li class="subnavigation__list-item {% if nav_item.active %}subnavigation__list-item--active{% endif %}">
-                        <a href="{{ nav_item.url }}" class="subnavigation__link">{{ nav_item.title }}</a>
+                        <a href="{{ nav_item.url|url }}" class="subnavigation__link">{{ nav_item.title }}</a>
                     </li>
                 {% endif %}
             {% endfor %}
