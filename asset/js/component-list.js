@@ -63,7 +63,7 @@
                 searchChoices: true,
                 searchEnabled: true,
                 searchFields: ['label', 'customProperties.description'],
-                searchPlaceholderValue: 'Jump to package documentation...',
+                searchPlaceholderValue: 'Jump to package…',
                 searchResultLimit: 10,
                 shouldSort: false
             });
