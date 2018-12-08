@@ -2,6 +2,7 @@
  * too much room. */
 .choices__list--dropdown {
     transform: translateZ(0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
     .choices__list {
         z-index: 1;
@@ -26,9 +27,15 @@
         display: none;
     }
 
-    .choices__packagename {
+    .choices__heading {
         font-size: $font-size-small;
-        color: $text-color-secondary;
+        font-weight: normal;
+        color: white;
+        background-color: $text-color-reduced;
     }
 }
 
+.choices__packagename {
+    font-size: $font-size-small;
+    color: $text-color-secondary;
+}
