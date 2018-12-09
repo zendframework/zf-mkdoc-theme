@@ -98,7 +98,7 @@
             // Load all starting and ending points for the sticky scene.
             // After all of them have loaded, toggle the sticky styles accordingly.
             element.addEventListener('showDropdown', function (event) {
-                const groups = choices.choiceList.querySelectorAll('.choices__group');
+                const groups = choices.choiceList.element.querySelectorAll('.choices__group');
 
                 groups.forEach(function (group, index) {
                     var stickyStart = group.offsetTop;
@@ -120,7 +120,7 @@
 
             // Remove all sticky styles when the drop-down hides
             element.addEventListener('hideDropdown', function (event) {
-                const groups = choices.choiceList.querySelectorAll('.choices__group');
+                const groups = choices.choiceList.element.querySelectorAll('.choices__group');
 
                 groups.forEach(function (group) {
                     unsetStickyGroupStyles(group);
@@ -131,7 +131,7 @@
             // The "touchmove" event is used for touch devices, because on some browsers
             // the scroll event is triggered only once after the scroll animation has completed.
             ['scroll', 'touchmove'].forEach(function (eventName) {
-                choices.choiceList.addEventListener(eventName, function () {
+                choices.choiceList.element.addEventListener(eventName, function () {
                     const groups = this.querySelectorAll('.choices__group');
                     const scrollTop = this.scrollTop;
 

@@ -30,6 +30,6 @@
     "prismjs": "^1.12.2"
   },
   "dependencies": {
-    "choices.js": "^3.0.4"
+    "choices.js": "^4.1.3"
   }
 }
