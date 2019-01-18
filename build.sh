@@ -54,6 +54,8 @@ echo "    - pymdownx.superfences" >> mkdocs.yml
 echo "theme:" >> mkdocs.yml
 echo "    name: null" >> mkdocs.yml
 echo "    custom_dir: zf-mkdoc-theme/theme" >> mkdocs.yml
+echo "    static_templates:" >> mkdocs.yml
+echo "        - 404.html" >> mkdocs.yml
 echo "edit_uri: edit/master/${DOCS_DIR}/" >> mkdocs.yml
 
 # Preserve files if necessary (as mkdocs build --clean removes all files)
