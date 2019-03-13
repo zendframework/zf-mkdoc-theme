@@ -182,6 +182,27 @@
     "description": "zend-authentication adapter for zend-expressive-authentication."
   },
   {
+    "name": "Authorization for Expressive and PSR-7",
+    "package": "zendframework/zend-expressive-authorization",
+    "url": "https://docs.zendframework.com/zend-expressive-authorization/",
+    "group": "middleware",
+    "description": "Authorization middleware for Expressive and PSR-7 applications."
+  },
+  {
+    "name": "zend-permissions-acl integration for Expressive",
+    "package": "zendframework/zend-expressive-authorization-acl",
+    "url": "https://docs.zendframework.com/zend-expressive-authorization-acl/",
+    "group": "middleware",
+    "description": "ACL permission adapter for zend-expressive-authorization."
+  },
+  {
+    "name": "zend-permissions-rbac integration for Expressive",
+    "package": "zendframework/zend-expressive-authorization-rbac",
+    "url": "https://docs.zendframework.com/zend-expressive-authorization-rbac/",
+    "group": "middleware",
+    "description": "RBAC permission adapter for zend-expressive-authorization."
+  },
+  {
     "name": "Swoole support for Expressive",
     "package": "zendframework/zend-expressive-swoole",
     "url": "https://docs.zendframework.com/zend-expressive-swoole/",
