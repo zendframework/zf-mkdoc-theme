@@ -1,7 +1,17 @@
 .nav-tabs {
     .nav-item {
+        a {
+            color: grey;
+            background-color: $gray-lighter;
+            margin-right: 3px;
+
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+
         &.active a {
-            color : white;
+            color: white;
         }
     }
 }
@@ -9,7 +19,11 @@
 .tab {
     &-pane {
         pre {
-            margin-top : 0;
+            margin-top: 0;
         }
     }
+}
+
+.md-fenced-code-tabs {
+    margin-top: $padding-large-vertical * 2;
 }
