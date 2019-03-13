@@ -3,6 +3,10 @@
 {% if page.is_homepage %}
     {% include "homepage.html" %}
 {% else %}
+    {% if page.parent %}
+        <h2 class="chapter__headline">{{ page.parent.title }}</h2>
+    {% endif %}
+
     {% include "toc.html" %}
 
     {{ page.content }}
