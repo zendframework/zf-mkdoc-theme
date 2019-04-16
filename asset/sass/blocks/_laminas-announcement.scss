@@ -1,0 +1,23 @@
+.laminas-announcement {
+    background-color: $header-footer-bg-color;
+    color: white;
+    margin-bottom: $padding-large-vertical * 4;
+    padding: $padding-large-vertical 0;
+    font-size: 20px;
+    font-weight: 300;
+    word-break: normal;
+
+    @media (max-width: $screen-xs-min) {
+        margin-bottom: $padding-large-vertical * 2;
+    }
+
+    a {
+        color: darken($header-footer-font-color, 15%);
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+

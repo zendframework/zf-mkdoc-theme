@@ -1,11 +1,7 @@
 .header {
     background-color: $brand-primary;
-    margin-bottom: $padding-large-vertical * 4;
+    margin-bottom: 0;
     padding: $padding-large-vertical 0;
-
-    @media (max-width: $screen-xs-min) {
-        margin-bottom: $padding-large-vertical * 2;
-    }
 
     &__title {
         font-size: 30px;

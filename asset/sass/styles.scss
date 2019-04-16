@@ -3,7 +3,7 @@
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import '../node_modules/font-awesome/scss/font-awesome';
-@import '../node_modules/choices.js/assets/styles/scss/choices';
+@import '../node_modules/choices.js/src/styles/choices';
 @import 'elements';
 @import 'misc';
 @import 'blocks/anchorjs';
@@ -15,6 +15,7 @@
 @import 'blocks/footer';
 @import "blocks/header";
 @import "blocks/help-wanted";
+@import "blocks/laminas-announcement";
 @import 'blocks/navbar';
 @import 'blocks/page-nav';
 @import 'blocks/sidebar';
