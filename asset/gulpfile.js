@@ -1,4 +1,5 @@
 var gulp   = require('gulp'),
+    babel  = require('gulp-babel'),
     sass   = require('gulp-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
@@ -8,6 +9,7 @@ var gulp   = require('gulp'),
         'markup',
         'css',
         'clike',
+        'markup-template',
         'javascript',
         'apacheconf',
         'bash',
@@ -64,14 +66,17 @@ gulp.task('scripts', function () {
                 'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
                 'node_modules/anchor-js/anchor.min.js',
-                'node_modules/choices.js/assets/scripts/dist/choices.js',
+                'node_modules/choices.js/src/scripts/choices.js',
                 'js/component-list.js',
                 'js/base.js'
             ]
         )
     )
+        .pipe(babel({presets: ['@babel/env']}))
         .pipe(concat({path : 'scripts.js'}))
-        .pipe(uglify({mangle : false}))
+        .pipe(uglify({mangle : false}).on('error', function (e) {
+          console.log(e);
+        }))
         .pipe(rev())
         .pipe(gulp.dest('../theme/js/'))
         .pipe(rev.manifest('../assets.yml', {merge : true}))

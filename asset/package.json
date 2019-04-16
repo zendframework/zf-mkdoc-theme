@@ -17,19 +17,22 @@
   },
   "homepage": "http://framework.zend.com",
   "devDependencies": {
-    "anchor-js": "^3.2.1",
-    "bootstrap-sass": "^3.3.7",
+    "anchor-js": "^4.2.0",
+    "bootstrap-sass": "^3.4.1",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-cssimport": "^3.1.0",
-    "gulp-rev": "^7.1.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^1.5.4",
-    "jquery": "^3.2.1",
-    "prismjs": "^1.8.3"
+    "gulp-concat": "^2.6.1",
+    "gulp-cssimport": "^7.0.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "jquery": "^3.4.0",
+    "prismjs": "^1.16.0"
   },
   "dependencies": {
-    "choices.js": "^3.0.4"
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "choices.js": "^7.0.0",
+    "gulp-babel": "^8.0.0"
   }
 }
