@@ -4,8 +4,7 @@
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
 cd $SCRIPT_PATH/asset
-npm cache verify
-npm install --no-save --unsafe-perm
+npm install --no-save
 
 # Running each task separately due to concurrency issues when run
 # at once via `gulp`
