@@ -21,6 +21,7 @@
     {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
     {%- endfor %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
 </head>
 <body id="page-top">
 
@@ -91,6 +92,14 @@
             </div>
         </div>
     </div>
+
+<script>
+// Anchors
+anchors.options.placement = 'left';
+anchors.add(
+    '.content h1:not(.content__title), .content h2, .content > h3, .content h4, .content h5'
+);
+</script>
 
 {% if config.google_analytics %}
 <script>

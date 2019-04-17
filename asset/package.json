@@ -17,7 +17,6 @@
   },
   "homepage": "http://framework.zend.com",
   "devDependencies": {
-    "anchor-js": "^4.2.0",
     "bootstrap-sass": "^3.4.1",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",

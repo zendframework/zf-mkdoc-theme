@@ -65,7 +65,6 @@ gulp.task('scripts', function () {
                 'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js',
                 'node_modules/jquery/dist/jquery.js',
                 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
-                'node_modules/anchor-js/anchor.js',
                 'node_modules/choices.js/src/scripts/choices.js',
                 'js/component-list.js',
                 'js/base.js'
