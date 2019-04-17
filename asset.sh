@@ -4,6 +4,7 @@
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
 cd $SCRIPT_PATH/asset
+npm cache clean
 npm install --no-save --unsafe-perm
 
 # Running each task separately due to concurrency issues when run
