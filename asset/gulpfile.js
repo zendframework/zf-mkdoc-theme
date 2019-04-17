@@ -61,11 +61,11 @@ gulp.task('scripts', function () {
     return gulp.src(
         prismComponents.concat(
             [
-                'node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min.js',
-                'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.js',
-                'node_modules/jquery/dist/jquery.min.js',
-                'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-                'node_modules/anchor-js/anchor.min.js',
+                'node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js',
+                'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js',
+                'node_modules/jquery/dist/jquery.js',
+                'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+                'node_modules/anchor-js/anchor.js',
                 'node_modules/choices.js/src/scripts/choices.js',
                 'js/component-list.js',
                 'js/base.js'
