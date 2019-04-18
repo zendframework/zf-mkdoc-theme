@@ -38,10 +38,6 @@ cp mkdocs.yml mkdocs.yml.orig
 DOCS_DIR=$(php ${SCRIPT_PATH}/discover_doc_dir.php)
 DOC_DIR=$(dirname ${DOCS_DIR})
 
-# Build assets
-echo "Building assets"
-${SCRIPT_PATH}/asset.sh
-
 # Update the mkdocs.yml
 echo "Building documentation in ${DOC_DIR}"
 echo "site_url: ${SITE_URL}"

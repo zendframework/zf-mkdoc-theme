@@ -4,7 +4,6 @@
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 
 cd $SCRIPT_PATH/asset
-rm package-lock.json
 npm install --no-save
 
 # Running each task separately due to concurrency issues when run
