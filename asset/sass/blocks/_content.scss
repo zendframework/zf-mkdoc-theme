@@ -29,6 +29,16 @@
     }
 
     & > h3 {
-        font-weight: 400;
+        font-weight: $lower-headings-font-weight;
+    }
+
+    .chapter__headline {
+        order: -3;
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-size: floor($font-size-base * 1.5);
+        color: lighten($text-color, 60%);
+        font-weight: $lower-headings-font-weight;
     }
 }
