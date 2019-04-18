@@ -65,13 +65,14 @@ gulp.task('scripts', function () {
                 'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js',
                 'node_modules/jquery/dist/jquery.js',
                 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+                'node_modules/anchor-js/anchor.js',
                 'node_modules/choices.js/public/assets/scripts/choices.js',
                 'js/component-list.js',
                 'js/base.js'
             ]
         )
     )
-        .pipe(babel({presets: ['@babel/env']}))
+        .pipe(babel({presets: ['@babel/env'], sourceType: 'unambiguous'}))
         .pipe(concat({path : 'scripts.js'}))
         .pipe(uglify({mangle : false}).on('error', function (e) {
           console.log(e);
