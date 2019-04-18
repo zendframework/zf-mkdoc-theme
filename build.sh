@@ -46,6 +46,8 @@ cat zf-mkdoc-theme/assets.yml >> mkdocs.yml
 echo "markdown_extensions:" >> mkdocs.yml
 echo "    - markdown.extensions.codehilite:" >> mkdocs.yml
 echo "        use_pygments: False" >> mkdocs.yml
+echo "    - markdown_fenced_code_tabs:" >> mkdocs.yml
+echo "        template: bootstrap3" >> mkdocs.yml
 echo "    - pymdownx.superfences" >> mkdocs.yml
 echo "theme:" >> mkdocs.yml
 echo "    name: null" >> mkdocs.yml
