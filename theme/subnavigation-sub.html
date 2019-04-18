@@ -1,6 +1,6 @@
 {% if not nav_item.children %}
     <li class="subnavigation__list-item {% if nav_item.active %}subnavigation__list-item--active{% endif %}">
-        <a href="{{ nav_item.url }}" class="subnavigation__link">{{ nav_item.title }}</a>
+        <a href="{{ nav_item.url|url }}" class="subnavigation__link">{{ nav_item.title }}</a>
     </li>
 {% else %}
     <li class="subnavigation__list-item">

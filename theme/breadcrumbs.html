@@ -5,11 +5,11 @@
         <li><a href="https://docs.zendframework.com/">Documentation</a></li>
 
         {% if page.title != 'Home' %}
-            <li><a href="{{ nav.homepage.url }}">{{ config.site_name }}</a></li>
+            <li><a href="{{ nav.homepage.url|url }}">{{ config.site_name }}</a></li>
 
             {% for doc in page.ancestors %}
                 {% if doc.link %}
-                    <li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
+                    <li><a href="{{ doc.link|url }}">{{ doc.title }}</a></li>
                 {% else %}
                     <li>{{ doc.title }}</li>
                 {% endif %}

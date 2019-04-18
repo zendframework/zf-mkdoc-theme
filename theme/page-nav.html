@@ -4,7 +4,7 @@
         {# Previous page #}
         <li class="page-nav__item">
             {% if page.previous_page %}
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="{{ page.previous_page.url }}">
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="{{ page.previous_page.url|url }}">
                     <i class="fa fa-chevron-left"></i> Previous
                 </a>
             {% endif %}
@@ -13,7 +13,7 @@
         {# Next page #}
         <li class="page-nav__item">
             {% if page.next_page %}
-                <a rel="next" class="page-nav__link page-nav__link--next" href="{{ page.next_page.url }}">
+                <a rel="next" class="page-nav__link page-nav__link--next" href="{{ page.next_page.url|url }}">
                     Next <i class="fa fa-chevron-right"></i>
                 </a>
             {% endif %}
