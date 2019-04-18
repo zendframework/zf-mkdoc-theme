@@ -113,11 +113,26 @@ You will need the following in order to build documentation:
 - PIP
 - mkdocs (`pip install --user mkdocs`)
 - pymdown-extensions (`pip install --user pymdown-extensions`)
-- yarn
-- gulp (`yarn global add gulp`)
+- markdown-fenced-code-tabs (`pip install --user markdown-fenced-code-tabs`)
+- npm
+- gulp (`npm install -g gulp`)
 - perl
 
 ## CSS and JavaScript
+
+Whenever changes to the CSS or JS are made in the `asset/` directory, you will
+need to rebuild and commit the assets. This ensures that the build automation
+does not need to do these steps, which can be problematic to debug; it also
+greatly speeds build times!
+
+To rebuild the assets:
+
+```bash
+$ git rm -rf theme/{css,js,img}/*
+$ ./asset.sh
+$ git add assets.yml theme/{css,js,img}
+$ git commit -c 'Rebuilt assets'
+```
 
 CSS and JS are minified and concatenated during the build process. CSS is found
 in the `asset/sass/` directory (we use SASS for defining our CSS), and JS is
@@ -137,6 +152,7 @@ http://prismjs.com/download.html page:
 - Minified version
 - Okaida theme
 - Markup
+- Markup templating
 - CSS
 - C-like
 - JavaScript
