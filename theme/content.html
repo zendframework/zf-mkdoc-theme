@@ -1,5 +1,16 @@
 {% include "breadcrumbs.html" %}
 
+{# Warning message for older versions #}
+{% if page.url != '' and config.extra.current_version != Undefined and page.url[:2] != config.extra.current_version %}
+    <div class="alert alert-danger" role="alert">
+        <h4>Caution</h4>
+        <p>
+            The documentation you are viewing is for an older version of this component.<br>
+            <a href="{{ nav.homepage.url|url }}">Switch to the latest ({{ config.extra.current_version }}) version.</a>
+        </p>
+    </div>
+{% endif %}
+
 {% if page.is_homepage %}
     {% include "homepage.html" %}
 {% else %}
