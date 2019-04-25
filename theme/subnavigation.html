@@ -8,19 +8,31 @@
 
         <ul class="subnavigation__list">
             {% for nav_item in nav if nav_item.title != 'Home' and not nav_item.title.startswith('_') %}
-                {% if nav_item.children %}
-                    <li class="subnavigation__list-item">
-                        <span class="subnavigation__headline">{{ nav_item.title }}</span>
-                        <ul class="subnavigation__list">
-                            {% for nav_item in nav_item.children if not nav_item.title.startswith('_') %}
-                                {% include "subnavigation-sub.html" %}
-                            {% endfor %}
-                        </ul>
-                    </li>
+
+                {# Skip version numbers like v1, v2, v3 #}
+                {% if config.extra.current_version != Undefined and page != None and (page.url[:2] == nav_item.title or (page.url == '' and config.extra.current_version == nav_item.title)) %}
+                    {% for nav_item in nav_item.children %}
+                        {% include "subnavigation-sub.html" %}
+                    {% endfor %}
                 {% else %}
-                    <li class="subnavigation__list-item {% if nav_item.active %}subnavigation__list-item--active{% endif %}">
-                        <a href="{{ nav_item.url|url }}" class="subnavigation__link">{{ nav_item.title }}</a>
-                    </li>
+
+                    {# Render sub-navigations without any version number #}
+                    {% if not nav_item.title in config.extra.versions %}
+                        {% if nav_item.children %}
+                            <li class="subnavigation__list-item">
+                                <span class="subnavigation__headline">{{ nav_item.title }}</span>
+                                <ul class="subnavigation__list">
+                                    {% for nav_item in nav_item.children if not nav_item.title.startswith('_') %}
+                                        {% include "subnavigation-sub.html" %}
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="subnavigation__list-item {% if nav_item.active %}subnavigation__list-item--active{% endif %}">
+                                <a href="{{ nav_item.url|url }}" class="subnavigation__link">{{ nav_item.title }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </ul>

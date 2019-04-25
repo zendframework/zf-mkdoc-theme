@@ -3,7 +3,10 @@
 {% if page.is_homepage %}
     {% include "homepage.html" %}
 {% else %}
-    {% if page.parent %}
+
+    {# Skip version numbers like v1, v2, v3 #}
+    {% if page.parent and config.extra.versions == Undefined
+          or (config.extra.versions != Undefined and not page.parent.title in config.extra.versions) %}
         <h2 class="chapter__headline">{{ page.parent.title }}</h2>
     {% endif %}
 

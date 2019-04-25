@@ -11,7 +11,11 @@
                 {% if doc.link %}
                     <li><a href="{{ doc.link|url }}">{{ doc.title }}</a></li>
                 {% else %}
-                    <li>{{ doc.title }}</li>
+                    {# Skip version numbers like v1, v2, v3 #}
+                    {% if config.extra.versions == Undefined
+                          or (config.extra.versions != Undefined and not doc.title in config.extra.versions) %}
+                        <li>{{ doc.title }}</li>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
 
