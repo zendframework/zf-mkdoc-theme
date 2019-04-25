@@ -7,7 +7,7 @@
         {% if page.title != 'Home' %}
             <li><a href="{{ nav.homepage.url|url }}">{{ config.site_name }}</a></li>
 
-            {% for doc in page.ancestors %}
+            {% for doc in page.ancestors|reverse %}
                 {% if doc.link %}
                     <li><a href="{{ doc.link|url }}">{{ doc.title }}</a></li>
                 {% else %}
