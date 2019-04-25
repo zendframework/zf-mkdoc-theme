@@ -12,10 +12,12 @@
     {{ page.content }}
 {% endif %}
 
+{# Pager #}
 {% if page.previous_page or page.next_page  %}
     {% include "page-nav.html" %}
 {% endif %}
 
+{# Message for help wanted #}
 {% if not page.is_homepage or (page.is_homepage and config.extra.show_special_homepage) %}
     <div class="help-wanted">
         <p>
