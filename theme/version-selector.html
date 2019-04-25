@@ -1,0 +1,29 @@
+{% if config.extra.current_version != Undefined %}
+<div class="version-selector">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if page != None and page.url != '' and page.url[:2] in config.extra.versions %}
+                {{ page.url[:2] }}
+            {% else %}
+                {{ config.extra.current_version }}
+            {% endif %}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            {% for version_number in config.extra.versions|sort(reverse=true) %}
+                {% for nav_item in nav if nav_item.title == version_number %}
+                    <li class="dropdown-menu__item{% if page != None and version_number == page.url[:2]%} dropdown-menu__item--selected{% endif %}">
+                        <a href="{{nav_item.children[0].url|url}}">
+                            {% if version_number == config.extra.current_version %}
+                                {{ version_number }} (latest)
+                            {% else %}
+                                {{ version_number }}
+                            {% endif %}
+                        </a>
+                    </li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
