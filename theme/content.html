@@ -21,7 +21,9 @@
         <h2 class="chapter__headline">{{ page.parent.title }}</h2>
     {% endif %}
 
-    {% include "toc.html" %}
+    <div>
+        {% include "toc.html" %}
+    </div>
 
     {{ page.content }}
 {% endif %}
