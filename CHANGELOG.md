@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.7.0 - 2019-04-29
+
+### Added
+
+- [#81](https://github.com/zendframework/zf-mkdoc-theme/pull/81) and [#86](https://github.com/zendframework/zf-mkdoc-theme/pull/86) add a 404 template to the theme.
+
+- [#68](https://github.com/zendframework/zf-mkdoc-theme/pull/68) adds support for markdown code tabs.
+
+- [#87](https://github.com/zendframework/zf-mkdoc-theme/pull/87) adds the ability to create versioned documentation. Each major version
+  should have a top-level entry in the page list, and a corresponding entry
+  under `extra.versions`. The current version should be denoted under
+  `extra.current_versions`. When these are found, the theme adds a version
+  switcher in the subnav bar, and will only display the TOC for the current
+  version. On older versions, each page will have a warning indicating you are
+  looking at documentation for an outdated version.
+
+### Changed
+
+- [#52](https://github.com/zendframework/zf-mkdoc-theme/pull/52), [#61](https://github.com/zendframework/zf-mkdoc-theme/pull/61), [#76](https://github.com/zendframework/zf-mkdoc-theme/pull/76), [#84](https://github.com/zendframework/zf-mkdoc-theme/pull/84), and [#85](https://github.com/zendframework/zf-mkdoc-theme/pull/85) update the mkdocs requirement to 1.0+.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.6.3 - 2018-06-04
 
 ### Added
