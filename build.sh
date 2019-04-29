@@ -40,21 +40,7 @@ DOC_DIR=$(dirname ${DOCS_DIR})
 
 # Update the mkdocs.yml
 echo "Building documentation in ${DOC_DIR}"
-echo "site_url: ${SITE_URL}"
-echo "extra:" >> mkdocs.yml
-cat zf-mkdoc-theme/assets.yml >> mkdocs.yml
-echo "markdown_extensions:" >> mkdocs.yml
-echo "    - markdown.extensions.codehilite:" >> mkdocs.yml
-echo "        use_pygments: False" >> mkdocs.yml
-echo "    - markdown_fenced_code_tabs:" >> mkdocs.yml
-echo "        template: bootstrap3" >> mkdocs.yml
-echo "    - pymdownx.superfences" >> mkdocs.yml
-echo "theme:" >> mkdocs.yml
-echo "    name: null" >> mkdocs.yml
-echo "    custom_dir: zf-mkdoc-theme/theme" >> mkdocs.yml
-echo "    static_templates:" >> mkdocs.yml
-echo "        - 404.html" >> mkdocs.yml
-echo "edit_uri: edit/master/${DOCS_DIR}/" >> mkdocs.yml
+${SCRIPT_PATH}/update_mkdocs_yml.py ${SITE_URL} ${DOC_DIR}
 
 # Preserve files if necessary (as mkdocs build --clean removes all files)
 if [ -e .zf-mkdoc-theme-preserve ]; then
