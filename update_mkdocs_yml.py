@@ -6,13 +6,13 @@ if len(sys.argv) < 3:
     print("Missing required arguments to update_mkdocs_yml.py.\n")
     print("Usage:\n")
     print("  update_mkdocs_yml.py <SITE_URL> <DOCS_DIR>\n")
-    exit(1);
+    exit(1)
 
 site_url = sys.argv[1]
 docs_dir = sys.argv[2]
 
 with open("mkdocs.yml") as f:
-    mkdocs = yaml.load(f)
+    mkdocs = yaml.load(f, Loader=yaml.SafeLoader)
 
 mkdocs["site_url"] = site_url
 mkdocs["edit_uri"] = 'edit/master/{}/'.format(docs_dir)
@@ -39,9 +39,9 @@ mkdocs["theme"] = {
     }
 
 with open("zf-mkdoc-theme/assets.yml") as f:
-    assets = yaml.load(f)
+    assets = yaml.load(f, Loader=yaml.SafeLoader)
 
-if not "extra" in mkdocs.keys():
+if "extra" not in mkdocs.keys():
     mkdocs["extra"] = assets
 else:
     for key in assets.keys():
