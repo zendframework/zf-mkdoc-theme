@@ -109,11 +109,12 @@ branch of the repository.
 
 You will need the following in order to build documentation:
 
-- Python
+- Python 3
 - PIP
 - mkdocs (`pip install --user mkdocs`)
 - pymdown-extensions (`pip install --user pymdown-extensions`)
 - markdown-fenced-code-tabs (`pip install --user markdown-fenced-code-tabs`)
+- pyaml (`pip install --user pyaml`)
 - npm
 - gulp (`npm install -g gulp`)
 - perl
