@@ -94,7 +94,7 @@
     "name": "CSRF",
     "package": "zendframework/zend-expressive-csrf",
     "url": "https://docs.zendframework.com/zend-expressive-csrf/",
-    "group": "components",
+    "group": "middleware",
     "description": "CSRF token generation and validation for PSR-7 and Expressive applications."
   },
   {
