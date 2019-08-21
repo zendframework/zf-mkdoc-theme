@@ -27,7 +27,12 @@ mkdocs["markdown_extensions"] = [
                 "template": "bootstrap3"
             }
         },
-        "pymdownx.superfences"
+        "pymdownx.superfences",
+        {
+            "toc": {
+                "toc_depth": 2
+            }
+        }
     ]
 
 mkdocs["theme"] = {
