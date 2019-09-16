@@ -21,6 +21,7 @@ SCRIPT_PATH="$(pwd)"
 # Install mkdocs and required extensions.
 pip install --user mkdocs
 pip install --user pymdown-extensions
+pip install --user markdown-fenced-code-tabs
 
 # Conditionally install zf-mkdoc-theme.
 if [[ ! -d "zf-mkdoc-theme/theme" ]];then
