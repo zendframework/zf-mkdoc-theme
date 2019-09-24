@@ -22,12 +22,12 @@ mkdocs["markdown_extensions"] = [
                 "use_pygments": False
             }
         },
+        "pymdownx.superfences",
         {
             "markdown_fenced_code_tabs": {
                 "template": "bootstrap3"
             }
-        },
-        "pymdownx.superfences"
+        }
     ]
 
 mkdocs["theme"] = {
