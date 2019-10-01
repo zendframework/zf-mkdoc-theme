@@ -26,7 +26,9 @@ mkdocs["markdown_extensions"] = [
         {
             "markdown_fenced_code_tabs": {
                 "template": "bootstrap3"
-            },
+            }
+        },
+        {
             "toc": {
                 "toc_depth": 2
             }
