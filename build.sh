@@ -40,7 +40,7 @@ DOC_DIR=$(dirname ${DOCS_DIR})
 
 # Update the mkdocs.yml
 echo "Building documentation in ${DOC_DIR}"
-${SCRIPT_PATH}/update_mkdocs_yml.py ${SITE_URL} ${DOC_DIR}
+${SCRIPT_PATH}/update_mkdocs_yml.py ${SITE_URL} ${DOCS_DIR}
 
 # Preserve files if necessary (as mkdocs build --clean removes all files)
 if [ -e .zf-mkdoc-theme-preserve ]; then
