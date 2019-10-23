@@ -50,6 +50,10 @@ if [ -e .zf-mkdoc-theme-preserve ]; then
     done
 fi
 
+# Find all fenced code blocks
+echo "Find all fenced code blocks"
+php ${SCRIPT_PATH}/fenced_code_before.php ${DOC_DIR}
+
 mkdocs build --clean
 
 # Restore mkdocs.yml
