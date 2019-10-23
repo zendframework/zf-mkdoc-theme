@@ -75,6 +75,10 @@ php ${SCRIPT_PATH}/table_responsive.php ${DOC_DIR}
 echo "Fixing pipes in tables"
 php ${SCRIPT_PATH}/table_fix_pipes.php ${DOC_DIR}
 
+# Fix fenced code blocks
+echo "Fixing fenced code blocks"
+php ${SCRIPT_PATH}/fenced_code.php ${DOC_DIR}
+
 # Replace landing page content
 if [ -e .zf-mkdoc-theme-landing ]; then
     echo "Replacing landing page content"
