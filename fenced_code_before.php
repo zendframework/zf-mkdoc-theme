@@ -34,7 +34,7 @@ $process = static function () use ($files, &$replacements) {
 
             $code = htmlspecialchars(preg_replace('/^>( |$)/m', '', $matches['code'][$i]));
 
-            $replacements['html']['<p>'.$placeholder.'</p>'] = '<p><pre class=codehilite><code class=language-' . $matches['lang'][$i] . '>'
+            $replacements['html']['<p>' . $placeholder . '</p>'] = '<p><pre class=codehilite><code class=language-' . $matches['lang'][$i] . '>'
                 . $code . '</code></pre></p>';
             $replacements['md']['> ' . $placeholder] = $content;
         }
@@ -47,4 +47,4 @@ $process = static function () use ($files, &$replacements) {
 
 iterator_apply($files, $process);
 
-file_put_contents(__DIR__ . '/fenced-code-replacements.php', "<?php\nreturn ".var_export($replacements, true) . ';');
+file_put_contents(__DIR__ . '/fenced-code-replacements.php', "<?php\nreturn " . var_export($replacements, true) . ';');
