@@ -8,43 +8,39 @@ $docPath = isset($argv[1]) ? $argv[1] : 'doc';
 $docPath = sprintf('%s/%s', getcwd(), $docPath);
 $docPath = realpath($docPath);
 
-$rdi = new RecursiveDirectoryIterator($docPath . '/html');
-$rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
-$files = new RegexIterator($rii, '/\.html$/', RecursiveRegexIterator::GET_MATCH);
+$fencedCodeReplacements = include __DIR__ . '/fenced-code-replacements.php';
 
-$process = static function () use ($files) {
+$process = static function (RegexIterator $files, $type) use ($fencedCodeReplacements) {
     $fileInfo = $files->getInnerIterator()->current();
     if (! $fileInfo->isFile()) {
         return true;
     }
 
-    if ($fileInfo->getBasename('.html') === $fileInfo->getBasename()) {
+    if ($fileInfo->getBasename('.' . $type) === $fileInfo->getBasename()) {
         return true;
     }
 
     $file = $fileInfo->getRealPath();
-    $html = file_get_contents($file);
 
-    if (preg_match_all('#<p>(?:<code>|```)([a-z]+)(\n.*?)(?:</code>|```)</p>#s', $html, $matches)) {
-        foreach ($matches[0] as $i => $content) {
-            $code = strtr($matches[2][$i], [
-                '<p>' => '',
-                '</p>' => '',
-                '<' => '&lt;',
-                '>' => '&gt;',
-            ]);
-
-            $html = str_replace(
-                $content,
-                '<p><pre class=codehilite><code class=language-' . $matches[1][$i] . '>' . $code . '</code></pre></p>',
-                $html
-            );
-        }
-    }
-
-    file_put_contents($file, $html);
+    $content = file_get_contents($file);
+    $content = strtr($content, $fencedCodeReplacements[$type]);
+    file_put_contents($file, $content);
 
     return true;
 };
 
-iterator_apply($files, $process);
+// Process HTML files
+$rdi = new RecursiveDirectoryIterator($docPath . '/html');
+$rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
+$files = new RegexIterator($rii, '/\.html$/', RecursiveRegexIterator::GET_MATCH);
+
+iterator_apply($files, $process, [$files, 'html']);
+
+// Process md files
+$rdi = new RecursiveDirectoryIterator($docPath . '/book');
+$rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
+$files = new RegexIterator($rii, '/\.md/', RecursiveRegexIterator::GET_MATCH);
+
+iterator_apply($files, $process, [$files, 'md']);
+
+unlink(__DIR__ . '/fenced-code-replacements.php');
