@@ -30,17 +30,21 @@ $process = static function (RegexIterator $files, $type) use ($fencedCodeReplace
 };
 
 // Process HTML files
-$rdi = new RecursiveDirectoryIterator($docPath . '/html');
-$rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
-$files = new RegexIterator($rii, '/\.html$/', RecursiveRegexIterator::GET_MATCH);
+if (isset($fencedCodeReplacements['html'])) {
+    $rdi = new RecursiveDirectoryIterator($docPath . '/html');
+    $rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
+    $files = new RegexIterator($rii, '/\.html$/', RecursiveRegexIterator::GET_MATCH);
 
-iterator_apply($files, $process, [$files, 'html']);
+    iterator_apply($files, $process, [$files, 'html']);
+}
 
 // Process md files
-$rdi = new RecursiveDirectoryIterator($docPath . '/book');
-$rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
-$files = new RegexIterator($rii, '/\.md/', RecursiveRegexIterator::GET_MATCH);
+if (isset($fencedCodeReplacements['md'])) {
+    $rdi = new RecursiveDirectoryIterator($docPath . '/book');
+    $rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
+    $files = new RegexIterator($rii, '/\.md/', RecursiveRegexIterator::GET_MATCH);
 
-iterator_apply($files, $process, [$files, 'md']);
+    iterator_apply($files, $process, [$files, 'md']);
+}
 
 unlink(__DIR__ . '/fenced-code-replacements.php');
