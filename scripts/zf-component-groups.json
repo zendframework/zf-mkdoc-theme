@@ -1,0 +1,27 @@
+[
+    {
+        "key": "learn",
+        "name": "Learn ZF",
+        "sort": 1
+    },
+    {
+        "key": "mvc",
+        "name": "MVC Framework",
+        "sort": 2
+    },
+    {
+        "key": "middleware",
+        "name": "Expressive and PSR-15 Middleware",
+        "sort": 3
+    },
+    {
+        "key": "projects",
+        "name": "Tooling and Composer Plugins",
+        "sort": 4
+    },
+    {
+        "key": "components",
+        "name": "Components",
+        "sort": 5
+    }
+]
