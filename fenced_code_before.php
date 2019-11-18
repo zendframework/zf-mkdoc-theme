@@ -11,7 +11,15 @@ $docPath = realpath($docPath);
 $rdi = new RecursiveDirectoryIterator($docPath . '/book');
 $rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
 $files = new RegexIterator($rii, '/\.md/', RecursiveRegexIterator::GET_MATCH);
-$replacements = [0];
+$replacements = [
+    'html' => [
+        '<p> <pre ' => '<pre ',
+        '<p><pre ' => '<pre ',
+        '<p> <pre>' => '<pre>',
+        '<p><pre>' => '<pre>',
+        '</pre></p>' => '</pre>',
+    ],
+];
 
 $process = static function () use ($files, &$replacements) {
     $fileInfo = $files->getInnerIterator()->current();
@@ -26,17 +34,27 @@ $process = static function () use ($files, &$replacements) {
     $file = $fileInfo->getRealPath();
     $md = file_get_contents($file);
 
-    if (preg_match_all('#> ```(?P<lang>[a-z]+)(?P<code>\n.*?\n)> ```#s', $md, $matches)) {
+    if (preg_match_all('#(?P<before>^>[^\n]*?$\n)?^> ```(?P<lang>[a-z]+)(?P<code>\n.*?\n)^> ```(?P<after>\n^>[^\n]*?$)?#sm', $md, $matches)) {
         foreach ($matches[0] as $i => $content) {
             $placeholder = uniqid('$$$$FENCED_CODE_BLOCK_', true);
 
-            $md = str_replace($content, '> ' . $placeholder, $md);
+            $before = $matches['before'][$i];
+            if (trim($before) !== '>' && strpos(trim($before), '>') === 0) {
+                $before .= '>' . "\n";
+            }
+
+            $after = $matches['after'][$i];
+            if (trim($after) !== '>' && strpos(trim($after), '>') === 0) {
+                $after = "\n" . '>' . $after;
+            }
+
+            $md = str_replace($content, $before . '> ' . $placeholder . $after, $md);
 
             $code = htmlspecialchars(preg_replace('/^>( |$)/m', '', $matches['code'][$i]));
 
-            $replacements['html']['<p>' . $placeholder . '</p>'] = '<p><pre class=codehilite><code class=language-' . $matches['lang'][$i] . '>'
-                . $code . '</code></pre></p>';
-            $replacements['md']['> ' . $placeholder] = $content;
+            $replacements['html']['<p>' . $placeholder . '</p>'] = '<pre class=codehilite><code class=language-' . $matches['lang'][$i] . '>'
+                . $code . '</code></pre>';
+            $replacements['md'][$before . '> ' . $placeholder . $after] = $content;
         }
     }
 
