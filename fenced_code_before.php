@@ -34,7 +34,7 @@ $process = static function () use ($files, &$replacements) {
     $file = $fileInfo->getRealPath();
     $md = file_get_contents($file);
 
-    if (preg_match_all('#(?P<before>^>[^\n]*?$\n)?^> ```(?P<lang>[a-z]+)(?P<code>\n.*?\n)^> ```(?P<after>\n^>[^\n]*?$)?#sm', $md, $matches)) {
+    if (preg_match_all('#(?P<before>^>[^\n]*?$\n)?^>(?P<spaces>\s+)```(?P<lang>[a-z]+)(?P<code>\n.*?\n)^>\\2```(?P<after>\n^>[^\n]*?$)?#sm', $md, $matches)) {
         foreach ($matches[0] as $i => $content) {
             $placeholder = uniqid('$$$$FENCED_CODE_BLOCK_', true);
 
@@ -50,7 +50,7 @@ $process = static function () use ($files, &$replacements) {
 
             $md = str_replace($content, $before . '> ' . $placeholder . $after, $md);
 
-            $code = htmlspecialchars(preg_replace('/^>( |$)/m', '', $matches['code'][$i]));
+            $code = htmlspecialchars(preg_replace('/^>(' . $matches['spaces'][$i] . '|$)/m', '', $matches['code'][$i]));
 
             $replacements['html']['<p>' . $placeholder . '</p>'] = '<pre class=codehilite><code class=language-' . $matches['lang'][$i] . '>'
                 . $code . '</code></pre>';
